@@ -26,7 +26,7 @@ export async function trackPageView(path: string, referrer?: string) {
   const supabase = getSupabase();
   if (!supabase) return;
 
-  await supabase.from("analytics").insert({
+  await supabase.from("ats_analytics").insert({
     event: "page_view",
     path,
     referrer: referrer ?? null,
@@ -38,9 +38,16 @@ export async function trackAffiliateClick(productId: string, source: string) {
   const supabase = getSupabase();
   if (!supabase) return;
 
-  await supabase.from("analytics").insert({
-    event: "affiliate_click",
-    product_id: productId,
-    source,
-  });
+  // Log to both analytics and dedicated clicks table
+  await Promise.all([
+    supabase.from("ats_analytics").insert({
+      event: "affiliate_click",
+      product_id: productId,
+      source,
+    }),
+    supabase.from("ats_clicks").insert({
+      product_id: productId,
+      source_page: source,
+    }),
+  ]);
 }

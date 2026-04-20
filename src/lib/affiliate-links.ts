@@ -16,7 +16,7 @@ export interface AffiliateLink {
 }
 
 const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
-  // AI Writing Tools
+  // ── AI Writing Tools ────────────────────────────────────
   "jasper-ai": {
     id: "jasper-ai",
     name: "Jasper AI",
@@ -34,7 +34,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     isActive: true,
   },
 
-  // SEO & Marketing
+  // ── SEO & Marketing ────────────────────────────────────
   semrush: {
     id: "semrush",
     name: "Semrush",
@@ -59,8 +59,16 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
   },
+  ahrefs: {
+    id: "ahrefs",
+    name: "Ahrefs",
+    url: "https://ahrefs.com",
+    category: "seo-marketing",
+    trackingParams: { ref: "PARTNER_ID" },
+    isActive: true,
+  },
 
-  // Email Marketing
+  // ── Email Marketing ────────────────────────────────────
   convertkit: {
     id: "convertkit",
     name: "ConvertKit",
@@ -69,8 +77,16 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     trackingParams: { lmref: "PARTNER_ID" },
     isActive: true,
   },
+  mailchimp: {
+    id: "mailchimp",
+    name: "Mailchimp",
+    url: "https://mailchimp.com",
+    category: "email-marketing",
+    trackingParams: { ref: "PARTNER_ID" },
+    isActive: true,
+  },
 
-  // CRM & Sales
+  // ── CRM & Sales ────────────────────────────────────────
   pipedrive: {
     id: "pipedrive",
     name: "Pipedrive",
@@ -80,7 +96,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     isActive: true,
   },
 
-  // Project Management
+  // ── Project Management ─────────────────────────────────
   monday: {
     id: "monday",
     name: "Monday.com",
@@ -98,7 +114,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     isActive: true,
   },
 
-  // Design & Creative
+  // ── Design & Creative ──────────────────────────────────
   canva: {
     id: "canva",
     name: "Canva",
@@ -107,13 +123,223 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
   },
+  midjourney: {
+    id: "midjourney",
+    name: "Midjourney",
+    url: "https://www.midjourney.com",
+    category: "design-creative",
+    trackingParams: {},
+    isActive: true,
+  },
+  "adobe-firefly": {
+    id: "adobe-firefly",
+    name: "Adobe Firefly",
+    url: "https://www.adobe.com/products/firefly.html",
+    category: "design-creative",
+    trackingParams: { ref: "PARTNER_ID" },
+    isActive: true,
+  },
+  figma: {
+    id: "figma",
+    name: "Figma",
+    url: "https://www.figma.com",
+    category: "design-creative",
+    trackingParams: { ref: "PARTNER_ID" },
+    isActive: true,
+  },
 
-  // Business Automation
+  // ── AI Video & Podcasting ──────────────────────────────
+  runway: {
+    id: "runway",
+    name: "Runway",
+    url: "https://runwayml.com",
+    category: "ai-video",
+    trackingParams: { ref: "PARTNER_ID" },
+    isActive: true,
+  },
+  heygen: {
+    id: "heygen",
+    name: "HeyGen",
+    url: "https://www.heygen.com",
+    category: "ai-video",
+    trackingParams: { ref: "PARTNER_ID" },
+    isActive: true,
+  },
+  descript: {
+    id: "descript",
+    name: "Descript",
+    url: "https://www.descript.com",
+    category: "ai-video",
+    trackingParams: { ref: "PARTNER_ID" },
+    isActive: true,
+  },
+  capcut: {
+    id: "capcut",
+    name: "CapCut",
+    url: "https://www.capcut.com",
+    category: "ai-video",
+    trackingParams: {},
+    isActive: true,
+  },
+  "opus-clip": {
+    id: "opus-clip",
+    name: "Opus Clip",
+    url: "https://www.opus.pro",
+    category: "ai-video",
+    trackingParams: { ref: "PARTNER_ID" },
+    isActive: true,
+  },
+  vizard: {
+    id: "vizard",
+    name: "Vizard",
+    url: "https://vizard.ai",
+    category: "ai-video",
+    trackingParams: { ref: "PARTNER_ID" },
+    isActive: true,
+  },
+
+  // ── Automation & Workflow ──────────────────────────────
+  zapier: {
+    id: "zapier",
+    name: "Zapier",
+    url: "https://zapier.com",
+    category: "automation",
+    trackingParams: { ref: "PARTNER_ID" },
+    isActive: true,
+  },
+  make: {
+    id: "make",
+    name: "Make",
+    url: "https://www.make.com",
+    category: "automation",
+    trackingParams: { pc: "PARTNER_ID" },
+    isActive: true,
+  },
+  n8n: {
+    id: "n8n",
+    name: "n8n",
+    url: "https://n8n.io",
+    category: "automation",
+    trackingParams: { ref: "PARTNER_ID" },
+    isActive: true,
+  },
+  bardeen: {
+    id: "bardeen",
+    name: "Bardeen",
+    url: "https://www.bardeen.ai",
+    category: "automation",
+    trackingParams: { ref: "PARTNER_ID" },
+    isActive: true,
+  },
+  activepieces: {
+    id: "activepieces",
+    name: "Activepieces",
+    url: "https://www.activepieces.com",
+    category: "automation",
+    trackingParams: { ref: "PARTNER_ID" },
+    isActive: true,
+  },
+
+  // ── Customer Support & Chatbots ────────────────────────
+  intercom: {
+    id: "intercom",
+    name: "Intercom",
+    url: "https://www.intercom.com",
+    category: "customer-support",
+    trackingParams: { ref: "PARTNER_ID" },
+    isActive: true,
+  },
+  zendesk: {
+    id: "zendesk",
+    name: "Zendesk",
+    url: "https://www.zendesk.com",
+    category: "customer-support",
+    trackingParams: { ref: "PARTNER_ID" },
+    isActive: true,
+  },
+  tidio: {
+    id: "tidio",
+    name: "Tidio",
+    url: "https://www.tidio.com",
+    category: "customer-support",
+    trackingParams: { ref: "PARTNER_ID" },
+    isActive: true,
+  },
+  freshdesk: {
+    id: "freshdesk",
+    name: "Freshdesk",
+    url: "https://www.freshworks.com/freshdesk",
+    category: "customer-support",
+    trackingParams: { ref: "PARTNER_ID" },
+    isActive: true,
+  },
+  chatbase: {
+    id: "chatbase",
+    name: "Chatbase",
+    url: "https://www.chatbase.co",
+    category: "customer-support",
+    trackingParams: { ref: "PARTNER_ID" },
+    isActive: true,
+  },
+
+  // ── Business & Education ───────────────────────────────
   teachable: {
     id: "teachable",
     name: "Teachable",
     url: "https://teachable.com",
     category: "business-automation",
+    trackingParams: { ref: "PARTNER_ID" },
+    isActive: true,
+  },
+
+  // ── AI Image Generation ────────────────────────────────
+  "dall-e": {
+    id: "dall-e",
+    name: "DALL·E 3",
+    url: "https://openai.com/dall-e-3",
+    category: "ai-image",
+    trackingParams: {},
+    isActive: true,
+  },
+  "stable-diffusion": {
+    id: "stable-diffusion",
+    name: "Stable Diffusion",
+    url: "https://stability.ai",
+    category: "ai-image",
+    trackingParams: {},
+    isActive: true,
+  },
+  leonardo: {
+    id: "leonardo",
+    name: "Leonardo.ai",
+    url: "https://leonardo.ai",
+    category: "ai-image",
+    trackingParams: { ref: "PARTNER_ID" },
+    isActive: true,
+  },
+
+  // ── AI Coding ──────────────────────────────────────────
+  "github-copilot": {
+    id: "github-copilot",
+    name: "GitHub Copilot",
+    url: "https://github.com/features/copilot",
+    category: "ai-coding",
+    trackingParams: {},
+    isActive: true,
+  },
+  cursor: {
+    id: "cursor",
+    name: "Cursor",
+    url: "https://cursor.sh",
+    category: "ai-coding",
+    trackingParams: {},
+    isActive: true,
+  },
+  replit: {
+    id: "replit",
+    name: "Replit",
+    url: "https://replit.com",
+    category: "ai-coding",
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
   },
@@ -154,10 +380,32 @@ export function getLinksByCategory(category: string): AffiliateLink[] {
 }
 
 /**
+ * Get all categories with tool counts
+ */
+export function getCategories(): { category: string; count: number }[] {
+  const counts: Record<string, number> = {};
+  for (const link of Object.values(AFFILIATE_LINKS)) {
+    if (link.isActive) {
+      counts[link.category] = (counts[link.category] || 0) + 1;
+    }
+  }
+  return Object.entries(counts)
+    .map(([category, count]) => ({ category, count }))
+    .sort((a, b) => b.count - a.count);
+}
+
+/**
  * Get a single affiliate link config
  */
 export function getAffiliateLink(productId: string): AffiliateLink | undefined {
   return AFFILIATE_LINKS[productId];
+}
+
+/**
+ * Get all active affiliate links
+ */
+export function getAllActiveLinks(): AffiliateLink[] {
+  return Object.values(AFFILIATE_LINKS).filter((link) => link.isActive);
 }
 
 export default AFFILIATE_LINKS;

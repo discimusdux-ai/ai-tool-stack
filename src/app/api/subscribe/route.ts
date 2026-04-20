@@ -35,7 +35,7 @@ export async function POST(request: NextRequest) {
 
     const supabase = createClient(supabaseUrl, supabaseKey);
 
-    const { error } = await supabase.from("subscribers").upsert(
+    const { error } = await supabase.from("ats_subscribers").upsert(
       {
         email,
         status: "active",

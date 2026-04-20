@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
 
     const supabase = createClient(supabaseUrl, supabaseKey);
 
-    const { error } = await supabase.from("analytics").insert({
+    const { error } = await supabase.from("ats_analytics").insert({
       event: body.event,
       path: typeof body.path === "string" ? body.path.slice(0, 500) : null,
       product_id:
@@ -46,6 +46,23 @@ export async function POST(request: NextRequest) {
     });
 
     if (error) throw error;
+
+    // If it's an affiliate click, also log to dedicated clicks table
+    if (body.event === "affiliate_click" && body.productId) {
+      await supabase.from("ats_clicks").insert({
+        product_id: body.productId.slice(0, 100),
+        product_name:
+          typeof body.productName === "string"
+            ? body.productName.slice(0, 200)
+            : null,
+        source_page:
+          typeof body.path === "string" ? body.path.slice(0, 500) : null,
+        referrer:
+          typeof body.referrer === "string"
+            ? body.referrer.slice(0, 2000)
+            : null,
+      });
+    }
 
     return NextResponse.json({ success: true });
   } catch {
