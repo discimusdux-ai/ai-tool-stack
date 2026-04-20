@@ -79,6 +79,30 @@ export const CATEGORIES: Category[] = [
     icon: "🌐",
     toolCount: 7,
   },
+  {
+    name: "AI Video & Podcasting",
+    slug: "ai-video",
+    description:
+      "AI-powered video generation, editing, avatars, and content repurposing tools.",
+    icon: "🎬",
+    toolCount: 8,
+  },
+  {
+    name: "Customer Support & Chatbots",
+    slug: "customer-support",
+    description:
+      "AI chatbots, helpdesk platforms, and automated customer service tools.",
+    icon: "💬",
+    toolCount: 7,
+  },
+  {
+    name: "AI Image Generation",
+    slug: "ai-image",
+    description:
+      "Text-to-image generators, photo editing AI, and creative image tools.",
+    icon: "🖼️",
+    toolCount: 6,
+  },
 ];
 
 export interface AffiliateProgram {
@@ -95,7 +119,7 @@ export interface AffiliateProgram {
 }
 
 export const AFFILIATE_PROGRAMS: AffiliateProgram[] = [
-  // --- AI Writing ---
+  // ── AI Writing ──────────────────────────────────────────
   {
     name: "Jasper AI",
     slug: "jasper-ai",
@@ -135,7 +159,8 @@ export const AFFILIATE_PROGRAMS: AffiliateProgram[] = [
     rating: 4.3,
     featured: false,
   },
-  // --- SEO & Marketing ---
+
+  // ── SEO & Marketing ────────────────────────────────────
   {
     name: "Semrush",
     slug: "semrush",
@@ -187,7 +212,8 @@ export const AFFILIATE_PROGRAMS: AffiliateProgram[] = [
     rating: 4.3,
     featured: false,
   },
-  // --- Project Management ---
+
+  // ── Project Management ─────────────────────────────────
   {
     name: "Monday.com",
     slug: "monday",
@@ -225,7 +251,8 @@ export const AFFILIATE_PROGRAMS: AffiliateProgram[] = [
     rating: 4.7,
     featured: false,
   },
-  // --- Email Marketing ---
+
+  // ── Email Marketing ────────────────────────────────────
   {
     name: "ConvertKit",
     slug: "convertkit",
@@ -265,7 +292,8 @@ export const AFFILIATE_PROGRAMS: AffiliateProgram[] = [
     rating: 4.5,
     featured: true,
   },
-  // --- CRM & Sales ---
+
+  // ── CRM & Sales ────────────────────────────────────────
   {
     name: "Pipedrive",
     slug: "pipedrive",
@@ -304,7 +332,8 @@ export const AFFILIATE_PROGRAMS: AffiliateProgram[] = [
     rating: 4.3,
     featured: false,
   },
-  // --- Design & Creative ---
+
+  // ── Design & Creative ──────────────────────────────────
   {
     name: "Canva",
     slug: "canva",
@@ -344,7 +373,21 @@ export const AFFILIATE_PROGRAMS: AffiliateProgram[] = [
     rating: 4.5,
     featured: false,
   },
-  // --- AI Coding ---
+  {
+    name: "Figma",
+    slug: "figma",
+    category: "design-creative",
+    commission: "Referral program",
+    commissionType: "one-time",
+    cookieDuration: "30 days",
+    url: "#",
+    description:
+      "Collaborative interface design tool with AI-powered layout and prototyping.",
+    rating: 4.8,
+    featured: true,
+  },
+
+  // ── AI Coding ──────────────────────────────────────────
   {
     name: "GitHub Copilot",
     slug: "github-copilot",
@@ -384,7 +427,21 @@ export const AFFILIATE_PROGRAMS: AffiliateProgram[] = [
     rating: 4.3,
     featured: false,
   },
-  // --- Business Automation ---
+  {
+    name: "Replit",
+    slug: "replit",
+    category: "ai-coding",
+    commission: "20% first payment",
+    commissionType: "one-time",
+    cookieDuration: "30 days",
+    url: "#",
+    description:
+      "Browser-based IDE with AI coding assistant and instant deployment.",
+    rating: 4.4,
+    featured: false,
+  },
+
+  // ── Business Automation ────────────────────────────────
   {
     name: "Zapier",
     slug: "zapier",
@@ -394,7 +451,7 @@ export const AFFILIATE_PROGRAMS: AffiliateProgram[] = [
     cookieDuration: "90 days",
     url: "#",
     description:
-      "Connect and automate workflows across 6,000+ apps with no code.",
+      "Connect and automate workflows across 7,000+ apps with no code.",
     rating: 4.6,
     featured: true,
   },
@@ -412,6 +469,32 @@ export const AFFILIATE_PROGRAMS: AffiliateProgram[] = [
     featured: true,
   },
   {
+    name: "n8n",
+    slug: "n8n",
+    category: "business-automation",
+    commission: "20% recurring",
+    commissionType: "recurring",
+    cookieDuration: "60 days",
+    url: "#",
+    description:
+      "Open-source workflow automation with AI agent capabilities and self-hosting.",
+    rating: 4.5,
+    featured: true,
+  },
+  {
+    name: "Bardeen",
+    slug: "bardeen",
+    category: "business-automation",
+    commission: "25% recurring",
+    commissionType: "recurring",
+    cookieDuration: "30 days",
+    url: "#",
+    description:
+      "Browser-based automation for web scraping, data entry, and workflows.",
+    rating: 4.3,
+    featured: false,
+  },
+  {
     name: "Teachable",
     slug: "teachable",
     category: "business-automation",
@@ -424,7 +507,8 @@ export const AFFILIATE_PROGRAMS: AffiliateProgram[] = [
     rating: 4.4,
     featured: false,
   },
-  // --- Web Hosting ---
+
+  // ── Web Hosting ────────────────────────────────────────
   {
     name: "Vercel",
     slug: "vercel",
@@ -461,6 +545,181 @@ export const AFFILIATE_PROGRAMS: AffiliateProgram[] = [
     url: "#",
     description:
       "Affordable web hosting with AI website builder and managed WordPress.",
+    rating: 4.4,
+    featured: false,
+  },
+
+  // ── AI Video & Podcasting ──────────────────────────────
+  {
+    name: "Runway",
+    slug: "runway",
+    category: "ai-video",
+    commission: "20% recurring",
+    commissionType: "recurring",
+    cookieDuration: "30 days",
+    url: "#",
+    description:
+      "AI video generation and editing platform with Gen-3 Alpha text-to-video.",
+    rating: 4.7,
+    featured: true,
+  },
+  {
+    name: "HeyGen",
+    slug: "heygen",
+    category: "ai-video",
+    commission: "20% recurring for 12 months",
+    commissionType: "recurring",
+    cookieDuration: "60 days",
+    url: "#",
+    description:
+      "AI avatar video creation with 200+ avatars and 40+ languages.",
+    rating: 4.5,
+    featured: true,
+  },
+  {
+    name: "Descript",
+    slug: "descript",
+    category: "ai-video",
+    commission: "15% recurring",
+    commissionType: "recurring",
+    cookieDuration: "60 days",
+    url: "#",
+    description:
+      "Edit video by editing text — revolutionary AI-powered video and podcast editor.",
+    rating: 4.6,
+    featured: true,
+  },
+  {
+    name: "Opus Clip",
+    slug: "opus-clip",
+    category: "ai-video",
+    commission: "25% recurring",
+    commissionType: "recurring",
+    cookieDuration: "30 days",
+    url: "#",
+    description:
+      "AI-powered long-to-short video repurposing with viral clip detection.",
+    rating: 4.4,
+    featured: false,
+  },
+  {
+    name: "CapCut",
+    slug: "capcut",
+    category: "ai-video",
+    commission: "Referral program",
+    commissionType: "one-time",
+    cookieDuration: "30 days",
+    url: "#",
+    description:
+      "Free AI video editor with auto-captions, effects, and templates.",
+    rating: 4.5,
+    featured: false,
+  },
+
+  // ── Customer Support & Chatbots ────────────────────────
+  {
+    name: "Intercom",
+    slug: "intercom",
+    category: "customer-support",
+    commission: "15% recurring for 12 months",
+    commissionType: "recurring",
+    cookieDuration: "90 days",
+    url: "#",
+    description:
+      "AI-first customer support with Fin AI Agent resolving up to 70% of tickets.",
+    rating: 4.7,
+    featured: true,
+  },
+  {
+    name: "Zendesk",
+    slug: "zendesk",
+    category: "customer-support",
+    commission: "$50-150/sale",
+    commissionType: "one-time",
+    cookieDuration: "90 days",
+    url: "#",
+    description:
+      "Enterprise customer support suite with AI-powered ticketing and omnichannel.",
+    rating: 4.5,
+    featured: true,
+  },
+  {
+    name: "Tidio",
+    slug: "tidio",
+    category: "customer-support",
+    commission: "20% recurring",
+    commissionType: "recurring",
+    cookieDuration: "60 days",
+    url: "#",
+    description:
+      "Live chat and AI chatbot platform built for small businesses and e-commerce.",
+    rating: 4.4,
+    featured: false,
+  },
+  {
+    name: "Freshdesk",
+    slug: "freshdesk",
+    category: "customer-support",
+    commission: "15% recurring",
+    commissionType: "recurring",
+    cookieDuration: "60 days",
+    url: "#",
+    description:
+      "Affordable helpdesk with Freddy AI for ticket triage and automation.",
+    rating: 4.3,
+    featured: false,
+  },
+  {
+    name: "Chatbase",
+    slug: "chatbase",
+    category: "customer-support",
+    commission: "20% recurring",
+    commissionType: "recurring",
+    cookieDuration: "30 days",
+    url: "#",
+    description:
+      "Build custom AI chatbots trained on your data — no code required.",
+    rating: 4.3,
+    featured: false,
+  },
+
+  // ── AI Image Generation ────────────────────────────────
+  {
+    name: "DALL·E 3",
+    slug: "dall-e",
+    category: "ai-image",
+    commission: "Via OpenAI program",
+    commissionType: "one-time",
+    cookieDuration: "30 days",
+    url: "#",
+    description:
+      "OpenAI's image generation model with exceptional prompt adherence and text rendering.",
+    rating: 4.6,
+    featured: true,
+  },
+  {
+    name: "Leonardo.ai",
+    slug: "leonardo",
+    category: "ai-image",
+    commission: "20% recurring",
+    commissionType: "recurring",
+    cookieDuration: "30 days",
+    url: "#",
+    description:
+      "AI image generation platform with fine-tuning, game assets, and design tools.",
+    rating: 4.5,
+    featured: true,
+  },
+  {
+    name: "Stable Diffusion",
+    slug: "stable-diffusion",
+    category: "ai-image",
+    commission: "Via Stability AI",
+    commissionType: "one-time",
+    cookieDuration: "30 days",
+    url: "#",
+    description:
+      "Open-source AI image generation with full model customization and local deployment.",
     rating: 4.4,
     featured: false,
   },
