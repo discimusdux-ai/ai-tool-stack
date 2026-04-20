@@ -1,0 +1,39 @@
+{
+  "name": "ai-tool-stack",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AI & SaaS affiliate marketing platform with automated content, SEO-optimized reviews, and email funnels",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "generate-content": "tsx scripts/generate-content.ts",
+    "check-links": "tsx scripts/check-links.ts"
+  },
+  "dependencies": {
+    "next": "^15.3.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "@supabase/supabase-js": "^2.49.0",
+    "next-mdx-remote": "^5.0.0",
+    "gray-matter": "^4.0.3",
+    "reading-time": "^1.5.0",
+    "lucide-react": "^0.475.0",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^3.0.0",
+    "feed": "^4.2.2",
+    "sitemap": "^8.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^5.7.0",
+    "tailwindcss": "^4.0.0",
+    "@tailwindcss/postcss": "^4.0.0",
+    "postcss": "^8.5.0",
+    "@tailwindcss/typography": "^0.5.16",
+    "tsx": "^4.19.0"
+  }
+}
