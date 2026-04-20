@@ -1,21 +1,15 @@
-interface ReviewData {
-  name: string;
-  description: string;
-  rating: number;
-  author: string;
-  datePublished: string;
-}
+/**
+ * Renders JSON-LD structured data for SEO.
+ * Accepts any valid Schema.org object (Article, Review, Product, etc.)
+ */
 
-export function StructuredData({ review }: { review: ReviewData }) {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Review",
-    name: review.name,
-    description: review.description,
-    reviewRating: { "@type": "Rating", ratingValue: review.rating, bestRating: 5 },
-    author: { "@type": "Organization", name: review.author },
-    datePublished: review.datePublished,
-  };
+type JsonLdData = Record<string, unknown>;
 
-  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />;
+export function StructuredData({ data }: { data: JsonLdData }) {
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
 }

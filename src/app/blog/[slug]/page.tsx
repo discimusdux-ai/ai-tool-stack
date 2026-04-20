@@ -49,12 +49,13 @@ const mdxComponents = {
   NewsletterForm,
   a: (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
     const isExternal = props.href?.startsWith("http");
+    if (!isExternal) return <a {...props} />;
+
     return (
       <a
         {...props}
-        {...(isExternal
-          ? { target: "_blank", rel: "noopener noreferrer sponsored" }
-          : {})}
+        target="_blank"
+        rel="noopener noreferrer"
       />
     );
   },

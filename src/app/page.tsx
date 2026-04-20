@@ -3,6 +3,34 @@ import { NewsletterForm } from "@/components/email/NewsletterForm";
 import { CategoryCard } from "@/components/ui/CategoryCard";
 import { CATEGORIES } from "@/lib/constants";
 
+/** Homepage comparison links — slugs must match comparisons.ts exactly */
+const FEATURED_COMPARISONS = [
+  {
+    title: "Jasper vs Copy.ai",
+    slug: "jasper-vs-copyai",
+    desc: "Which AI writing tool is better for content marketing?",
+    tag: "AI Writing",
+  },
+  {
+    title: "Semrush vs Ahrefs",
+    slug: "semrush-vs-ahrefs",
+    desc: "The ultimate SEO tool showdown for 2026",
+    tag: "SEO Tools",
+  },
+  {
+    title: "Monday.com vs ClickUp",
+    slug: "monday-vs-clickup",
+    desc: "Project management tools compared feature by feature",
+    tag: "Productivity",
+  },
+  {
+    title: "ConvertKit vs Mailchimp",
+    slug: "convertkit-vs-mailchimp",
+    desc: "Best email platform for creators and small businesses",
+    tag: "Email Marketing",
+  },
+];
+
 export default function HomePage() {
   return (
     <>
@@ -135,31 +163,10 @@ export default function HomePage() {
             Our most-read head-to-head tool comparisons
           </p>
           <div className="grid gap-6 sm:grid-cols-2">
-            {[
-              {
-                title: "Jasper vs Copy.ai",
-                desc: "Which AI writing tool is better for content marketing?",
-                tag: "AI Writing",
-              },
-              {
-                title: "Semrush vs Ahrefs",
-                desc: "The ultimate SEO tool showdown for 2026",
-                tag: "SEO Tools",
-              },
-              {
-                title: "Monday.com vs ClickUp",
-                desc: "Project management tools compared feature by feature",
-                tag: "Productivity",
-              },
-              {
-                title: "ConvertKit vs Mailchimp",
-                desc: "Best email platform for creators and small businesses",
-                tag: "Email Marketing",
-              },
-            ].map((comp) => (
+            {FEATURED_COMPARISONS.map((comp) => (
               <Link
-                key={comp.title}
-                href={`/compare/${comp.title.toLowerCase().replace(/ vs /g, "-vs-").replace(/ /g, "-").replace(/\./g, "")}`}
+                key={comp.slug}
+                href={`/compare/${comp.slug}`}
                 className="group flex items-center gap-4 rounded-xl border border-gray-200 bg-white p-6 transition-all hover:border-brand-300 hover:shadow-md"
               >
                 <div className="flex-1">

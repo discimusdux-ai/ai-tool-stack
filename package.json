@@ -7,9 +7,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "generate-content": "tsx scripts/generate-content.ts",
-    "check-links": "tsx scripts/check-links.ts"
+    "lint": "next lint"
   },
   "dependencies": {
     "next": "^15.3.0",
@@ -19,11 +17,8 @@
     "next-mdx-remote": "^5.0.0",
     "gray-matter": "^4.0.3",
     "reading-time": "^1.5.0",
-    "lucide-react": "^0.475.0",
     "clsx": "^2.1.1",
-    "tailwind-merge": "^3.0.0",
-    "feed": "^4.2.2",
-    "sitemap": "^8.0.0"
+    "tailwind-merge": "^3.0.0"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
