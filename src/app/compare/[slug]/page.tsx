@@ -1,67 +1,172 @@
+import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { COMPARISONS, getComparisonBySlug } from "@/lib/comparisons";
 import { ComparisonTable } from "@/components/affiliate/ComparisonTable";
+import { getAffiliateUrl } from "@/lib/affiliate-links";
+import { StructuredData } from "@/components/seo/StructuredData";
 import { NewsletterForm } from "@/components/email/NewsletterForm";
 
-const COMPARISONS: Record<string, {
-  title: string;
-  description: string;
-  tools: { id: string; name: string; rating: number; price: string; features: Record<string, string | boolean> }[];
-  featureLabels: Record<string, string>;
-  winner: string;
-  verdict: string;
-}> = {
-  "jasper-vs-copy-ai": {
-    title: "Jasper vs Copy.ai: Which AI Writer Is Better in 2026?",
-    description: "A detailed comparison of Jasper and Copy.ai for content marketing.",
-    tools: [
-      { id: "jasper-ai", name: "Jasper AI", rating: 4.7, price: "$49/mo", features: { longForm: true, brandVoice: true, templates: "50+", seo: true, freeplan: false, teamCollab: true, api: true } },
-      { id: "copy-ai", name: "Copy.ai", rating: 4.5, price: "Free / $49/mo", features: { longForm: true, brandVoice: true, templates: "90+", seo: false, freeplan: true, teamCollab: true, api: true } },
-    ],
-    featureLabels: { longForm: "Long-Form Content", brandVoice: "Brand Voice", templates: "Templates", seo: "Built-in SEO", freeplan: "Free Plan", teamCollab: "Team Collaboration", api: "API Access" },
-    winner: "jasper-ai",
-    verdict: "Jasper wins for teams that need SEO-optimized long-form content with brand consistency. Copy.ai is the better choice for quick copy generation and budget-conscious creators thanks to its free tier.",
-  },
-};
-
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-  const { slug } = await params;
-  const comp = COMPARISONS[slug];
-  if (!comp) return { title: "Comparison Coming Soon" };
-  return { title: comp.title, description: comp.description };
+interface Props {
+  params: Promise<{ slug: string }>;
 }
 
-export default async function ComparisonPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const comp = COMPARISONS[slug];
+export function generateStaticParams() {
+  return COMPARISONS.map((comp) => ({ slug: comp.slug }));
+}
 
-  if (!comp) {
-    return (
-      <div className="mx-auto max-w-3xl px-4 py-20 text-center">
-        <h1 className="mb-4 text-3xl font-bold">Comparison Coming Soon</h1>
-        <p className="mb-8 text-gray-500">We&apos;re working on this comparison. Check back shortly.</p>
-        <Link href="/compare" className="cta-button">← All Comparisons</Link>
-      </div>
-    );
-  }
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const comp = getComparisonBySlug(slug);
+  if (!comp) return { title: "Comparison Not Found" };
+
+  return {
+    title: `${comp.title} (2026 Comparison)`,
+    description: comp.description,
+    openGraph: {
+      title: `${comp.title} — Head-to-Head Comparison`,
+      description: comp.description,
+      type: "article",
+    },
+  };
+}
+
+export default async function ComparisonPage({ params }: Props) {
+  const { slug } = await params;
+  const comp = getComparisonBySlug(slug);
+  if (!comp) notFound();
+
+  const winner = comp.tools.find((t) => t.id === comp.winner);
+
+  const comparisonSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: `${comp.title} — 2026 Comparison`,
+    description: comp.description,
+    publisher: {
+      "@type": "Organization",
+      name: "AI Tool Stack",
+      url: "https://aitoolstack.com",
+    },
+  };
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-16">
-      <Link href="/compare" className="mb-6 inline-block text-sm font-medium text-brand-600 hover:underline">← All Comparisons</Link>
-      <h1 className="mb-8 text-4xl font-extrabold text-gray-900">{comp.title}</h1>
+    <>
+      <StructuredData data={comparisonSchema} />
 
-      <ComparisonTable tools={comp.tools} featureLabels={comp.featureLabels} winner={comp.winner} />
+      {/* Header */}
+      <header className="border-b border-gray-100 bg-gray-50 py-16">
+        <div className="mx-auto max-w-4xl px-4">
+          <div className="mb-4 flex items-center gap-3">
+            <Link
+              href="/compare"
+              className="text-sm text-brand-600 hover:underline"
+            >
+              ← All Comparisons
+            </Link>
+            <span className="text-gray-300">|</span>
+            <span className="rounded-full bg-brand-50 px-3 py-1 text-xs font-medium text-brand-700">
+              {comp.category}
+            </span>
+          </div>
+          <h1 className="mb-4 text-4xl font-extrabold text-gray-900 md:text-5xl">
+            {comp.title}
+          </h1>
+          <p className="text-lg text-gray-600">{comp.description}</p>
+        </div>
+      </header>
 
-      <div className="mt-12 rounded-xl border border-gray-200 bg-gray-50 p-8">
-        <h2 className="mb-4 text-2xl font-bold">Our Verdict</h2>
-        <p className="text-lg text-gray-700 leading-relaxed">{comp.verdict}</p>
+      <div className="mx-auto max-w-4xl px-4 py-12">
+        {/* Quick Verdict */}
+        <div className="mb-12 rounded-xl border-2 border-accent-200 bg-accent-50 p-8">
+          <h2 className="mb-2 text-sm font-bold uppercase tracking-wider text-accent-700">
+            Our Verdict
+          </h2>
+          {winner && (
+            <p className="mb-2 text-xl font-bold text-gray-900">
+              Winner: {winner.name} ({winner.rating}/5)
+            </p>
+          )}
+          <p className="text-gray-700">{comp.verdict}</p>
+        </div>
+
+        {/* Comparison Table */}
+        <div className="mb-12">
+          <h2 className="mb-6 text-2xl font-bold">Feature Comparison</h2>
+          <ComparisonTable
+            tools={comp.tools}
+            featureLabels={comp.featureLabels}
+            winner={comp.winner}
+          />
+        </div>
+
+        {/* Pros & Cons for Each */}
+        <div className="mb-12 grid gap-8 md:grid-cols-2">
+          {comp.tools.map((tool) => (
+            <div
+              key={tool.id}
+              className="rounded-xl border border-gray-200 bg-white p-6"
+            >
+              <h3 className="mb-1 text-xl font-bold text-gray-900">
+                {tool.name}
+                {comp.winner === tool.id && (
+                  <span className="ml-2 text-sm text-accent-600">
+                    ⭐ Winner
+                  </span>
+                )}
+              </h3>
+              <p className="mb-4 text-sm text-gray-500">
+                Best for: {tool.bestFor}
+              </p>
+
+              <div className="mb-4">
+                <h4 className="mb-2 text-sm font-bold text-accent-700">
+                  ✅ Pros
+                </h4>
+                <ul className="space-y-1">
+                  {tool.pros.map((pro) => (
+                    <li key={pro} className="text-sm text-gray-600">
+                      • {pro}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="mb-6">
+                <h4 className="mb-2 text-sm font-bold text-red-600">
+                  ❌ Cons
+                </h4>
+                <ul className="space-y-1">
+                  {tool.cons.map((con) => (
+                    <li key={con} className="text-sm text-gray-600">
+                      • {con}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <a
+                href={getAffiliateUrl(tool.id)}
+                target="_blank"
+                rel="noopener noreferrer sponsored"
+                className="cta-button block w-full text-center"
+              >
+                Try {tool.name} Free →
+              </a>
+            </div>
+          ))}
+        </div>
+
+        {/* Newsletter CTA */}
+        <div className="rounded-xl border border-gray-200 bg-white p-8 text-center">
+          <h3 className="mb-2 text-xl font-bold">
+            Get More Comparisons Like This
+          </h3>
+          <p className="mb-6 text-gray-600">
+            We publish new tool comparisons weekly. Subscribe to stay informed.
+          </p>
+          <NewsletterForm variant="inline" />
+        </div>
       </div>
-
-      <div className="mt-12 rounded-xl border border-brand-200 bg-brand-50 p-8">
-        <h3 className="mb-2 text-xl font-bold">Get Weekly Tool Comparisons</h3>
-        <p className="mb-4 text-gray-600">We publish new comparisons every week. Never miss one.</p>
-        <NewsletterForm variant="inline" />
-      </div>
-    </div>
+    </>
   );
 }

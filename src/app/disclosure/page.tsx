@@ -2,33 +2,85 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Affiliate Disclosure",
-  description: "Our affiliate disclosure and how we make money.",
+  description:
+    "How AI Tool Stack earns money, our editorial process, and our commitment to honest, unbiased reviews.",
 };
 
 export default function DisclosurePage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-16 prose prose-lg">
-      <h1 className="text-3xl font-extrabold text-gray-900">Affiliate Disclosure</h1>
-      <p className="text-gray-600 leading-relaxed">
-        AI Tool Stack is a free resource. We keep the lights on through affiliate partnerships —
-        when you click a link and purchase a product, we may earn a commission at no extra cost to you.
-      </p>
-      <h2 className="text-xl font-bold text-gray-900 mt-8">How This Works</h2>
-      <p className="text-gray-600 leading-relaxed">
-        Some links on this site are affiliate links. This means if you click on the link and purchase
-        an item, we will receive a small commission. This does not affect the price you pay.
-      </p>
-      <h2 className="text-xl font-bold text-gray-900 mt-8">Our Promise</h2>
-      <ul className="text-gray-600 space-y-2">
-        <li>We never let affiliate commissions influence our rankings or recommendations.</li>
-        <li>We review tools we genuinely believe provide value.</li>
-        <li>Negative reviews stay published — we don&apos;t remove them if a tool underperforms.</li>
-        <li>Our editorial team operates independently from our business team.</li>
-      </ul>
-      <h2 className="text-xl font-bold text-gray-900 mt-8">Questions?</h2>
-      <p className="text-gray-600 leading-relaxed">
-        If you have questions about our affiliate relationships, reach out to us anytime.
-      </p>
+    <div className="mx-auto max-w-3xl px-4 py-16">
+      <h1 className="mb-8 text-4xl font-extrabold text-gray-900">
+        Affiliate Disclosure
+      </h1>
+
+      <div className="prose prose-lg max-w-none prose-headings:font-bold prose-a:text-brand-600">
+        <p className="text-lg text-gray-600">
+          <strong>Last updated:</strong> April 2026
+        </p>
+
+        <h2>How We Make Money</h2>
+        <p>
+          AI Tool Stack is a free resource. We earn money through affiliate
+          partnerships with some of the tools we review. When you click on an
+          affiliate link and make a purchase, we may receive a commission at
+          <strong> no extra cost to you</strong>.
+        </p>
+        <p>
+          This commission helps us keep the site running, pay for tool
+          subscriptions for testing, and continue producing free, high-quality
+          content.
+        </p>
+
+        <h2>Our Editorial Policy</h2>
+        <p>
+          Our reviews and recommendations are based on thorough, hands-on
+          testing. Affiliate partnerships{" "}
+          <strong>never influence our ratings, rankings, or verdicts</strong>.
+          Here&apos;s how we maintain integrity:
+        </p>
+        <ul>
+          <li>
+            <strong>We test every tool ourselves.</strong> No pay-for-play
+            reviews. We sign up, use the product, and evaluate it on its
+            merits.
+          </li>
+          <li>
+            <strong>We publish cons alongside pros.</strong> Every review
+            includes honest drawbacks — even for tools we love.
+          </li>
+          <li>
+            <strong>We recommend free alternatives.</strong> If a free tool
+            does the job, we&apos;ll tell you.
+          </li>
+          <li>
+            <strong>Affiliate status is always disclosed.</strong> Links that
+            earn us a commission are marked with &quot;rel=sponsored&quot; and
+            noted where applicable.
+          </li>
+        </ul>
+
+        <h2>What This Means for You</h2>
+        <p>
+          Using our affiliate links is the best way to support AI Tool Stack
+          while getting the same price (and often better deals) than going
+          directly to the vendor. You never pay more by using our links.
+        </p>
+
+        <h2>Non-Affiliate Content</h2>
+        <p>
+          Not every tool on our site has an affiliate program. We review and
+          recommend tools regardless of whether they offer commissions, because
+          our primary goal is to help you find the best solution for your
+          needs.
+        </p>
+
+        <h2>Questions?</h2>
+        <p>
+          If you have questions about our affiliate relationships or editorial
+          process, reach out at{" "}
+          <a href="mailto:hello@aitoolstack.com">hello@aitoolstack.com</a>.
+        </p>
+      </div>
     </div>
   );
 }
