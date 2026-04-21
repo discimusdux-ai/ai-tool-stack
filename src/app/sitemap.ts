@@ -2,15 +2,18 @@ import type { MetadataRoute } from "next";
 import { getAllPosts } from "@/lib/blog";
 import { CATEGORIES } from "@/lib/constants";
 import { COMPARISONS } from "@/lib/comparisons";
+import { getAllToolReviews } from "@/lib/tools";
 
 const BASE_URL = "https://aitoolstack.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPosts();
+  const tools = getAllToolReviews();
 
   const staticPages: MetadataRoute.Sitemap = [
     { url: BASE_URL, lastModified: new Date(), changeFrequency: "weekly", priority: 1.0 },
     { url: `${BASE_URL}/blog`, lastModified: new Date(), changeFrequency: "daily", priority: 0.9 },
+    { url: `${BASE_URL}/tools`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.9 },
     { url: `${BASE_URL}/compare`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.9 },
     { url: `${BASE_URL}/categories`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE_URL}/newsletter`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
@@ -41,5 +44,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticPages, ...blogPages, ...comparePages, ...categoryPages];
+  const toolPages: MetadataRoute.Sitemap = tools.map((tool) => ({
+    url: `${BASE_URL}/tools/${tool.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.85,
+  }));
+
+  return [...staticPages, ...blogPages, ...comparePages, ...categoryPages, ...toolPages];
 }
