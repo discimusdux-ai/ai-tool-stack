@@ -5,7 +5,7 @@ import { getToolReview, getAllToolReviews } from "@/lib/tools";
 import { CTAButton } from "@/components/affiliate/CTAButton";
 
 interface Props {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
@@ -14,7 +14,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const tool = getToolReview(params.slug);
+  const { slug } = await params;
+  const tool = getToolReview(slug);
   if (!tool) return {};
 
   return {
@@ -50,8 +51,9 @@ function StarRating({ rating }: { rating: number }) {
   );
 }
 
-export default function ToolReviewPage({ params }: Props) {
-  const tool = getToolReview(params.slug);
+export default async function ToolReviewPage({ params }: Props) {
+  const { slug } = await params;
+  const tool = getToolReview(slug);
   if (!tool) notFound();
 
   const relatedTools = getAllToolReviews()
