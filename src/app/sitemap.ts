@@ -4,7 +4,7 @@ import { CATEGORIES } from "@/lib/constants";
 import { COMPARISONS } from "@/lib/comparisons";
 import { getAllToolReviews } from "@/lib/tools";
 
-const BASE_URL = "https://aitoolstack.com";
+const BASE_URL = "https://youraitoolstack.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPosts();
