@@ -726,12 +726,12 @@ export const AFFILIATE_PROGRAMS: AffiliateProgram[] = [
 ];
 
 export const SITE_CONFIG = {
-  name: "AI Tool Stack",
+  name: "Your AI Tool Stack",
   description: "Find the best AI & SaaS tools for your business",
-  url: "https://aitoolstack.com",
-  author: "AI Tool Stack Team",
+  url: "https://youraitoolstack.com",
+  author: "Your AI Tool Stack Team",
   socials: {
-    twitter: "https://twitter.com/aitoolstack",
+    twitter: "https://twitter.com/youraitoolstack",
     github: "https://github.com/discimusdux-ai/ai-tool-stack",
   },
 };
