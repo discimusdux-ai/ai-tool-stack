@@ -11,7 +11,7 @@ export function Footer() {
             <Link href="/" className="flex items-center gap-2">
               <span className="text-2xl">⚡</span>
               <span className="text-lg font-extrabold text-gray-900">
-                AI Tool <span className="text-brand-600">Stack</span>
+                Your AI <span className="text-brand-600">Tool Stack</span>
               </span>
             </Link>
             <p className="mt-4 text-sm text-gray-500">
