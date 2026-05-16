@@ -14,7 +14,7 @@ export function Header() {
         <Link href="/" className="flex items-center gap-2">
           <span className="text-2xl">⚡</span>
           <span className="text-xl font-extrabold text-gray-900">
-            AI Tool <span className="text-brand-600">Stack</span>
+            Your AI <span className="text-brand-600">Tool Stack</span>
           </span>
         </Link>
 
@@ -79,32 +79,32 @@ export function Header() {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="border-t border-gray-100 bg-white px-4 py-4 md:hidden">
-          <nav className="flex flex-col gap-4">
+        <div className="border-t border-gray-100 bg-white px-4 pb-4 md:hidden">
+          <nav className="flex flex-col gap-3 pt-4">
             <Link
               href="/categories"
-              className="text-sm font-medium text-gray-600"
+              className="text-sm font-medium text-gray-700 hover:text-brand-600"
               onClick={() => setMobileOpen(false)}
             >
               Categories
             </Link>
             <Link
               href="/blog"
-              className="text-sm font-medium text-gray-600"
+              className="text-sm font-medium text-gray-700 hover:text-brand-600"
               onClick={() => setMobileOpen(false)}
             >
               Reviews
             </Link>
             <Link
               href="/compare"
-              className="text-sm font-medium text-gray-600"
+              className="text-sm font-medium text-gray-700 hover:text-brand-600"
               onClick={() => setMobileOpen(false)}
             >
               Compare
             </Link>
             <Link
               href="/newsletter"
-              className="rounded-lg bg-brand-600 px-4 py-2 text-center text-sm font-semibold text-white"
+              className="inline-block rounded-lg bg-brand-600 px-4 py-2 text-center text-sm font-semibold text-white hover:bg-brand-700"
               onClick={() => setMobileOpen(false)}
             >
               Get Newsletter
