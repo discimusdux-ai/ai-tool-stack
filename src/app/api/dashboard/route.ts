@@ -100,12 +100,24 @@ export async function GET(request: NextRequest) {
   const serviceAccountB64 = process.env.GA4_SERVICE_ACCOUNT_JSON;
   let ga4: GA4Metrics | null = null;
   let ga4Error: string | null = null;
+  let saDebug: object | null = null;
+
   if (!serviceAccountB64) {
     ga4Error = "GA4_SERVICE_ACCOUNT_JSON env var not set";
   } else {
     try {
       const decoded = Buffer.from(serviceAccountB64, "base64").toString("utf-8");
-      const serviceAccountJson = JSON.parse(decoded);
+      const serviceAccountJson = JSON.parse(decoded) as Record<string, unknown>;
+      const privateKey = serviceAccountJson["private_key"] as string | undefined;
+      saDebug = {
+        type: serviceAccountJson["type"],
+        client_email: serviceAccountJson["client_email"],
+        project_id: serviceAccountJson["project_id"],
+        has_private_key: !!privateKey,
+        private_key_starts: privateKey ? privateKey.substring(0, 40) : null,
+        b64_length: serviceAccountB64.length,
+        decoded_length: decoded.length,
+      };
       const result = await getGA4Metrics(propertyId, serviceAccountJson);
       ga4 = result.data;
       ga4Error = result.error;
@@ -115,5 +127,5 @@ export async function GET(request: NextRequest) {
     }
   }
   const supabase = await getSupabaseMetrics();
-  return NextResponse.json({ ga4, ga4Error, supabase, generatedAt: new Date().toISOString() });
+  return NextResponse.json({ ga4, ga4Error, saDebug, supabase, generatedAt: new Date().toISOString() });
 }
