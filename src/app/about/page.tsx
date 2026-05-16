@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "About AI Tool Stack",
+  title: "About Your AI Tool Stack",
   description:
-    "Learn about AI Tool Stack — our mission, editorial process, and commitment to honest AI and SaaS tool reviews.",
+    "Learn about Your AI Tool Stack — our mission, editorial process, and commitment to honest AI and SaaS tool reviews.",
 };
 
 export default function AboutPage() {
@@ -14,7 +14,7 @@ export default function AboutPage() {
       <section className="border-b border-gray-100 bg-gray-50 py-16">
         <div className="mx-auto max-w-3xl px-4">
           <h1 className="mb-4 text-4xl font-extrabold text-gray-900 md:text-5xl">
-            About AI Tool Stack
+            About Your AI Tool Stack
           </h1>
           <p className="text-lg text-gray-600">
             We help businesses and creators find the best AI and SaaS tools
@@ -33,7 +33,7 @@ export default function AboutPage() {
             overwhelming, and bad decisions cost real money.
           </p>
           <p>
-            AI Tool Stack cuts through the noise. We provide clear,
+            Your AI Tool Stack cuts through the noise. We provide clear,
             research-backed recommendations so you can invest in the right tools
             with confidence.
           </p>
@@ -91,7 +91,7 @@ export default function AboutPage() {
           <h2>Get in Touch</h2>
           <p>
             Questions, feedback, or partnership inquiries? Email us at{" "}
-            <a href="mailto:hello@aitoolstack.com">hello@aitoolstack.com</a>.
+            <a href="mailto:hello@youraitoolstack.com">hello@youraitoolstack.com</a>.
           </p>
         </div>
       </section>
