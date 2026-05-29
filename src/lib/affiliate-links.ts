@@ -3,6 +3,9 @@
  *
  * All affiliate links are managed here. When a merchant changes their URL,
  * update it in ONE place and it propagates everywhere.
+ *
+ * isActive: false = no affiliate program exists or program is dead.
+ * The "Try Free →" button will render as href="#" for inactive links.
  */
 
 export interface AffiliateLink {
@@ -22,16 +25,27 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     name: "Jasper AI",
     url: "https://www.jasper.ai",
     category: "ai-writing",
-    trackingParams: { fpr: "PARTNER_ID" },
-    isActive: true,
+    trackingParams: {},
+    isActive: false, // Affiliate program discontinued
+    lastChecked: "2026-05-28",
   },
   "copy-ai": {
     id: "copy-ai",
     name: "Copy.ai",
     url: "https://www.copy.ai",
     category: "ai-writing",
-    trackingParams: { via: "PARTNER_ID" },
+    trackingParams: {},
+    isActive: false, // No affiliate program
+    lastChecked: "2026-05-28",
+  },
+  writesonic: {
+    id: "writesonic",
+    name: "Writesonic",
+    url: "https://affiliates.writesonic.com",
+    category: "ai-writing",
+    trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
+    lastChecked: "2026-05-28",
   },
 
   // ── SEO & Marketing ────────────────────────────────────
@@ -42,6 +56,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "seo-marketing",
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
+    lastChecked: "2026-05-28",
   },
   "surfer-seo": {
     id: "surfer-seo",
@@ -50,6 +65,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "seo-marketing",
     trackingParams: { fp_ref: "PARTNER_ID" },
     isActive: true,
+    lastChecked: "2026-05-28",
   },
   unbounce: {
     id: "unbounce",
@@ -58,14 +74,16 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "seo-marketing",
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
+    lastChecked: "2026-05-28",
   },
   ahrefs: {
     id: "ahrefs",
     name: "Ahrefs",
     url: "https://ahrefs.com",
     category: "seo-marketing",
-    trackingParams: { ref: "PARTNER_ID" },
-    isActive: true,
+    trackingParams: {},
+    isActive: false, // Ahrefs publicly states they have no affiliate program
+    lastChecked: "2026-05-28",
   },
 
   // ── Email Marketing ────────────────────────────────────
@@ -76,6 +94,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "email-marketing",
     trackingParams: { lmref: "PARTNER_ID" },
     isActive: true,
+    lastChecked: "2026-05-28",
   },
   mailchimp: {
     id: "mailchimp",
@@ -84,16 +103,18 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "email-marketing",
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
+    lastChecked: "2026-05-28",
   },
 
   // ── CRM & Sales ────────────────────────────────────────
   pipedrive: {
     id: "pipedrive",
     name: "Pipedrive",
-    url: "https://www.pipedrive.com",
+    url: "https://www.pipedrive.com/en/affiliate-partnership",
     category: "crm-sales",
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
+    lastChecked: "2026-05-28",
   },
 
   // ── Project Management ─────────────────────────────────
@@ -104,6 +125,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "project-management",
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
+    lastChecked: "2026-05-28",
   },
   clickup: {
     id: "clickup",
@@ -112,6 +134,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "project-management",
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
+    lastChecked: "2026-05-28",
   },
 
   // ── Design & Creative ──────────────────────────────────
@@ -122,6 +145,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "design-creative",
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
+    lastChecked: "2026-05-28",
   },
   midjourney: {
     id: "midjourney",
@@ -130,6 +154,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "design-creative",
     trackingParams: {},
     isActive: true,
+    lastChecked: "2026-05-28",
   },
   "adobe-firefly": {
     id: "adobe-firefly",
@@ -138,6 +163,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "design-creative",
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
+    lastChecked: "2026-05-28",
   },
   figma: {
     id: "figma",
@@ -146,6 +172,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "design-creative",
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
+    lastChecked: "2026-05-28",
   },
 
   // ── AI Video & Podcasting ──────────────────────────────
@@ -154,8 +181,9 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     name: "Runway",
     url: "https://runwayml.com",
     category: "ai-video",
-    trackingParams: { ref: "PARTNER_ID" },
-    isActive: true,
+    trackingParams: {},
+    isActive: false, // No public affiliate program
+    lastChecked: "2026-05-28",
   },
   heygen: {
     id: "heygen",
@@ -164,14 +192,16 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "ai-video",
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
+    lastChecked: "2026-05-28",
   },
   descript: {
     id: "descript",
     name: "Descript",
     url: "https://www.descript.com",
     category: "ai-video",
-    trackingParams: { ref: "PARTNER_ID" },
-    isActive: true,
+    trackingParams: {},
+    isActive: false, // No affiliate program
+    lastChecked: "2026-05-28",
   },
   capcut: {
     id: "capcut",
@@ -180,6 +210,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "ai-video",
     trackingParams: {},
     isActive: true,
+    lastChecked: "2026-05-28",
   },
   "opus-clip": {
     id: "opus-clip",
@@ -187,7 +218,8 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     url: "https://www.opus.pro",
     category: "ai-video",
     trackingParams: { ref: "PARTNER_ID" },
-    isActive: true,
+    isActive: true, // Program at opus.pro/affiliate (verified via Google)
+    lastChecked: "2026-05-28",
   },
   vizard: {
     id: "vizard",
@@ -196,48 +228,54 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "ai-video",
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
+    lastChecked: "2026-05-28",
   },
 
-  // ── Automation & Workflow ──────────────────────────────
+  // ── Business Automation ────────────────────────────────
   zapier: {
     id: "zapier",
     name: "Zapier",
     url: "https://zapier.com",
-    category: "automation",
-    trackingParams: { ref: "PARTNER_ID" },
-    isActive: true,
+    category: "business-automation",
+    trackingParams: {},
+    isActive: false, // No public affiliate program — tech partner program only
+    lastChecked: "2026-05-28",
   },
   make: {
     id: "make",
     name: "Make",
     url: "https://www.make.com",
-    category: "automation",
+    category: "business-automation",
     trackingParams: { pc: "PARTNER_ID" },
     isActive: true,
+    lastChecked: "2026-05-28",
   },
   n8n: {
     id: "n8n",
     name: "n8n",
     url: "https://n8n.io",
-    category: "automation",
+    category: "business-automation",
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
+    lastChecked: "2026-05-28",
   },
   bardeen: {
     id: "bardeen",
     name: "Bardeen",
     url: "https://www.bardeen.ai",
-    category: "automation",
+    category: "business-automation",
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
+    lastChecked: "2026-05-28",
   },
   activepieces: {
     id: "activepieces",
     name: "Activepieces",
     url: "https://www.activepieces.com",
-    category: "automation",
+    category: "business-automation",
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
+    lastChecked: "2026-05-28",
   },
 
   // ── Customer Support & Chatbots ────────────────────────
@@ -248,6 +286,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "customer-support",
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
+    lastChecked: "2026-05-28",
   },
   zendesk: {
     id: "zendesk",
@@ -256,6 +295,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "customer-support",
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
+    lastChecked: "2026-05-28",
   },
   tidio: {
     id: "tidio",
@@ -264,6 +304,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "customer-support",
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
+    lastChecked: "2026-05-28",
   },
   freshdesk: {
     id: "freshdesk",
@@ -272,6 +313,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "customer-support",
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
+    lastChecked: "2026-05-28",
   },
   chatbase: {
     id: "chatbase",
@@ -280,9 +322,8 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "customer-support",
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
+    lastChecked: "2026-05-28",
   },
-
-  // ── Business & Education ───────────────────────────────
   teachable: {
     id: "teachable",
     name: "Teachable",
@@ -290,6 +331,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "business-automation",
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
+    lastChecked: "2026-05-28",
   },
 
   // ── AI Image Generation ────────────────────────────────
@@ -300,6 +342,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "ai-image",
     trackingParams: {},
     isActive: true,
+    lastChecked: "2026-05-28",
   },
   "stable-diffusion": {
     id: "stable-diffusion",
@@ -308,6 +351,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "ai-image",
     trackingParams: {},
     isActive: true,
+    lastChecked: "2026-05-28",
   },
   leonardo: {
     id: "leonardo",
@@ -316,6 +360,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "ai-image",
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
+    lastChecked: "2026-05-28",
   },
 
   // ── AI Coding ──────────────────────────────────────────
@@ -326,6 +371,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "ai-coding",
     trackingParams: {},
     isActive: true,
+    lastChecked: "2026-05-28",
   },
   cursor: {
     id: "cursor",
@@ -334,6 +380,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "ai-coding",
     trackingParams: {},
     isActive: true,
+    lastChecked: "2026-05-28",
   },
   replit: {
     id: "replit",
@@ -342,6 +389,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "ai-coding",
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
+    lastChecked: "2026-05-28",
   },
 };
 
