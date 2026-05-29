@@ -155,6 +155,7 @@ export default async function ToolReviewPage({ params }: Props) {
               productId={tool.slug}
               label={`Try ${tool.name}`}
               size="lg"
+              fallbackUrl={tool.affiliateUrl}
             />
           </div>
         </div>
@@ -277,6 +278,7 @@ export default async function ToolReviewPage({ params }: Props) {
               productId={tool.slug}
               label={`Get started with ${tool.name}`}
               size="lg"
+              fallbackUrl={tool.affiliateUrl}
             />
           </div>
         </section>
