@@ -13,17 +13,23 @@ interface Props {
 
 export function ProductCard({ id, name, description, rating, commission, category, featured }: Props) {
   return (
-    <div className={`rounded-xl border bg-white p-6 transition-all hover:shadow-lg ${featured ? "border-brand-300 ring-2 ring-brand-100" : "border-gray-200"}`}>
+    <div
+      className={`rounded-2xl border bg-white/5 p-6 backdrop-blur-sm transition-all hover:shadow-xl hover:shadow-brand-900/30 ${
+        featured
+          ? "border-brand-400/30 ring-1 ring-brand-500/20"
+          : "border-white/10 hover:border-brand-400/20"
+      }`}
+    >
       {featured && (
-        <span className="mb-3 inline-block rounded-full bg-brand-50 px-3 py-1 text-xs font-bold text-brand-600">
+        <span className="mb-3 inline-block rounded-full bg-brand-500/15 px-3 py-1 text-xs font-bold text-brand-300">
           ⭐ Editor&apos;s Pick
         </span>
       )}
-      <h3 className="mb-2 text-lg font-bold text-gray-900">{name}</h3>
+      <h3 className="mb-2 text-lg font-bold text-white">{name}</h3>
       <RatingStars rating={rating} />
-      <p className="mt-2 text-sm text-gray-500">{description}</p>
-      <div className="mt-4 flex items-center justify-between">
-        <span className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600">
+      <p className="mt-2 text-sm text-gray-400">{description}</p>
+      <div className="mt-5 flex items-center justify-between">
+        <span className="rounded-full bg-white/5 px-3 py-1 text-xs font-medium text-gray-400 ring-1 ring-white/10">
           {category}
         </span>
         <a
