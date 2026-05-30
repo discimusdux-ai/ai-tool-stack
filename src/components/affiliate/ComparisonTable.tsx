@@ -18,16 +18,18 @@ interface Props {
 
 export function ComparisonTable({ tools, featureLabels, winner }: Props) {
   return (
-    <div className="overflow-x-auto rounded-xl border border-gray-200">
+    <div className="overflow-x-auto">
       <table className="w-full text-sm">
         <thead>
-          <tr className="border-b border-gray-200 bg-gray-50">
-            <th className="px-6 py-4 text-left font-semibold text-gray-600">Feature</th>
+          <tr className="border-b border-white/10 bg-[#0a0f19]">
+            <th className="px-6 py-4 text-left font-semibold text-gray-400">Feature</th>
             {tools.map((tool) => (
               <th key={tool.id} className="px-6 py-4 text-center">
-                <div className="font-bold text-gray-900">{tool.name}</div>
+                <div className={`font-bold ${winner === tool.id ? "text-brand-300" : "text-white"}`}>
+                  {tool.name}
+                </div>
                 {winner === tool.id && (
-                  <span className="mt-1 inline-block rounded-full bg-accent-500/10 px-2 py-0.5 text-xs font-medium text-accent-600">
+                  <span className="mt-1 inline-block rounded-full bg-brand-500/20 px-2 py-0.5 text-xs font-medium text-brand-400">
                     ⭐ Winner
                   </span>
                 )}
@@ -36,27 +38,31 @@ export function ComparisonTable({ tools, featureLabels, winner }: Props) {
           </tr>
         </thead>
         <tbody>
-          <tr className="border-b border-gray-100">
-            <td className="px-6 py-3 font-medium text-gray-600">Rating</td>
+          <tr className="border-b border-white/5 bg-[#0d1117]">
+            <td className="px-6 py-3 font-medium text-gray-400">Rating</td>
             {tools.map((tool) => (
-              <td key={tool.id} className="px-6 py-3 text-center font-bold text-brand-600">
-                {tool.rating}/5
+              <td key={tool.id} className="px-6 py-3 text-center font-bold text-yellow-400">
+                ★ {tool.rating}/5
               </td>
             ))}
           </tr>
-          <tr className="border-b border-gray-100">
-            <td className="px-6 py-3 font-medium text-gray-600">Starting Price</td>
+          <tr className="border-b border-white/5">
+            <td className="px-6 py-3 font-medium text-gray-400">Starting Price</td>
             {tools.map((tool) => (
-              <td key={tool.id} className="px-6 py-3 text-center">{tool.price}</td>
+              <td key={tool.id} className="px-6 py-3 text-center text-gray-300">{tool.price}</td>
             ))}
           </tr>
-          {Object.entries(featureLabels).map(([key, label]) => (
-            <tr key={key} className="border-b border-gray-100">
-              <td className="px-6 py-3 font-medium text-gray-600">{label}</td>
+          {Object.entries(featureLabels).map(([key, label], i) => (
+            <tr key={key} className={`border-b border-white/5 ${i % 2 === 0 ? "bg-[#0d1117]" : ""}`}>
+              <td className="px-6 py-3 font-medium text-gray-400">{label}</td>
               {tools.map((tool) => (
-                <td key={tool.id} className="px-6 py-3 text-center">
+                <td key={tool.id} className="px-6 py-3 text-center text-gray-300">
                   {typeof tool.features[key] === "boolean"
-                    ? tool.features[key] ? "✅" : "❌"
+                    ? tool.features[key] ? (
+                      <span className="text-green-400">✓</span>
+                    ) : (
+                      <span className="text-red-400">✗</span>
+                    )
                     : tool.features[key] || "—"}
                 </td>
               ))}
@@ -64,8 +70,8 @@ export function ComparisonTable({ tools, featureLabels, winner }: Props) {
           ))}
         </tbody>
         <tfoot>
-          <tr className="bg-brand-50">
-            <td className="px-6 py-4 font-semibold">Try It Free</td>
+          <tr className="bg-brand-600/10 border-t border-brand-500/20">
+            <td className="px-6 py-4 font-semibold text-white">Try It Free</td>
             {tools.map((tool) => (
               <td key={tool.id} className="px-6 py-4 text-center">
                 <a
