@@ -3,6 +3,7 @@ import type { ComparisonData } from "./types";
 export const COMPARISONS: ComparisonData[] = [
   {
     slug: "jasper-vs-copyai",
+    imageUrl: "/images/comparisons/jasper-vs-copyai.webp",
     title: "Jasper vs Copy.ai",
     description:
       "Which AI writing tool is better for content marketing in 2026? We compare features, pricing, output quality, and more.",
@@ -83,6 +84,7 @@ export const COMPARISONS: ComparisonData[] = [
   },
   {
     slug: "semrush-vs-ahrefs",
+    imageUrl: "/images/comparisons/semrush-vs-ahrefs.webp",
     title: "Semrush vs Ahrefs",
     description:
       "The definitive 2026 SEO tool comparison. We test keyword research, backlink analysis, site audits, and rank tracking head-to-head.",
@@ -163,6 +165,7 @@ export const COMPARISONS: ComparisonData[] = [
   },
   {
     slug: "monday-vs-clickup",
+    imageUrl: "/images/comparisons/monday-vs-clickup.webp",
     title: "Monday.com vs ClickUp",
     description:
       "Comparing the two hottest project management tools of 2026. Features, pricing, templates, and team workflows analyzed.",
@@ -243,6 +246,7 @@ export const COMPARISONS: ComparisonData[] = [
   },
   {
     slug: "convertkit-vs-mailchimp",
+    imageUrl: "/images/comparisons/convertkit-vs-mailchimp.webp",
     title: "ConvertKit vs Mailchimp",
     description:
       "Which email marketing platform is right for you? We compare creator-focused ConvertKit with the industry staple Mailchimp.",
@@ -323,6 +327,7 @@ export const COMPARISONS: ComparisonData[] = [
   },
   {
     slug: "zapier-vs-make",
+    imageUrl: "/images/comparisons/zapier-vs-make.webp",
     title: "Zapier vs Make",
     description:
       "Which automation platform is right for your business? We compare integrations, pricing, AI features, and workflow complexity.",
@@ -403,6 +408,7 @@ export const COMPARISONS: ComparisonData[] = [
   },
   {
     slug: "canva-vs-midjourney",
+    imageUrl: "/images/comparisons/canva-vs-midjourney.webp",
     title: "Canva vs Midjourney",
     description:
       "Complete design platform vs best-in-class AI image generation. We compare features, output quality, and which tool fits your workflow.",
@@ -483,6 +489,7 @@ export const COMPARISONS: ComparisonData[] = [
   },
   {
     slug: "intercom-vs-zendesk",
+    imageUrl: "/images/comparisons/intercom-vs-zendesk.webp",
     title: "Intercom vs Zendesk",
     description:
       "The two heavyweights of customer support compared. AI capabilities, pricing, scalability, and which fits your team size.",
