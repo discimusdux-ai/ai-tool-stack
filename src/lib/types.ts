@@ -7,6 +7,7 @@ export interface ComparisonData {
   featureLabels: Record<string, string>;
   winner: string;
   verdict: string;
+  imageUrl?: string;
 }
 
 export interface ComparisonTool {
