@@ -28,11 +28,20 @@ export const metadata: Metadata = {
     description:
       "Expert reviews and comparisons of the best AI and SaaS tools for businesses and creators.",
     url: "https://youraitoolstack.com",
+    images: [
+      {
+        url: "https://youraitoolstack.com/images/og-background.webp",
+        width: 1344,
+        height: 896,
+        alt: "Your AI Tool Stack — Find the Best AI & SaaS Tools",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Your AI Tool Stack",
     description: "Expert AI & SaaS tool reviews and comparisons.",
+    images: ["https://youraitoolstack.com/images/og-background.webp"],
   },
   robots: {
     index: true,
