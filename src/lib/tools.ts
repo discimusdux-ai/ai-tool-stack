@@ -23,11 +23,13 @@ export interface ToolReviewData {
   faqs: { q: string; a: string }[];
   commission: string;
   commissionType: string;
+  imageUrl?: string;
 }
 
 export const TOOL_REVIEWS: Record<string, ToolReviewData> = {
   "jasper-ai": {
     slug: "jasper-ai",
+    imageUrl: "/images/tools/jasper-ai.webp",
     name: "Jasper AI",
     category: "AI Writing",
     categorySlug: "ai-writing",
@@ -80,6 +82,7 @@ export const TOOL_REVIEWS: Record<string, ToolReviewData> = {
 
   "semrush": {
     slug: "semrush",
+    imageUrl: "/images/tools/semrush.webp",
     name: "Semrush",
     category: "SEO & Marketing",
     categorySlug: "seo-marketing",
@@ -132,6 +135,7 @@ export const TOOL_REVIEWS: Record<string, ToolReviewData> = {
 
   "clickup": {
     slug: "clickup",
+    imageUrl: "/images/tools/clickup.webp",
     name: "ClickUp",
     category: "Project Management",
     categorySlug: "project-management",
@@ -184,6 +188,7 @@ export const TOOL_REVIEWS: Record<string, ToolReviewData> = {
 
   "convertkit": {
     slug: "convertkit",
+    imageUrl: "/images/tools/convertkit.webp",
     name: "ConvertKit",
     category: "Email Marketing",
     categorySlug: "email-marketing",
@@ -236,6 +241,7 @@ export const TOOL_REVIEWS: Record<string, ToolReviewData> = {
 
   "cursor": {
     slug: "cursor",
+    imageUrl: "/images/tools/cursor.webp",
     name: "Cursor",
     category: "AI Coding Assistants",
     categorySlug: "ai-coding",
@@ -288,6 +294,7 @@ export const TOOL_REVIEWS: Record<string, ToolReviewData> = {
 
   "zapier": {
     slug: "zapier",
+    imageUrl: "/images/tools/zapier.webp",
     name: "Zapier",
     category: "Business Automation",
     categorySlug: "business-automation",
@@ -340,6 +347,7 @@ export const TOOL_REVIEWS: Record<string, ToolReviewData> = {
 
   "canva": {
     slug: "canva",
+    imageUrl: "/images/tools/canva.webp",
     name: "Canva",
     category: "Design & Creative",
     categorySlug: "design-creative",
@@ -392,6 +400,7 @@ export const TOOL_REVIEWS: Record<string, ToolReviewData> = {
 
   "hubspot": {
     slug: "hubspot",
+    imageUrl: "/images/tools/hubspot.webp",
     name: "HubSpot",
     category: "CRM & Sales",
     categorySlug: "crm-sales",
@@ -444,6 +453,7 @@ export const TOOL_REVIEWS: Record<string, ToolReviewData> = {
 
   "runway": {
     slug: "runway",
+    imageUrl: "/images/tools/runway.webp",
     name: "Runway",
     category: "AI Video",
     categorySlug: "ai-video",
@@ -496,6 +506,7 @@ export const TOOL_REVIEWS: Record<string, ToolReviewData> = {
 
   "intercom": {
     slug: "intercom",
+    imageUrl: "/images/tools/intercom.webp",
     name: "Intercom",
     category: "Customer Support",
     categorySlug: "customer-support",
@@ -548,6 +559,7 @@ export const TOOL_REVIEWS: Record<string, ToolReviewData> = {
 
   "writesonic": {
     slug: "writesonic",
+    imageUrl: "/images/tools/writesonic.webp",
     name: "Writesonic",
     category: "AI Writing",
     categorySlug: "ai-writing",
@@ -599,6 +611,7 @@ export const TOOL_REVIEWS: Record<string, ToolReviewData> = {
 
   "ahrefs": {
     slug: "ahrefs",
+    imageUrl: "/images/tools/ahrefs.webp",
     name: "Ahrefs",
     category: "SEO Tools",
     categorySlug: "seo-tools",
@@ -650,6 +663,7 @@ export const TOOL_REVIEWS: Record<string, ToolReviewData> = {
 
   "surfer-seo": {
     slug: "surfer-seo",
+    imageUrl: "/images/tools/surfer-seo.webp",
     name: "Surfer SEO",
     category: "SEO Tools",
     categorySlug: "seo-tools",
@@ -701,6 +715,7 @@ export const TOOL_REVIEWS: Record<string, ToolReviewData> = {
 
   "mailchimp": {
     slug: "mailchimp",
+    imageUrl: "/images/tools/mailchimp.webp",
     name: "Mailchimp",
     category: "Email Marketing",
     categorySlug: "email-marketing",
@@ -753,6 +768,7 @@ export const TOOL_REVIEWS: Record<string, ToolReviewData> = {
 
   "activecampaign": {
     slug: "activecampaign",
+    imageUrl: "/images/tools/activecampaign.webp",
     name: "ActiveCampaign",
     category: "Email Marketing",
     categorySlug: "email-marketing",
@@ -804,6 +820,7 @@ export const TOOL_REVIEWS: Record<string, ToolReviewData> = {
 
   "monday": {
     slug: "monday",
+    imageUrl: "/images/tools/monday.webp",
     name: "Monday.com",
     category: "Project Management",
     categorySlug: "project-management",
@@ -855,6 +872,7 @@ export const TOOL_REVIEWS: Record<string, ToolReviewData> = {
 
   "notion": {
     slug: "notion",
+    imageUrl: "/images/tools/notion.webp",
     name: "Notion",
     category: "Project Management",
     categorySlug: "project-management",
@@ -906,6 +924,7 @@ export const TOOL_REVIEWS: Record<string, ToolReviewData> = {
   },
   "pipedrive": {
     slug: "pipedrive",
+    imageUrl: "/images/tools/pipedrive.webp",
     name: "Pipedrive",
     category: "CRM",
     categorySlug: "crm",
@@ -957,6 +976,7 @@ export const TOOL_REVIEWS: Record<string, ToolReviewData> = {
   },
   "github-copilot": {
     slug: "github-copilot",
+    imageUrl: "/images/tools/github-copilot.webp",
     name: "GitHub Copilot",
     category: "AI Coding",
     categorySlug: "ai-coding",
@@ -1008,6 +1028,7 @@ export const TOOL_REVIEWS: Record<string, ToolReviewData> = {
   },
   "heygen": {
     slug: "heygen",
+    imageUrl: "/images/tools/heygen.webp",
     name: "HeyGen",
     category: "AI Video",
     categorySlug: "ai-video",
@@ -1059,6 +1080,7 @@ export const TOOL_REVIEWS: Record<string, ToolReviewData> = {
   },
   "descript": {
     slug: "descript",
+    imageUrl: "/images/tools/descript.webp",
     name: "Descript",
     category: "AI Video",
     categorySlug: "ai-video",
@@ -1110,6 +1132,7 @@ export const TOOL_REVIEWS: Record<string, ToolReviewData> = {
   },
   "midjourney": {
     slug: "midjourney",
+    imageUrl: "/images/tools/midjourney.webp",
     name: "Midjourney",
     category: "AI Image Generation",
     categorySlug: "ai-image-generation",
@@ -1161,6 +1184,7 @@ export const TOOL_REVIEWS: Record<string, ToolReviewData> = {
   },
   "zendesk": {
     slug: "zendesk",
+    imageUrl: "/images/tools/zendesk.webp",
     name: "Zendesk",
     category: "Customer Support",
     categorySlug: "customer-support",
@@ -1212,6 +1236,7 @@ export const TOOL_REVIEWS: Record<string, ToolReviewData> = {
   },
   "freshdesk": {
     slug: "freshdesk",
+    imageUrl: "/images/tools/freshdesk.webp",
     name: "Freshdesk",
     category: "Customer Support",
     categorySlug: "customer-support",
@@ -1263,6 +1288,7 @@ export const TOOL_REVIEWS: Record<string, ToolReviewData> = {
   },
   "figma": {
     slug: "figma",
+    imageUrl: "/images/tools/figma.webp",
     name: "Figma",
     category: "Design",
     categorySlug: "design",
