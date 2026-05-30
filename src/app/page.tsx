@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { NewsletterForm } from "@/components/email/NewsletterForm";
 import { CategoryCard } from "@/components/ui/CategoryCard";
 import { ToolMarquee } from "@/components/ui/ToolMarquee";
@@ -19,63 +20,93 @@ export default function HomePage() {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden bg-gray-950 py-28 text-white noise-overlay">
-        {/* Gradient orbs */}
-        <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[700px] rounded-full bg-brand-600/15 blur-[140px]" />
-        <div className="pointer-events-none absolute top-20 right-0 w-[500px] h-[500px] rounded-full bg-accent-500/8 blur-[120px]" />
-        <div className="pointer-events-none absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-hot-500/8 blur-[100px]" />
-        <div className="pointer-events-none absolute top-1/2 right-1/4 w-[200px] h-[200px] rounded-full bg-purple-500/10 blur-[80px]" />
-
-        {/* Dot grid */}
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle,_rgba(99,102,241,0.12)_1px,_transparent_1px)] bg-[size:32px_32px]" />
-
-        {/* Floating accent lines */}
-        <div className="pointer-events-none absolute inset-0 overflow-hidden">
-          <div className="absolute left-1/4 top-20 h-px w-64 bg-gradient-to-r from-transparent via-brand-400/30 to-transparent" />
-          <div className="absolute right-1/4 bottom-20 h-px w-48 bg-gradient-to-r from-transparent via-accent-400/20 to-transparent" />
-          <div className="absolute left-20 top-1/2 h-32 w-px bg-gradient-to-b from-transparent via-brand-400/20 to-transparent" />
-          <div className="absolute right-20 top-1/3 h-24 w-px bg-gradient-to-b from-transparent via-accent-400/15 to-transparent" />
+      <section className="relative overflow-hidden bg-gray-950 py-20 text-white noise-overlay">
+        {/* Hero background image */}
+        <div className="pointer-events-none absolute inset-0">
+          <Image
+            src="/images/hero.webp"
+            alt="AI tools network"
+            fill
+            className="object-cover opacity-20"
+            priority
+            sizes="100vw"
+          />
+          {/* Dark overlay gradient so text stays readable */}
+          <div className="absolute inset-0 bg-gradient-to-b from-gray-950/60 via-gray-950/50 to-gray-950" />
         </div>
 
-        <div className="relative mx-auto max-w-6xl px-4 text-center">
-          {/* Badge */}
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand-400/20 bg-brand-500/10 px-4 py-1.5 text-sm font-medium text-brand-300 backdrop-blur-sm">
-            <span className="h-2 w-2 animate-pulse rounded-full bg-accent-400" />
-            Fully Updated for 2026 · 100+ Tools Reviewed
-          </div>
+        {/* Gradient orbs (kept for color blending) */}
+        <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[700px] rounded-full bg-brand-600/10 blur-[140px]" />
+        <div className="pointer-events-none absolute top-20 right-0 w-[500px] h-[500px] rounded-full bg-accent-500/6 blur-[120px]" />
 
-          {/* Headline */}
-          <h1 className="mb-6 text-5xl font-extrabold leading-tight tracking-tight md:text-7xl">
-            Stop Guessing.{" "}
-            <span className="gradient-text">Pick Better AI Tools.</span>
-          </h1>
+        {/* Dot grid */}
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle,_rgba(99,102,241,0.10)_1px,_transparent_1px)] bg-[size:32px_32px]" />
 
-          <p className="mx-auto mb-10 max-w-2xl text-lg text-gray-400 md:text-xl">
-            Brutally honest reviews, side-by-side comparisons, and expert guides
-            for every major AI and SaaS tool. No fluff, no paid rankings — just
-            the truth.
-          </p>
+        <div className="relative mx-auto max-w-6xl px-4">
+          <div className="grid items-center gap-12 lg:grid-cols-2">
+            {/* Left — text */}
+            <div className="text-center lg:text-left">
+              {/* Badge */}
+              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand-400/20 bg-brand-500/10 px-4 py-1.5 text-sm font-medium text-brand-300 backdrop-blur-sm">
+                <span className="h-2 w-2 animate-pulse rounded-full bg-accent-400" />
+                Fully Updated for 2026 · 100+ Tools Reviewed
+              </div>
 
-          {/* Search */}
-          <HeroSearch />
+              {/* Headline */}
+              <h1 className="mb-6 text-5xl font-extrabold leading-tight tracking-tight md:text-6xl xl:text-7xl">
+                Stop Guessing.{" "}
+                <span className="gradient-text">Pick Better AI Tools.</span>
+              </h1>
 
-          {/* Alt CTAs */}
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <Link href="/categories" className="cta-button cta-glow text-base">
-              Browse All Tools →
-            </Link>
-            <Link
-              href="/compare"
-              className="rounded-xl border border-white/10 bg-white/5 px-6 py-3 font-semibold text-gray-200 backdrop-blur-sm transition-all hover:border-white/20 hover:bg-white/10"
-            >
-              Compare Tools
-            </Link>
-            <Link
-              href="/blog"
-              className="rounded-xl border border-white/10 bg-white/5 px-6 py-3 font-semibold text-gray-200 backdrop-blur-sm transition-all hover:border-white/20 hover:bg-white/10"
-            >
-              Latest Reviews
-            </Link>
+              <p className="mb-10 max-w-2xl text-lg text-gray-400 md:text-xl lg:max-w-none">
+                Brutally honest reviews, side-by-side comparisons, and expert guides
+                for every major AI and SaaS tool. No fluff, no paid rankings — just
+                the truth.
+              </p>
+
+              {/* Search */}
+              <HeroSearch />
+
+              {/* Alt CTAs */}
+              <div className="mt-8 flex flex-wrap items-center justify-center gap-3 lg:justify-start">
+                <Link href="/categories" className="cta-button cta-glow text-base">
+                  Browse All Tools →
+                </Link>
+                <Link
+                  href="/compare"
+                  className="rounded-xl border border-white/10 bg-white/5 px-6 py-3 font-semibold text-gray-200 backdrop-blur-sm transition-all hover:border-white/20 hover:bg-white/10"
+                >
+                  Compare Tools
+                </Link>
+                <Link
+                  href="/blog"
+                  className="rounded-xl border border-white/10 bg-white/5 px-6 py-3 font-semibold text-gray-200 backdrop-blur-sm transition-all hover:border-white/20 hover:bg-white/10"
+                >
+                  Latest Reviews
+                </Link>
+              </div>
+            </div>
+
+            {/* Right — hero image card */}
+            <div className="relative hidden lg:block">
+              <div className="relative overflow-hidden rounded-3xl border border-white/10 shadow-2xl shadow-brand-900/40">
+                <Image
+                  src="/images/hero.webp"
+                  alt="AI tool ecosystem — ChatGPT, Cursor, Claude, Midjourney, Notion and more"
+                  width={680}
+                  height={453}
+                  className="w-full object-cover"
+                  priority
+                />
+                {/* Glass caption bar */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-gray-950/90 to-transparent px-6 py-5">
+                  <p className="text-sm font-semibold text-white">100+ AI & SaaS tools reviewed</p>
+                  <p className="text-xs text-gray-400">Find the right stack for your workflow</p>
+                </div>
+              </div>
+              {/* Floating glow ring behind image */}
+              <div className="pointer-events-none absolute -inset-4 -z-10 rounded-3xl bg-brand-600/15 blur-2xl" />
+            </div>
           </div>
         </div>
       </section>
@@ -188,6 +219,71 @@ export default function HomePage() {
                 <p className="text-sm text-gray-400 leading-relaxed">{item.desc}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Trust Visual Section ── */}
+      <section className="relative overflow-hidden border-t border-white/5 py-24">
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-gray-950 via-gray-900/60 to-gray-950" />
+        <div className="relative mx-auto max-w-6xl px-4">
+          <div className="grid items-center gap-12 lg:grid-cols-2">
+            {/* Image */}
+            <div className="relative order-2 lg:order-1">
+              <div className="overflow-hidden rounded-3xl border border-white/10 shadow-2xl shadow-black/40">
+                <Image
+                  src="/images/trust-section.webp"
+                  alt="Magnifying glass examining AI tool review cards with star ratings"
+                  width={600}
+                  height={600}
+                  className="w-full object-cover"
+                />
+              </div>
+              <div className="pointer-events-none absolute -inset-4 -z-10 rounded-3xl bg-amber-600/10 blur-2xl" />
+            </div>
+            {/* Text */}
+            <div className="order-1 lg:order-2">
+              <span className="mb-3 inline-block rounded-full bg-amber-500/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-amber-400">
+                Why Trust Us
+              </span>
+              <h2 className="mb-6 text-3xl font-extrabold text-white md:text-4xl">
+                Reviews You Can Actually Trust
+              </h2>
+              <div className="space-y-5">
+                {[
+                  {
+                    icon: "🔍",
+                    title: "We test everything ourselves",
+                    desc: "Every tool is put through real workflows — not copied from a press release.",
+                  },
+                  {
+                    icon: "⭐",
+                    title: "No paid placements",
+                    desc: "Rankings are based on performance, not who paid us. Full stop.",
+                  },
+                  {
+                    icon: "🔄",
+                    title: "Constantly updated",
+                    desc: "AI tools change fast. We revisit reviews when tools ship major updates.",
+                  },
+                  {
+                    icon: "💬",
+                    title: "Community-verified",
+                    desc: "50K+ readers have used our picks and sent us feedback that makes them better.",
+                  },
+                ].map((item) => (
+                  <div key={item.title} className="flex gap-4">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/5 text-xl ring-1 ring-white/10">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <p className="font-semibold text-white">{item.title}</p>
+                      <p className="text-sm text-gray-400">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
