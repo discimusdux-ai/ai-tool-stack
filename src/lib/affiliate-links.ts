@@ -4,8 +4,12 @@
  * All affiliate links are managed here. When a merchant changes their URL,
  * update it in ONE place and it propagates everywhere.
  *
- * isActive: false = no affiliate program exists or program is dead.
+ * isActive: false = no affiliate program exists, program is dead, or platform is blocked.
  * The "Try Free →" button will render as href="#" for inactive links.
+ *
+ * BLOCKED PLATFORMS (do not mark active until explicitly unblocked):
+ * - Impact.com: Semrush, Grammarly, HubSpot, Monday.com
+ * - PartnerStack: Surfer SEO, Notion, ElevenLabs
  */
 
 export interface AffiliateLink {
@@ -16,6 +20,7 @@ export interface AffiliateLink {
   trackingParams?: Record<string, string>;
   isActive: boolean;
   lastChecked?: string;
+  note?: string;
 }
 
 const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
@@ -26,8 +31,9 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     url: "https://www.jasper.ai",
     category: "ai-writing",
     trackingParams: {},
-    isActive: false, // Affiliate program discontinued
-    lastChecked: "2026-05-28",
+    isActive: false, // Affiliate program ended January 26, 2025
+    lastChecked: "2026-06-04",
+    note: "Program permanently closed Jan 2025",
   },
   "copy-ai": {
     id: "copy-ai",
@@ -36,16 +42,16 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "ai-writing",
     trackingParams: {},
     isActive: false, // No affiliate program
-    lastChecked: "2026-05-28",
+    lastChecked: "2026-06-04",
   },
   writesonic: {
     id: "writesonic",
     name: "Writesonic",
-    url: "https://affiliates.writesonic.com",
+    url: "https://affiliates.writesonic.com/signup/36620",
     category: "ai-writing",
-    trackingParams: { ref: "PARTNER_ID" },
-    isActive: true,
-    lastChecked: "2026-05-28",
+    trackingParams: {},
+    isActive: true, // Verified: own platform (affiliates.writesonic.com), 20% recurring 12mo
+    lastChecked: "2026-06-04",
   },
 
   // ── SEO & Marketing ────────────────────────────────────
@@ -54,18 +60,20 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     name: "Semrush",
     url: "https://www.semrush.com",
     category: "seo-marketing",
-    trackingParams: { ref: "PARTNER_ID" },
-    isActive: true,
-    lastChecked: "2026-05-28",
+    trackingParams: {},
+    isActive: false, // Platform: Impact.com — BLOCKED pending account resolution
+    lastChecked: "2026-06-04",
+    note: "Impact.com platform — blocked until account restored",
   },
   "surfer-seo": {
     id: "surfer-seo",
     name: "Surfer SEO",
     url: "https://surferseo.com",
     category: "seo-marketing",
-    trackingParams: { fp_ref: "PARTNER_ID" },
-    isActive: true,
-    lastChecked: "2026-05-28",
+    trackingParams: {},
+    isActive: false, // Platform: PartnerStack — BLOCKED
+    lastChecked: "2026-06-04",
+    note: "PartnerStack platform — blocked",
   },
   unbounce: {
     id: "unbounce",
@@ -74,7 +82,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "seo-marketing",
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
-    lastChecked: "2026-05-28",
+    lastChecked: "2026-06-04",
   },
   ahrefs: {
     id: "ahrefs",
@@ -83,7 +91,18 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "seo-marketing",
     trackingParams: {},
     isActive: false, // Ahrefs publicly states they have no affiliate program
-    lastChecked: "2026-05-28",
+    lastChecked: "2026-06-04",
+  },
+
+  // ── AI Video & Voice ───────────────────────────────────
+  synthesia: {
+    id: "synthesia",
+    name: "Synthesia",
+    url: "https://www.synthesia.io/partners/affiliates",
+    category: "ai-video",
+    trackingParams: {},
+    isActive: true, // Verified: HubSpot form (not Impact/PartnerStack), 25% per sale
+    lastChecked: "2026-06-04",
   },
 
   // ── Email Marketing ────────────────────────────────────
@@ -94,7 +113,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "email-marketing",
     trackingParams: { lmref: "PARTNER_ID" },
     isActive: true,
-    lastChecked: "2026-05-28",
+    lastChecked: "2026-06-04",
   },
   mailchimp: {
     id: "mailchimp",
@@ -103,10 +122,20 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "email-marketing",
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
-    lastChecked: "2026-05-28",
+    lastChecked: "2026-06-04",
   },
 
   // ── CRM & Sales ────────────────────────────────────────
+  hubspot: {
+    id: "hubspot",
+    name: "HubSpot",
+    url: "https://www.hubspot.com",
+    category: "crm-sales",
+    trackingParams: {},
+    isActive: false, // Platform: Impact.com — BLOCKED
+    lastChecked: "2026-06-04",
+    note: "Impact.com platform — blocked until account restored",
+  },
   pipedrive: {
     id: "pipedrive",
     name: "Pipedrive",
@@ -114,7 +143,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "crm-sales",
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
-    lastChecked: "2026-05-28",
+    lastChecked: "2026-06-04",
   },
 
   // ── Project Management ─────────────────────────────────
@@ -123,9 +152,20 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     name: "Monday.com",
     url: "https://monday.com",
     category: "project-management",
-    trackingParams: { ref: "PARTNER_ID" },
-    isActive: true,
-    lastChecked: "2026-05-28",
+    trackingParams: {},
+    isActive: false, // Platform: Impact.com — BLOCKED
+    lastChecked: "2026-06-04",
+    note: "Impact.com platform — blocked until account restored",
+  },
+  notion: {
+    id: "notion",
+    name: "Notion",
+    url: "https://www.notion.com",
+    category: "project-management",
+    trackingParams: {},
+    isActive: false, // Platform: PartnerStack — BLOCKED
+    lastChecked: "2026-06-04",
+    note: "PartnerStack platform — blocked",
   },
   clickup: {
     id: "clickup",
@@ -134,7 +174,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "project-management",
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
-    lastChecked: "2026-05-28",
+    lastChecked: "2026-06-04",
   },
 
   // ── Design & Creative ──────────────────────────────────
@@ -145,7 +185,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "design-creative",
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
-    lastChecked: "2026-05-28",
+    lastChecked: "2026-06-04",
   },
   midjourney: {
     id: "midjourney",
@@ -154,7 +194,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "design-creative",
     trackingParams: {},
     isActive: true,
-    lastChecked: "2026-05-28",
+    lastChecked: "2026-06-04",
   },
   "adobe-firefly": {
     id: "adobe-firefly",
@@ -163,7 +203,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "design-creative",
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
-    lastChecked: "2026-05-28",
+    lastChecked: "2026-06-04",
   },
   figma: {
     id: "figma",
@@ -172,7 +212,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "design-creative",
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
-    lastChecked: "2026-05-28",
+    lastChecked: "2026-06-04",
   },
 
   // ── AI Video & Podcasting ──────────────────────────────
@@ -183,7 +223,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "ai-video",
     trackingParams: {},
     isActive: false, // No public affiliate program
-    lastChecked: "2026-05-28",
+    lastChecked: "2026-06-04",
   },
   heygen: {
     id: "heygen",
@@ -192,7 +232,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "ai-video",
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
-    lastChecked: "2026-05-28",
+    lastChecked: "2026-06-04",
   },
   descript: {
     id: "descript",
@@ -201,7 +241,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "ai-video",
     trackingParams: {},
     isActive: false, // No affiliate program
-    lastChecked: "2026-05-28",
+    lastChecked: "2026-06-04",
   },
   capcut: {
     id: "capcut",
@@ -210,7 +250,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "ai-video",
     trackingParams: {},
     isActive: true,
-    lastChecked: "2026-05-28",
+    lastChecked: "2026-06-04",
   },
   "opus-clip": {
     id: "opus-clip",
@@ -218,8 +258,8 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     url: "https://www.opus.pro",
     category: "ai-video",
     trackingParams: { ref: "PARTNER_ID" },
-    isActive: true, // Program at opus.pro/affiliate (verified via Google)
-    lastChecked: "2026-05-28",
+    isActive: true,
+    lastChecked: "2026-06-04",
   },
   vizard: {
     id: "vizard",
@@ -228,7 +268,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "ai-video",
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
-    lastChecked: "2026-05-28",
+    lastChecked: "2026-06-04",
   },
 
   // ── Business Automation ────────────────────────────────
@@ -239,7 +279,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "business-automation",
     trackingParams: {},
     isActive: false, // No public affiliate program — tech partner program only
-    lastChecked: "2026-05-28",
+    lastChecked: "2026-06-04",
   },
   make: {
     id: "make",
@@ -248,7 +288,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "business-automation",
     trackingParams: { pc: "PARTNER_ID" },
     isActive: true,
-    lastChecked: "2026-05-28",
+    lastChecked: "2026-06-04",
   },
   n8n: {
     id: "n8n",
@@ -257,7 +297,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "business-automation",
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
-    lastChecked: "2026-05-28",
+    lastChecked: "2026-06-04",
   },
   bardeen: {
     id: "bardeen",
@@ -266,7 +306,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "business-automation",
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
-    lastChecked: "2026-05-28",
+    lastChecked: "2026-06-04",
   },
   activepieces: {
     id: "activepieces",
@@ -275,7 +315,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "business-automation",
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
-    lastChecked: "2026-05-28",
+    lastChecked: "2026-06-04",
   },
 
   // ── Customer Support & Chatbots ────────────────────────
@@ -286,7 +326,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "customer-support",
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
-    lastChecked: "2026-05-28",
+    lastChecked: "2026-06-04",
   },
   zendesk: {
     id: "zendesk",
@@ -295,7 +335,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "customer-support",
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
-    lastChecked: "2026-05-28",
+    lastChecked: "2026-06-04",
   },
   tidio: {
     id: "tidio",
@@ -304,7 +344,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "customer-support",
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
-    lastChecked: "2026-05-28",
+    lastChecked: "2026-06-04",
   },
   freshdesk: {
     id: "freshdesk",
@@ -313,7 +353,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "customer-support",
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
-    lastChecked: "2026-05-28",
+    lastChecked: "2026-06-04",
   },
   chatbase: {
     id: "chatbase",
@@ -322,7 +362,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "customer-support",
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
-    lastChecked: "2026-05-28",
+    lastChecked: "2026-06-04",
   },
   teachable: {
     id: "teachable",
@@ -331,7 +371,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "business-automation",
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
-    lastChecked: "2026-05-28",
+    lastChecked: "2026-06-04",
   },
 
   // ── AI Image Generation ────────────────────────────────
@@ -342,7 +382,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "ai-image",
     trackingParams: {},
     isActive: true,
-    lastChecked: "2026-05-28",
+    lastChecked: "2026-06-04",
   },
   "stable-diffusion": {
     id: "stable-diffusion",
@@ -351,7 +391,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "ai-image",
     trackingParams: {},
     isActive: true,
-    lastChecked: "2026-05-28",
+    lastChecked: "2026-06-04",
   },
   leonardo: {
     id: "leonardo",
@@ -360,7 +400,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "ai-image",
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
-    lastChecked: "2026-05-28",
+    lastChecked: "2026-06-04",
   },
 
   // ── AI Coding ──────────────────────────────────────────
@@ -371,7 +411,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "ai-coding",
     trackingParams: {},
     isActive: true,
-    lastChecked: "2026-05-28",
+    lastChecked: "2026-06-04",
   },
   cursor: {
     id: "cursor",
@@ -380,7 +420,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "ai-coding",
     trackingParams: {},
     isActive: true,
-    lastChecked: "2026-05-28",
+    lastChecked: "2026-06-04",
   },
   replit: {
     id: "replit",
@@ -389,7 +429,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "ai-coding",
     trackingParams: { ref: "PARTNER_ID" },
     isActive: true,
-    lastChecked: "2026-05-28",
+    lastChecked: "2026-06-04",
   },
 };
 
