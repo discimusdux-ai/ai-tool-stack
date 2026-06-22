@@ -89,7 +89,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <head>
         {/* Impact/Semrush site verification */}
-        <meta name="impact-site-verification" content="091d5b5c-db4b-411d-82a2-fa8ea41b6184" />
+        <meta name="impact-site-verification" value="5e4be728-fd50-4195-aed8-23b6c85cc4e7" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
