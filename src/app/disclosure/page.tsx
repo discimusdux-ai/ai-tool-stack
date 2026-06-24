@@ -9,12 +9,12 @@ export const metadata: Metadata = {
 export default function DisclosurePage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-16">
-      <h1 className="mb-8 text-4xl font-extrabold text-gray-900">
+      <h1 className="mb-8 text-4xl font-extrabold text-white">
         Affiliate Disclosure
       </h1>
 
-      <div className="prose prose-lg max-w-none prose-headings:font-bold prose-a:text-brand-600">
-        <p className="text-lg text-gray-600">
+      <div className="prose prose-invert prose-lg max-w-none prose-headings:font-bold prose-headings:text-white prose-p:text-gray-300 prose-li:text-gray-300 prose-strong:text-white prose-a:text-brand-400">
+        <p className="text-lg text-gray-300">
           <strong>Last updated:</strong> April 2026
         </p>
 

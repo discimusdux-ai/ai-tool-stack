@@ -11,12 +11,12 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="border-b border-gray-100 bg-gray-50 py-16">
+      <section className="border-b border-white/10 bg-gray-900 py-16">
         <div className="mx-auto max-w-3xl px-4">
-          <h1 className="mb-4 text-4xl font-extrabold text-gray-900 md:text-5xl">
+          <h1 className="mb-4 text-4xl font-extrabold text-white md:text-5xl">
             About Your AI Tool Stack
           </h1>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-gray-300">
             We help businesses and creators find the best AI and SaaS tools
             through honest reviews, data-driven comparisons, and expert guides.
           </p>
@@ -24,8 +24,8 @@ export default function AboutPage() {
       </section>
 
       {/* Content */}
-      <section className="py-16">
-        <div className="prose prose-lg mx-auto max-w-3xl px-4 prose-headings:font-bold">
+      <section className="bg-gray-950 py-16">
+        <div className="prose prose-invert prose-lg mx-auto max-w-3xl px-4 prose-headings:font-bold prose-headings:text-white prose-p:text-gray-300 prose-li:text-gray-300 prose-strong:text-white prose-a:text-brand-400">
           <h2>Our Mission</h2>
           <p>
             The AI tool landscape is exploding. Thousands of new tools launch

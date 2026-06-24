@@ -90,25 +90,25 @@ export default async function BlogPostPage({ params }: Props) {
       <StructuredData data={articleSchema} />
 
       {/* Article Header */}
-      <header className="border-b border-gray-100 bg-gray-50 py-16">
+      <header className="border-b border-white/10 bg-gray-900 py-16">
         <div className="mx-auto max-w-3xl px-4">
           <div className="mb-4 flex items-center gap-3">
             <Link
               href="/blog"
-              className="text-sm text-brand-600 hover:underline"
+              className="text-sm text-brand-400 hover:underline"
             >
               ← Blog
             </Link>
-            <span className="text-gray-300">|</span>
-            <span className="rounded-full bg-brand-50 px-3 py-1 text-xs font-medium text-brand-700">
+            <span className="text-gray-600">|</span>
+            <span className="rounded-full bg-brand-900/60 px-3 py-1 text-xs font-medium text-brand-300">
               {post.category}
             </span>
           </div>
-          <h1 className="mb-4 text-4xl font-extrabold leading-tight text-gray-900 md:text-5xl">
+          <h1 className="mb-4 text-4xl font-extrabold leading-tight text-white md:text-5xl">
             {post.title}
           </h1>
-          <p className="mb-6 text-lg text-gray-600">{post.description}</p>
-          <div className="flex items-center gap-4 text-sm text-gray-500">
+          <p className="mb-6 text-lg text-gray-300">{post.description}</p>
+          <div className="flex items-center gap-4 text-sm text-gray-400">
             <span>By {post.author}</span>
             <span>•</span>
             <time dateTime={post.date}>
@@ -125,20 +125,20 @@ export default async function BlogPostPage({ params }: Props) {
       </header>
 
       {/* Article Content */}
-      <article className="py-12">
-        <div className="prose prose-lg mx-auto max-w-3xl px-4 prose-headings:font-bold prose-a:text-brand-600 prose-a:no-underline hover:prose-a:underline">
+      <article className="bg-gray-950 py-12">
+        <div className="prose prose-invert prose-lg mx-auto max-w-3xl px-4 prose-headings:font-bold prose-headings:text-white prose-p:text-gray-300 prose-li:text-gray-300 prose-strong:text-white prose-a:text-brand-400 prose-a:no-underline hover:prose-a:underline">
           <MDXRemote source={post.content} components={mdxComponents} />
         </div>
       </article>
 
       {/* Author Box + Newsletter */}
-      <section className="border-t border-gray-100 bg-gray-50 py-12">
+      <section className="border-t border-white/10 bg-gray-900 py-12">
         <div className="mx-auto max-w-3xl px-4">
-          <div className="rounded-xl border border-gray-200 bg-white p-8 text-center">
-            <h3 className="mb-2 text-xl font-bold">
+          <div className="rounded-xl border border-white/10 bg-gray-800 p-8 text-center">
+            <h3 className="mb-2 text-xl font-bold text-white">
               Enjoyed this article?
             </h3>
-            <p className="mb-6 text-gray-600">
+            <p className="mb-6 text-gray-300">
               Get our weekly newsletter with the latest AI tool reviews and
               exclusive deals.
             </p>
@@ -149,23 +149,23 @@ export default async function BlogPostPage({ params }: Props) {
 
       {/* Related Posts */}
       {relatedPosts.length > 0 && (
-        <section className="py-12">
+        <section className="bg-gray-950 py-12">
           <div className="mx-auto max-w-6xl px-4">
-            <h2 className="mb-8 text-2xl font-bold">Related Articles</h2>
+            <h2 className="mb-8 text-2xl font-bold text-white">Related Articles</h2>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {relatedPosts.map((rp) => (
                 <Link
                   key={rp.slug}
                   href={`/blog/${rp.slug}`}
-                  className="group rounded-xl border border-gray-200 bg-white p-6 transition-all hover:border-brand-300 hover:shadow-md"
+                  className="group rounded-xl border border-white/10 bg-gray-900 p-6 transition-all hover:border-brand-400/40 hover:shadow-md"
                 >
-                  <span className="mb-2 inline-block rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-600">
+                  <span className="mb-2 inline-block rounded-full bg-gray-800 px-2.5 py-0.5 text-xs font-medium text-gray-300">
                     {rp.category}
                   </span>
-                  <h3 className="mb-2 font-bold text-gray-900 group-hover:text-brand-600">
+                  <h3 className="mb-2 font-bold text-white group-hover:text-brand-400">
                     {rp.title}
                   </h3>
-                  <p className="text-sm text-gray-500">{rp.description}</p>
+                  <p className="text-sm text-gray-400">{rp.description}</p>
                 </Link>
               ))}
             </div>
