@@ -47,7 +47,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
   writesonic: {
     id: "writesonic",
     name: "Writesonic",
-    url: "https://affiliates.writesonic.com/signup/36620",
+    url: "https://writesonic.com?fp_ref=fortuna26",
     category: "ai-writing",
     trackingParams: {},
     isActive: true, // Verified: own platform (affiliates.writesonic.com), 20% recurring 12mo
