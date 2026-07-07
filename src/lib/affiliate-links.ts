@@ -47,7 +47,7 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
   writesonic: {
     id: "writesonic",
     name: "Writesonic",
-    url: "https://writesonic.com?fp_ref=fortuna26",
+    url: "https://affiliates.writesonic.com/signup/36620",
     category: "ai-writing",
     trackingParams: {},
     isActive: true, // Verified: own platform (affiliates.writesonic.com), 20% recurring 12mo
@@ -255,11 +255,12 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
   "opus-clip": {
     id: "opus-clip",
     name: "Opus Clip",
-    url: "https://www.opus.pro",
+    url: "https://opus.pro/?via=aitoolstack",
     category: "ai-video",
     trackingParams: {},
-    isActive: true,
-    lastChecked: "2026-06-04",
+    isActive: true, // Approved 2026-07-07, own platform (affiliates.opus.pro), 20% recurring 12mo
+    lastChecked: "2026-07-07",
+    note: "Affiliate link: opus.pro/?via=aitoolstack | agent.opus.pro/?via=aitoolstack",
   },
   vizard: {
     id: "vizard",
