@@ -1,0 +1,174 @@
+---
+title: "Make vs Zapier (2026): Which Automation Platform Actually Costs Less?"
+description: "A practitioner's comparison of Make and Zapier in 2026 — real pricing tiers, the credits vs tasks trap, AI agents, app coverage, and which one to pick for your workload."
+date: "2026-08-07"
+updatedAt: "2026-08-07"
+author: "AI Tool Stack Team"
+category: "Automation"
+tags: ["make", "zapier", "automation", "no-code", "ai-agents", "workflow-automation", "comparison"]
+featured: false
+---
+
+# Make vs Zapier (2026): Which Automation Platform Actually Costs Less?
+
+The honest answer to "Make or Zapier?" has changed in 2026, and not because either platform got dramatically better at automation. Both connect apps. Both do it reliably. What changed is how they bill you and where they put their AI.
+
+Zapier lists 9,000+ apps and charges per task. Make lists 3,000+ apps and charges per credit — a billing unit it introduced in August 2025 to replace operations, precisely so that AI actions could cost more than one unit. On paper, Make is 13x cheaper per billing unit at the entry tier. In practice, plenty of teams migrate to Make to save money and end up paying more. That gap between sticker price and invoice is the whole story, and it's what this comparison is about.
+
+## Quick Verdict
+
+| Category | Winner | Why |
+|---|---|---|
+| App coverage | **Zapier** | 9,000+ apps and ~30,000 pre-built actions vs Make's 3,000+ |
+| Entry price | **Make** | $9/mo for 10,000 credits vs $19.99/mo for 750 tasks |
+| Cost at volume | **Make** | Roughly 60–80% cheaper on the same multi-step workload |
+| Predictable billing | **Zapier** | Tasks map to actions you wanted; Make bills polls, filters and iterations |
+| Complex logic | **Make** | Visual canvas, unlimited modules, routers, iterators, error handlers |
+| Speed to first working automation | **Zapier** | Linear editor plus Copilot; most people ship in under 20 minutes |
+| AI agents | **Tie** | Zapier's AI by Zapier is more governed; Make's agents are more transparent |
+| Non-technical teams | **Zapier** | Far shallower learning curve |
+| Agencies and ops engineers | **Make** | Better margin, better debugging, more control |
+
+**Bottom line:** if nobody on your team wants to own automation as a craft, pay the Zapier premium. If one person does, Make will save you real money — but only if they understand credit consumption before they build.
+
+---
+
+## What Each Platform Actually Is in 2026
+
+**Zapier** is breadth-first. A Zap is a linear pipe: a trigger fires, actions run in order, done. The catalog is the moat — 9,000+ apps, roughly 30,000 actions, and credential infrastructure the company has run for over a decade. In 2026 Zapier stopped treating AI as a separate product: it migrated the standalone Agents product at agents.zapier.com into **AI by Zapier**, a step type inside the normal Zap editor. That change matters more than it sounds. You can now mix agentic steps that reason and call tools, plain AI steps for summarizing or classifying, and deterministic steps that do exactly one thing — inside a single Zap, with every tool call recorded in Zap history. AI by Zapier also introduced model-based pricing on June 15, 2026, with Standard, Advanced, and Premium model tiers, plus per-tool approval gates and a guardrail that pauses any run exceeding 75 tasks.
+
+**Make** is logic-first. A scenario lives on a visual canvas where you branch with routers, loop with iterators, aggregate, and attach error-handling routes to individual modules. Make shipped the next generation of its AI Agents in February 2026, and the design decision is the interesting part: agents live *inside* the scenario builder rather than in a separate console. A Reasoning Panel shows in real time which tools the agent called and why. In June 2026 Make added external MCP server support to those agents, so an agent can mix native Make modules and MCP tools in the same reasoning loop. Make also has Maia, a conversational builder that assembles scenarios from natural language, and Make Grid, which got a substantial organization and collaboration update in March 2026.
+
+The philosophical split is clean. Zapier hides the machinery so more people can use it. Make exposes the machinery so fewer people can use it better.
+
+---
+
+## Pricing: The Numbers That Actually Matter
+
+Zapier's self-serve pricing has two dimensions: a plan level (Free, Professional, Team) and a separately chosen monthly task tier. Both are required. Here are the real tiers from Zapier's own pricing page:
+
+| Tasks/mo | Pro (annual, /mo) | Pro (monthly, /mo) | Team (annual, /mo) | Team (monthly, /mo) |
+|---|---|---|---|---|
+| 100 | Free | Free | — | — |
+| 750 | $19.99 | $29.99 | — | — |
+| 1,500 | $39.00 | $58.50 | — | — |
+| 2,000 | $49.00 | $73.50 | $69.00 | $103.50 |
+| 5,000 | $89.00 | $133.50 | $119.00 | $178.50 |
+| 10,000 | $129.00 | $193.50 | $169.00 | $253.50 |
+| 20,000 | $189.00 | $283.50 | $249.00 | $373.50 |
+| 50,000 | $289.00 | $433.50 | $399.00 | $598.50 |
+| 100,000 | $489.00 | $733.50 | $599.00 | $898.50 |
+| 500,000 | $1,499.00 | $2,199.00 | $1,799.00 | $2,699.00 |
+| 2,000,000 | $3,389.00 | $5,099.00 | $3,999.00 | $5,999.00 |
+
+The 750 and 1,500 task tiers exist only on Professional; Team starts at 2,000 tasks. Above 2M tasks/mo you talk to sales. Enterprise is fully custom and adds unlimited users, SCIM, custom data retention, observability, annual (rather than monthly) task pools, and a technical account manager.
+
+Make's plans are simpler on the surface: **Free** (1,000 credits/mo, two active scenarios, 15-minute minimum interval), **Core** ($9/mo annual), **Pro** ($16/mo annual), **Teams** ($29/mo annual), and **Enterprise** (custom). All paid tiers start at 10,000 credits per month and scale up from there.
+
+| Plan | Price (annual, /mo) | Base credits | What you get |
+|---|---|---|---|
+| Free | $0 | 1,000 | 2 active scenarios, 15-min minimum interval, full app catalog |
+| Core | $9 | 10,000 | Unlimited active scenarios, 1-min interval, up to 300,000 credits/mo |
+| Pro | $16 | 10,000 | Priority execution, custom variables, full-text log search, up to 8M credits/mo, own LLM keys |
+| Teams | $29 | 10,000 | Multi-user, roles, shared templates, annual credit rollover |
+| Enterprise | Custom | Custom | 24/7 support with 2-hour SLA, overage protection, value engineering, advanced security |
+
+Two details buyers consistently miss. First, Core and Pro at the same credit count cost different amounts because you're buying execution guarantees, not capacity — Pro's 10,000 credits are identical to Core's 10,000 credits. Second, Make adjusted plan credit ceilings on November 6, 2025: Core now caps at 300,000 credits/mo and anything above that lives on Pro, which extends to 8 million.
+
+**A pricing discrepancy worth naming:** Make's own comparison page presents Zapier's lineup as "Starter $19.99 / Professional $49 / Team $69," which doesn't match Zapier's actual plan names. The $19.99 and $49 figures are both Professional — just different task tiers. Vendor comparison pages are marketing assets. We used zapier.com/pricing and make.com/en/pricing as the sources for the tables above, and several widely-cited third-party pricing roundups disagree with both by $20–$50 per tier.
+
+---
+
+## The Credits vs Tasks Trap
+
+This is the single most important thing to understand before choosing, and it's where most cost surprises come from.
+
+**Zapier counts successful action steps.** Triggers are free. Filters are free. Paths are free. Native utilities like Formatter, Delay, Looping, and Tables are free. A four-step Zap with a trigger, two formatting steps, and one CRM write burns one task per run if only one action step executes — but a 5-step Zap with five action steps burns five tasks per run. Sub-Zap calls cost one task each for Call and Return. Zapier MCP tool calls cost two tasks per call. AI-heavy runs can consume 15–20 tasks.
+
+**Make counts almost everything.** Every module action is one credit. That includes:
+
+- **Polling triggers** — every poll consumes a credit whether or not there was new data. A scenario polling every minute burns roughly 43,200 credits/month doing nothing.
+- **Filter modules** — consume a credit even when the filter blocks the run.
+- **Iterators** — every item processed is a credit. A 200-row spreadsheet is 200 credits.
+- **Errors and retries** — failed runs still consume credits.
+- **Make's in-house AI modules** — the AI Toolkit, AI Content Extractor, and AI Prompt modules are priced dynamically by model and token usage, so they can cost far more than one credit. Third-party AI apps like an OpenAI or Anthropic module remain 1 credit per operation.
+
+Do the arithmetic on your own workflow rather than trusting either sticker price. A worked example: 1,000 runs per month of an 8-step workflow is roughly 8,000 tasks on Zapier — that's the 10,000-task Professional tier at $129/mo annual. On Make, the same 8 modules at 1,000 runs is ~8,000 credits, comfortably inside Core's 10,000 at $9/mo. Make wins by a wide margin.
+
+Now change one variable. Make that trigger a 5-minute poll instead of a webhook, and add an iterator that averages 20 items per run. Make's consumption jumps to roughly 8,640 polling credits plus ~20,000 iterator credits plus the module credits — you've blown past Core's base allotment and are shopping higher credit tiers, while Zapier's bill hasn't moved at all, because polls and iterations aren't tasks.
+
+That's why "Make is 13x cheaper per unit" and "our Make bill went up after migrating" are both true statements from different teams.
+
+Overage behavior differs too, and Zapier's is friendlier. When you hit a Zapier task limit, Zaps keep running on pay-per-task billing at 1.25x your base rate, capped at 3x your included limit — so a 750-task Professional plan runs up to 2,250 before pausing. Note that pay-per-task rates changed for monthly plans as of the first billing cycle on or after July 15, 2026; annual plans were unaffected. Make simply **stops executing scenarios** when credits hit zero. You get warnings at 75% and 90%, incoming webhooks queue up to your storage limit, and polling scenarios backfill from their last successful run — but until you buy extra credits (bundles of 1,000 or 10,000) or enable auto-purchasing, nothing runs.
+
+---
+
+## Capability: Where Each One Genuinely Wins
+
+**Zapier wins on coverage and time-to-value.** If your constraint is "this needs to talk to 40 different SaaS tools," the argument is over. Zapier's 9,000+ apps plus roughly 3,000 more reachable via raw API `fetch` through the Zapier SDK is the broadest catalog in the category. Its MCP endpoint exposes that catalog to Claude, ChatGPT, Cursor, and any MCP client, with Zapier managing credentials — 195,000+ active MCP servers and 4.6M+ tool calls as of mid-2026. Zapier Canvas adds AI-powered diagramming that converts a process map into drafted Zaps, and in April 2026 Zapier extended enterprise AI governance across every building surface, which is the kind of thing that decides procurement at companies over 500 people.
+
+**Make wins on logic and observability.** Unlimited modules and routes per scenario versus Zapier's 100 steps and 10 path branches. Error handling attached to individual modules rather than a global retry. A 1-minute minimum trigger interval on every paid plan, including $9 Core. Roughly double the pre-built actions per app, so you hit "Make doesn't support that field" less often than the app-count gap suggests. And the HTTP module covers anything with an API. For debugging, Pro's full-text execution log search genuinely changes how fast you find a broken scenario — it's the most undersold feature on either platform.
+
+On AI agents the two are closer than the marketing suggests. Zapier's AI by Zapier is better governed: per-tool approvals, structured typed I/O, admin publishing approvals, and the 75-task circuit breaker. Make's agents are better *understood*: the Reasoning Panel plus canvas placement means you can see which tool ran, why, and what came back, at the exact spot you built it. Pick governance or transparency based on whether your risk is compliance or debugging.
+
+---
+
+## Real Cons: Zapier
+
+- **It gets expensive fast, and multi-step design is punished.** A widely-cited example from r/aiagents involves an 8-step lead workflow processing 100 leads a day — 24,000 tasks a month, and a bill near $847. Nothing about the automation was wasteful; task-based billing simply scales with step count.
+- **Linear structure fights complex processes.** Paths help, but branching, looping over large arrays, and per-step error routing are all more awkward than they'd be on a canvas. The 100-step and 10-branch caps are real ceilings.
+- **The MCP tax is quiet.** Two tasks per MCP tool call is easy to miss when you're wiring an agent that makes dozens of calls per run.
+- **Feature gating by task tier.** Live chat support only kicks in on 2,000+ task tiers, which means the cheapest paid customers get email support.
+
+## Real Cons: Make
+
+- **The learning curve loses non-technical buyers in about two weeks.** This shows up consistently in SMB reviews: the visual builder looks approachable and then routers, aggregators, and data structures arrive all at once. Beginners struggle particularly with instant webhooks versus polling — a recurring pattern in the community forums is a webhook that "isn't firing" when the real problem is that no sample payload was captured before the downstream modules were built.
+- **Credit accounting is genuinely confusing.** Make bills in credits but also tracks operations, and the two numbers diverge on your dashboard. A May 2026 community thread has a user with 8,000 credits and 6,000 operations remaining asking, reasonably, which number stops their scenarios — and support couldn't answer immediately. Credits are the currency; operations are a diagnostic view. That distinction is not obvious from the UI.
+- **Hard stop at zero credits.** No overage grace. If a runaway loop drains your balance on a Saturday, your automations are down until someone buys credits.
+- **Thinner support and monitoring at self-serve tiers.** Error alerting is basic unless you build your own monitoring scenario, and the 24/7 SLA lives on Enterprise.
+- **AI credit consumption is variable by design.** Make's in-house AI modules bill dynamically by model and tokens, which makes forecasting an AI-heavy scenario harder than forecasting a deterministic one.
+
+---
+
+## Who Should Buy Which
+
+**Choose Zapier if:** your team is non-technical, you need long-tail app coverage, your workflows are mostly 2–5 deterministic steps at modest volume, you want AI agents with approval gates and audit trails, or you're an enterprise that needs governance across every surface where people build.
+
+**Choose Make if:** you have at least one ops-minded person who will own automations, your workflows need real branching and looping, you run high volume where per-unit cost compounds, you're an agency billing clients for automation and margin matters, or you want agent reasoning you can inspect step by step.
+
+**Choose neither if** you're an engineering team comfortable running infrastructure. n8n self-hosted on a $15–30/mo VPS beats both on cost at serious volume — you're trading money for maintenance.
+
+**A note on running both:** it's more common than vendors like to admit. Zapier for the long-tail integrations nothing else supports, Make for the five high-volume scenarios that would otherwise dominate the bill. Two subscriptions at $19.99 and $9 is still cheaper than one $489 Zapier tier.
+
+---
+
+## Head-to-Head Matrix
+
+| | Make | Zapier | n8n Cloud |
+|---|---|---|---|
+| Entry paid plan | $9/mo (10,000 credits, annual) | $19.99/mo (750 tasks, annual) | ~$20/mo (2,500 executions) |
+| Free tier | 1,000 credits, 2 scenarios | 100 tasks, 2-step Zaps only | 14-day trial only |
+| App integrations | 3,000+ (560 AI apps) | 9,000+ (~30,000 actions) | 400+ nodes |
+| Workflow model | Visual canvas, branching | Linear steps + Paths | Node graph |
+| Max steps | Unlimited modules and routes | 100 steps, 10 path branches | Unlimited |
+| Min trigger interval (paid) | 1 min on all paid plans | 1 min (Pro+) | 1 min |
+| AI agents | Included on all paid plans | AI by Zapier, task-billed | Included |
+| MCP support | External MCP servers as agent tools | Hosted MCP server + SDK + CLI | Community nodes |
+| Polling consumes billing units | Yes — every poll is a credit | No | No |
+| Overage behavior | Scenarios stop | Pay-per-task at 1.25x, cap 3x | Executions stop |
+| Self-hosting | No | No | Yes |
+| Best for | Developers, ops, agencies | Non-technical operators | Engineering teams |
+
+---
+
+## The Bottom Line
+
+Zapier is the better product for most buyers and the worse deal for most heavy users. Make is the better deal for most heavy users and the wrong product for most buyers. That's not a cop-out — it's the actual shape of this market in 2026, and the deciding question isn't about features at all. It's whether you have someone who will own automation.
+
+If you do, Make at $9 or $16 a month with an ops-minded owner who understands that polls and iterations cost credits will save you hundreds per month at volume, and the canvas plus execution log search will make maintenance genuinely pleasant. If you don't, Zapier's premium is the price of not needing that person, and it's usually worth paying — right up until your invoice crosses $300 a month, at which point hiring the automation owner becomes the cheaper option.
+
+Before you commit to either, do one thing: take your three most important workflows, count the action steps, the polls, and the loop iterations, and price them on both platforms. Fifteen minutes of arithmetic beats every comparison article, including this one.
+
+---
+
+*Affiliate disclosure: We have no affiliate relationship with Make or Zapier. Both platforms were evaluated independently using their published pricing pages, product documentation, changelogs, and public user reports. Pricing verified August 7, 2026 — automation pricing changes frequently, so confirm current tiers on the vendor's own pricing page before purchasing.*
