@@ -46,9 +46,15 @@ export async function POST(request: NextRequest) {
 
     if (error) throw error;
     return NextResponse.json({ success: true });
-  } catch {
+  } catch (err: unknown) {
+    const e = err as { message?: string; code?: string; hint?: string };
+    console.error("Failed to subscribe:", e?.code, e?.message, e?.hint);
     return NextResponse.json(
-      { error: "Failed to subscribe" },
+      {
+        error: "Failed to subscribe",
+        code: e?.code ?? null,
+        detail: e?.message ?? null,
+      },
       { status: 500 }
     );
   }
