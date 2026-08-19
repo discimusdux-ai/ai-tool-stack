@@ -81,8 +81,8 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     url: "https://unbounce.com",
     category: "seo-marketing",
     trackingParams: {},
-    isActive: true,
-    lastChecked: "2026-06-04",
+    isActive: false, // Unverified: plain link, no affiliate tracking (audit 2026-08-19)
+    lastChecked: "2026-08-19",
   },
   ahrefs: {
     id: "ahrefs",
@@ -112,8 +112,8 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     url: "https://convertkit.com",
     category: "email-marketing",
     trackingParams: {},
-    isActive: true,
-    lastChecked: "2026-06-04",
+    isActive: false, // Unverified: plain link, no affiliate tracking (audit 2026-08-19)
+    lastChecked: "2026-08-19",
   },
   mailchimp: {
     id: "mailchimp",
@@ -121,8 +121,8 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     url: "https://mailchimp.com",
     category: "email-marketing",
     trackingParams: {},
-    isActive: true,
-    lastChecked: "2026-06-04",
+    isActive: false, // Unverified: plain link, no affiliate tracking (audit 2026-08-19)
+    lastChecked: "2026-08-19",
   },
 
   // ── CRM & Sales ────────────────────────────────────────
@@ -142,8 +142,8 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     url: "https://www.pipedrive.com/en/affiliate-partnership",
     category: "crm-sales",
     trackingParams: {},
-    isActive: true,
-    lastChecked: "2026-06-04",
+    isActive: false, // Unverified: plain link, no affiliate tracking (audit 2026-08-19)
+    lastChecked: "2026-08-19",
   },
 
   // ── Project Management ─────────────────────────────────
@@ -173,8 +173,8 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     url: "https://clickup.com",
     category: "project-management",
     trackingParams: {},
-    isActive: true,
-    lastChecked: "2026-06-04",
+    isActive: false, // Unverified: plain link, no affiliate tracking (audit 2026-08-19)
+    lastChecked: "2026-08-19",
   },
 
   // ── Design & Creative ──────────────────────────────────
@@ -184,8 +184,8 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     url: "https://www.canva.com",
     category: "design-creative",
     trackingParams: {},
-    isActive: true,
-    lastChecked: "2026-06-04",
+    isActive: false, // Unverified: plain link, no affiliate tracking (audit 2026-08-19)
+    lastChecked: "2026-08-19",
   },
   midjourney: {
     id: "midjourney",
@@ -193,8 +193,8 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     url: "https://www.midjourney.com",
     category: "design-creative",
     trackingParams: {},
-    isActive: true,
-    lastChecked: "2026-06-04",
+    isActive: false, // Unverified: plain link, no affiliate tracking (audit 2026-08-19)
+    lastChecked: "2026-08-19",
   },
   "adobe-firefly": {
     id: "adobe-firefly",
@@ -202,8 +202,8 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     url: "https://www.adobe.com/products/firefly.html",
     category: "design-creative",
     trackingParams: {},
-    isActive: true,
-    lastChecked: "2026-06-04",
+    isActive: false, // Unverified: plain link, no affiliate tracking (audit 2026-08-19)
+    lastChecked: "2026-08-19",
   },
   figma: {
     id: "figma",
@@ -211,8 +211,8 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     url: "https://www.figma.com",
     category: "design-creative",
     trackingParams: {},
-    isActive: true,
-    lastChecked: "2026-06-04",
+    isActive: false, // Unverified: plain link, no affiliate tracking (audit 2026-08-19)
+    lastChecked: "2026-08-19",
   },
 
   // ── AI Video & Podcasting ──────────────────────────────
@@ -231,8 +231,8 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     url: "https://www.heygen.com",
     category: "ai-video",
     trackingParams: {},
-    isActive: true,
-    lastChecked: "2026-06-04",
+    isActive: false, // Unverified: plain link, no affiliate tracking (audit 2026-08-19)
+    lastChecked: "2026-08-19",
   },
   descript: {
     id: "descript",
@@ -249,8 +249,8 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     url: "https://www.capcut.com",
     category: "ai-video",
     trackingParams: {},
-    isActive: true,
-    lastChecked: "2026-06-04",
+    isActive: false, // Unverified: plain link, no affiliate tracking (audit 2026-08-19)
+    lastChecked: "2026-08-19",
   },
   "opus-clip": {
     id: "opus-clip",
@@ -268,8 +268,8 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     url: "https://vizard.ai",
     category: "ai-video",
     trackingParams: {},
-    isActive: true,
-    lastChecked: "2026-06-04",
+    isActive: false, // Unverified: plain link, no affiliate tracking (audit 2026-08-19)
+    lastChecked: "2026-08-19",
   },
 
   // ── Business Automation ────────────────────────────────
@@ -288,8 +288,8 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     url: "https://www.make.com",
     category: "business-automation",
     trackingParams: {},
-    isActive: true,
-    lastChecked: "2026-06-04",
+    isActive: false, // Unverified: plain link, no affiliate tracking (audit 2026-08-19)
+    lastChecked: "2026-08-19",
   },
   n8n: {
     id: "n8n",
@@ -297,8 +297,8 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     url: "https://n8n.io",
     category: "business-automation",
     trackingParams: {},
-    isActive: true,
-    lastChecked: "2026-06-04",
+    isActive: false, // Unverified: plain link, no affiliate tracking (audit 2026-08-19)
+    lastChecked: "2026-08-19",
   },
   bardeen: {
     id: "bardeen",
@@ -306,8 +306,8 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     url: "https://www.bardeen.ai",
     category: "business-automation",
     trackingParams: {},
-    isActive: true,
-    lastChecked: "2026-06-04",
+    isActive: false, // Unverified: plain link, no affiliate tracking (audit 2026-08-19)
+    lastChecked: "2026-08-19",
   },
   activepieces: {
     id: "activepieces",
@@ -315,8 +315,8 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     url: "https://www.activepieces.com",
     category: "business-automation",
     trackingParams: {},
-    isActive: true,
-    lastChecked: "2026-06-04",
+    isActive: false, // Unverified: plain link, no affiliate tracking (audit 2026-08-19)
+    lastChecked: "2026-08-19",
   },
 
   // ── Customer Support & Chatbots ────────────────────────
@@ -326,8 +326,8 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     url: "https://www.intercom.com",
     category: "customer-support",
     trackingParams: {},
-    isActive: true,
-    lastChecked: "2026-06-04",
+    isActive: false, // Unverified: plain link, no affiliate tracking (audit 2026-08-19)
+    lastChecked: "2026-08-19",
   },
   zendesk: {
     id: "zendesk",
@@ -335,8 +335,8 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     url: "https://www.zendesk.com",
     category: "customer-support",
     trackingParams: {},
-    isActive: true,
-    lastChecked: "2026-06-04",
+    isActive: false, // Unverified: plain link, no affiliate tracking (audit 2026-08-19)
+    lastChecked: "2026-08-19",
   },
   tidio: {
     id: "tidio",
@@ -344,8 +344,8 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     url: "https://www.tidio.com",
     category: "customer-support",
     trackingParams: {},
-    isActive: true,
-    lastChecked: "2026-06-04",
+    isActive: false, // Unverified: plain link, no affiliate tracking (audit 2026-08-19)
+    lastChecked: "2026-08-19",
   },
   freshdesk: {
     id: "freshdesk",
@@ -353,8 +353,8 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     url: "https://www.freshworks.com/freshdesk",
     category: "customer-support",
     trackingParams: {},
-    isActive: true,
-    lastChecked: "2026-06-04",
+    isActive: false, // Unverified: plain link, no affiliate tracking (audit 2026-08-19)
+    lastChecked: "2026-08-19",
   },
   chatbase: {
     id: "chatbase",
@@ -362,8 +362,8 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     url: "https://www.chatbase.co",
     category: "customer-support",
     trackingParams: {},
-    isActive: true,
-    lastChecked: "2026-06-04",
+    isActive: false, // Unverified: plain link, no affiliate tracking (audit 2026-08-19)
+    lastChecked: "2026-08-19",
   },
   teachable: {
     id: "teachable",
@@ -371,8 +371,8 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     url: "https://teachable.com",
     category: "business-automation",
     trackingParams: {},
-    isActive: true,
-    lastChecked: "2026-06-04",
+    isActive: false, // Unverified: plain link, no affiliate tracking (audit 2026-08-19)
+    lastChecked: "2026-08-19",
   },
 
   // ── AI Image Generation ────────────────────────────────
@@ -382,8 +382,8 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     url: "https://openai.com/dall-e-3",
     category: "ai-image",
     trackingParams: {},
-    isActive: true,
-    lastChecked: "2026-06-04",
+    isActive: false, // Unverified: plain link, no affiliate tracking (audit 2026-08-19)
+    lastChecked: "2026-08-19",
   },
   "stable-diffusion": {
     id: "stable-diffusion",
@@ -391,8 +391,8 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     url: "https://stability.ai",
     category: "ai-image",
     trackingParams: {},
-    isActive: true,
-    lastChecked: "2026-06-04",
+    isActive: false, // Unverified: plain link, no affiliate tracking (audit 2026-08-19)
+    lastChecked: "2026-08-19",
   },
   leonardo: {
     id: "leonardo",
@@ -400,8 +400,8 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     url: "https://leonardo.ai",
     category: "ai-image",
     trackingParams: {},
-    isActive: true,
-    lastChecked: "2026-06-04",
+    isActive: false, // Unverified: plain link, no affiliate tracking (audit 2026-08-19)
+    lastChecked: "2026-08-19",
   },
 
   // ── AI Coding ──────────────────────────────────────────
@@ -411,8 +411,8 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     url: "https://github.com/features/copilot",
     category: "ai-coding",
     trackingParams: {},
-    isActive: true,
-    lastChecked: "2026-06-04",
+    isActive: false, // Unverified: plain link, no affiliate tracking (audit 2026-08-19)
+    lastChecked: "2026-08-19",
   },
   cursor: {
     id: "cursor",
@@ -420,8 +420,8 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     url: "https://cursor.sh",
     category: "ai-coding",
     trackingParams: {},
-    isActive: true,
-    lastChecked: "2026-06-04",
+    isActive: false, // Unverified: plain link, no affiliate tracking (audit 2026-08-19)
+    lastChecked: "2026-08-19",
   },
   replit: {
     id: "replit",
@@ -429,8 +429,8 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     url: "https://replit.com",
     category: "ai-coding",
     trackingParams: {},
-    isActive: true,
-    lastChecked: "2026-06-04",
+    isActive: false, // Unverified: plain link, no affiliate tracking (audit 2026-08-19)
+    lastChecked: "2026-08-19",
   },
 };
 
