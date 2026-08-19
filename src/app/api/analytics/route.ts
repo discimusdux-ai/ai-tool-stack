@@ -65,15 +65,9 @@ export async function POST(request: NextRequest) {
     }
 
     return NextResponse.json({ success: true });
-  } catch (err: unknown) {
-    const e = err as { message?: string; code?: string; hint?: string };
-    console.error("Failed to record event:", e?.code, e?.message, e?.hint);
+  } catch {
     return NextResponse.json(
-      {
-        error: "Failed to record event",
-        code: e?.code ?? null,
-        detail: e?.message ?? null,
-      },
+      { error: "Failed to record event" },
       { status: 500 }
     );
   }
