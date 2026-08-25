@@ -66,9 +66,23 @@ export default async function BlogPostPage({ params }: Props) {
   const post = getPostBySlug(slug);
   if (!post) notFound();
 
+  // Related posts: score by category match (case/format-insensitive) + shared tags,
+  // so every post gets 3 related links even when its category has few siblings.
+  const normalize = (s: string) => s.toLowerCase().replace(/[\s&]+/g, "-");
+  const postCategory = normalize(post.category);
+  const postTags = new Set((post.tags || []).map((t) => t.toLowerCase()));
+
   const relatedPosts = getAllPosts()
-    .filter((p) => p.category === post.category && p.slug !== post.slug)
-    .slice(0, 3);
+    .filter((p) => p.slug !== post.slug)
+    .map((p) => {
+      const sharedTags = (p.tags || []).filter((t) => postTags.has(t.toLowerCase())).length;
+      const score = (normalize(p.category) === postCategory ? 3 : 0) + sharedTags * 2;
+      return { post: p, score };
+    })
+    .filter((p) => p.score > 0)
+    .sort((a, b) => b.score - a.score || (a.post.date < b.post.date ? 1 : -1))
+    .slice(0, 3)
+    .map((p) => p.post);
 
   const articleSchema = {
     "@context": "https://schema.org",
