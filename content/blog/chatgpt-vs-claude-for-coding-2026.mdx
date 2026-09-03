@@ -1,0 +1,125 @@
+---
+title: "ChatGPT vs Claude for Coding (2026): You're Not Buying a Model, You're Buying a Rate Limit"
+description: "A practitioner's comparison of Codex and Claude Code in September 2026 — real plan pricing, how each meter actually drains, token efficiency, published benchmarks, and the honest failure modes of both."
+date: "2026-09-02"
+updatedAt: "2026-09-02"
+author: "AI Tool Stack Team"
+category: "Comparisons"
+tags: ["ChatGPT", "Claude", "Codex", "Claude Code", "AI coding", "comparison", "developer tools"]
+featured: false
+---
+
+Both entry plans cost $20 a month. Both ship a terminal agent, an IDE extension, and a cloud runner. Both post benchmark scores within a rounding error of each other on the one eval they both publish. If you're trying to pick between ChatGPT and Claude for writing code in September 2026, the model quality argument is mostly over — and it was never the thing that would decide your month anyway.
+
+What decides your month is the meter. Neither company will tell you, in tokens, how much work your $20 buys. Both reserve the right to change it, and both did change it this year — repeatedly, mid-subscription, without a changelog entry you could point a manager at. That is the actual product difference, and it's what this comparison is about.
+
+If you want the broader field — Cursor, Copilot, Windsurf, the IDE-first tools — read our [best AI coding assistants roundup](/blog/best-ai-coding-assistants-2026) and [Cursor vs GitHub Copilot](/blog/cursor-vs-github-copilot-2026). For general chat rather than coding, see [Claude vs ChatGPT vs Gemini](/blog/claude-vs-chatgpt-vs-gemini-2026). This piece is narrower on purpose: the two subscription agents, and how their pricing math plays out on real work.
+
+## Quick verdict
+
+| If this is you | Buy | Why |
+| --- | --- | --- |
+| Solo dev, tight budget, scoped tasks | ChatGPT Plus ($20/mo) | Codex burns dramatically fewer tokens per task; the free tier is genuinely usable for local work |
+| Long-horizon refactors across a big repo | Claude Max 5x ($100/mo) | 1M-token context, parallel subagents, and a session allowance built for multi-hour runs |
+| You keep hitting a wall at hour two | Claude Max 20x ($200/mo) or ChatGPT Pro ($200/mo) | Both vendors' answer to limits is "pay 10x"; there is no middle tier that fixes this |
+| Team of 2–150 | Claude Team @ $20/seat annual, Premium seats $100 | Mix-and-match seat types is the most honest team pricing in the category |
+| You just want to try an agent for $0 | Codex on ChatGPT Free | Permanently included, local tasks only, no card needed |
+| Compliance blocks one vendor | Whichever isn't blocked | This decides more real purchases than any benchmark |
+
+## The one question that matters: how does each meter drain?
+
+Everything else in this comparison is downstream of this, so start here.
+
+**Claude** meters one shared pool. Your activity in claude.ai, the desktop app, mobile, and Claude Code all draw from the same allowance, on a rolling five-hour session window, with weekly limits on top of that. Anthropic publishes no fixed token number. Its help documentation gives ranges instead: Pro at roughly 10–40 Claude Code prompts per five hours, Max 5x at 50–200, Max 20x at 200–800. Opus-class models drain roughly five times faster than Sonnet, so "prompts per window" is a function of which model you picked, not a fixed budget.
+
+**Codex** meters per five-hour window too, but publishes a matrix of local-message and cloud-task ranges per model — GPT-5.6 Sol at 15–90 local messages per five hours on Plus, Terra at 20–110, Luna at 50–280, with "additional weekly limits may apply" in the footnote. Local messages and cloud tasks share the same window. Codex usage also shares its allowance with ChatGPT Work and ChatGPT for Excel on Plus and Pro, which surprises people who assumed their coding budget was theirs alone.
+
+Then note what happened to both meters this year, because it's the same story twice:
+
+- **OpenAI switched Codex from per-message pricing to token-based credit pricing on April 2, 2026** (April 23 for remaining Enterprise/Edu/Gov plans). The published rate card is now credits per million input, cached-input, and output tokens. Reasoning effort isn't a separate row — "Ultra" simply produces more tokens and any subagents it spawns bill too. Practical effect: a single long-reasoning task can eat a window that a dozen short prompts wouldn't.
+- **Anthropic ran a temporary 50% weekly-limit increase through mid-September, then replaced it with a permanent 25% increase from September 14, 2026** for Pro, Max, Team, and seat-based Enterprise. Read that carefully: it's a permanent improvement over the original baseline and roughly a 17% *cut* versus what you have in front of you today. If you sized your workflow during the promo, it shrinks this month.
+
+Neither of those is a scandal. Both are the reason you should never build a team process around a subscription allowance you cannot measure.
+
+## Where the meters broke, in public
+
+This is the part product pages omit, and it's the strongest argument for keeping a credit card and an API key as your fallback on either platform.
+
+On the Claude side, an unusually well-documented incident starting **March 23, 2026** had users across Pro, Max 5x, and Max 20x reporting five-hour windows draining in as little as 19 minutes. GitHub issues on the claude-code repo (#38335, #41930, #39649) collect the receipts: usage jumping 21% → 100% on a single prompt on Max 20x, a session-resume bug generating 652,069 output tokens without a user prompt, usage counters climbing while idle, and `/compact` — the command you run to *save* tokens — consuming a large chunk of quota itself. Community investigation pinned at least four overlapping causes, including intentional peak-hour throttling (which Anthropic confirmed on March 26), two prompt-caching bugs inflating token counts, and the expiry of an off-peak promotion. The recurring complaint in those threads isn't the throttling; it's that there was no blog post, no email, and no status-page entry while it was happening.
+
+On the Codex side, the August 2026 thread on OpenAI's own developer forum runs hundreds of posts deep with the same shape of complaint: "Codex is now burning the 5hr limit in ~30min," a bounded task on a small macOS project dropping a Plus user's five-hour allowance to 14%, users blocked by the rolling window while weekly quota still sat unused. A community project called NerfTrack now exists purely to read local Codex usage records and estimate their API-equivalent value — developers building their own gauge because the official meter won't say what consumed the budget. An April 2026 forum analysis estimated that roughly 40 minutes of reasoning time could consume a full five-hour Plus window.
+
+Two vendors, one lesson: **the number on the pricing page is the sticker, and the meter is the price.**
+
+## Pricing, as of September 2026
+
+| Plan | Price | What you actually get |
+| --- | --- | --- |
+| ChatGPT Free | $0 | Codex included permanently (not a trial). Local tasks via CLI/IDE only, smallest allowance, no cloud features |
+| ChatGPT Go | $8/mo | More headroom for light tasks, still no cloud features |
+| ChatGPT Plus | $20/mo | Cloud tasks, GitHub code review, Slack integration, GPT-5.6 family (Sol/Terra/Luna), credit top-ups |
+| ChatGPT Pro | $100 or $200/mo | 5x or 20x Plus usage; research-preview models; unlimited voice at $200 |
+| ChatGPT Business | $20/seat annual, $25 monthly | Admin controls, SSO, no training on your data, workspace credits |
+| Claude Pro | $20/mo, or $200 up front (~$17/mo) | Claude Code included, 200k context, usage credits |
+| Claude Max 5x | $100/mo | 5x Pro per session, higher output limits, priority at peak |
+| Claude Max 20x | $200/mo | 20x Pro per session; Opus-class default with 1M context |
+| Claude Team | $20/seat annual ($25 monthly); Premium $100 ($125 monthly) | Standard seats = 1.25x Pro per session; Premium = 6.25x Pro. 2–150 seats, mix and match |
+
+Overage works differently in a way that matters. **Anthropic's usage credits bill at standard API rates** — currently $5/$25 per million tokens for Opus-class, $2/$10 for Sonnet 5 (the introductory price that was due to rise on September 1 and, per Anthropic's pricing page, is now simply the standard price), $10/$50 for the Fable tier. You can see exactly what an overage token costs before you spend it, and you can set a spend cap.
+
+**OpenAI's credits are opaque by comparison.** The rate card is published in credits per million tokens (GPT-5.6 Sol at 125 input / 12.5 cached / 750 output credits on one help-center view, 100/10/500 on another view for a different plan card), but the dollar price of a credit isn't on a public pricing page — OpenAI's own documentation says available purchase amounts, prices, payment methods, and spending limits "can vary by account, region, and plan." If you need to forecast a monthly bill for finance, that's a real problem, and Anthropic wins this on transparency alone. The workaround on both sides is the same: authenticate with an API key and pay published per-token rates (gpt-5.6-sol at $4/$20 per million, promotional through at least November 21, 2026; gpt-5.6-luna at $0.20/$1.20), at the cost of losing the cloud features.
+
+## Capability: they win different jobs
+
+Benchmarks in this category rot in about 90 days, so treat every number below as dated evidence rather than a standing ranking.
+
+The honest snapshot from mid-2026: on **SWE-bench Pro** — the one hard benchmark both labs actually reported — Anthropic's Opus 4.8 posted 69.2% against GPT-5.5's 58.6%, and the later Fable-tier model posted 80.0%. On **Terminal-Bench 2.x**, OpenAI led, 82.7–83.4% against roughly 69% for the contemporaneous Opus. On **SWE-bench Verified** the gap was about a point, which is noise for a purchasing decision. Beware the widely circulated "88.7%, #1" figure: it traces to aggregator leaderboards, not OpenAI's own announcement. As of mid-2026, no major independent lab (METR, Princeton, Berkeley) had published a head-to-head on multi-step completion, so anyone selling you a definitive winner is selling you vibes.
+
+The durable difference is architectural:
+
+- **Token efficiency goes to Codex, decisively.** On a Figma-to-code comparison cited by Builder.io and Morphllm, Codex CLI finished a comparable task using ~1.5M tokens where Claude Code used ~6.2M — roughly 4x. OpenAI claims "up to 4x fewer tokens" itself. It's a vendor-flavored, single-benchmark number, but it matches what the forums report, and on a metered plan token efficiency *is* capability: it's how many tasks you finish before the wall.
+- **Context and parallelism go to Claude.** Opus-class models have run a 1M-token context window since Opus 4.6 in February 2026 (premium API rates apply above 200k), and Claude Code added agent teams, nested subagents, worktrees, plan-then-execute, and dynamic workflows orchestrating dozens of subagents. The `opusplan` mode — plan on Opus, execute on Sonnet — is the single best cost lever either product ships. Codex's flagship runs a 272k-token window by the model catalog's own metadata, with effective usable context lower.
+- **Surface coverage is near-parity.** Both do terminal, IDE extension, cloud, GitHub review, and Slack. Codex's CLI is Apache-2.0 open source (91,000+ GitHub stars); Claude Code is not, but ships a deeper permission and sandbox story — manual mode with read-only defaults, a classifier-reviewed auto mode, a sandboxed bash tool with filesystem and network isolation, working-directory boundaries, and documented guidance on dev containers and VMs for untrusted repos.
+- **Portability is your hedge.** Standardize on `AGENTS.md` plus MCP servers and the harness becomes swappable. Do this. Both vendors ship a breaking pricing change roughly every quarter.
+
+## Adoption, for what it's worth
+
+JetBrains' Developer Ecosystem Survey 2026 (15,000+ professional developers, fielded May–July 2026) put Claude Code at ~39% usage at work globally and 47% in the US, up from 18% in January, and the single most-used AI coding tool for 31% of developers. Codex grew about 5x in the same period, 3% → 16%, with awareness jumping from 27% to 65%. Separate enterprise-share estimates put Anthropic near 42% against OpenAI's ~21%.
+
+Adoption is not quality. It does tell you where the plugins, the Stack Overflow answers, and your next hire's muscle memory will be — and it tells you Anthropic currently has pricing power, which is exactly the condition under which allowances get quietly re-sized.
+
+## Where each one breaks
+
+**Codex, honestly:**
+
+1. The rolling five-hour window blocks you while weekly quota sits unspent — the most-repeated complaint in OpenAI's own forum thread, and a genuine workflow killer on long debugging sessions.
+2. Credits have no published dollar price, and the rate card differs by plan view. You cannot forecast a bill.
+3. Codex shares its allowance with ChatGPT Work and ChatGPT for Excel on Plus/Pro, so non-coding usage silently eats coding budget.
+4. Cloud features — GitHub code review, Slack, cloud tasks — are gated above Free and Go, so the $0 tier isn't the product people are recommending to you.
+5. Corporate compliance blocks it at some large employers, per multiple forum reports; that's a procurement fact, not a technical one.
+
+**Claude Code, honestly:**
+
+1. Token-hungry. The 4x gap means a Pro subscription buys visibly less work than the same money at OpenAI on scoped tasks.
+2. The March 2026 drain incident, and the communication around it, is the worst reliability record of the two — bugs are forgivable, silence on the status page is a process problem.
+3. Opus-class defaults drain roughly 5x faster than Sonnet. If you don't manage `/model` and effort levels deliberately, you'll burn a $100 plan on work Sonnet could do.
+4. Standard weekly limits drop ~17% versus the current promo level on September 14, 2026.
+5. Max tiers are monthly-only with no middle rung: the fix for hitting Pro limits is a 5x price jump to $100.
+
+## What we'd actually buy
+
+**The $20 answer.** ChatGPT Plus, if your work is scoped tasks in a repo you know — Codex's token efficiency stretches a small plan further than anything else at this price, and the Free tier lets you validate that before paying. Claude Pro if your work is exploratory across an unfamiliar codebase; the context window earns its keep. Annual Claude Pro at $200 up front (~$17/mo) is the only real discount either vendor offers an individual.
+
+**The $120 answer, and it's the one we'd pick for a working engineer.** ChatGPT Plus at $20 for grunt work, tests, and terminal loops, plus Claude Max 5x at $100 for planning and multi-file refactors. Route by task shape. This is what the practitioner write-ups converge on independently, and it also means neither vendor's next re-metering can stop your week.
+
+**The team answer.** Claude Team, standard seats at $20/seat annual with Premium seats at $100 for the two or three people who actually run long agent sessions. Mixing seat types is the only pricing structure in this category that matches how usage really distributes across a team. ChatGPT Business at $20/seat annual is the equivalent on the other side and buys you SSO plus no-training-on-your-data; it does not buy you a way to predict credit spend.
+
+**What we wouldn't do:** commit annually to either at $200/mo on the strength of a benchmark table. The models will change twice before your renewal.
+
+## Bottom line
+
+Codex is cheaper to run and Claude Code is deeper on long-horizon work; on quality they trade wins, and the eval you'd use to break the tie doesn't exist yet from a neutral lab. So buy on the meter, not the model. Anthropic tells you what an overage token costs and lets you cap it; OpenAI won't publish a credit's dollar value. OpenAI's agent finishes the same task on roughly a quarter of the tokens. Pick the one whose failure mode you can live with, keep `AGENTS.md` and MCP as the portable layer, and keep an API key as your escape hatch, because both meters have moved twice this year and will move again.
+
+---
+
+*We review independently. We are not in an affiliate program with OpenAI or Anthropic, and we earn nothing if you subscribe to either. Pricing and usage limits in this article were verified against vendor pricing pages and help-center documentation on September 2, 2026; both change frequently, and benchmark figures are cited with their publication dates because they go stale in roughly a quarter.*
