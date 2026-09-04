@@ -1,4 +1,7 @@
+"use client";
+
 import { getAffiliateUrl } from "@/lib/affiliate-links";
+import { trackAffiliateClick } from "@/lib/track-click";
 import { RatingStars } from "./RatingStars";
 
 interface Props {
@@ -37,6 +40,7 @@ export function ProductCard({ id, name, description, rating, commission, categor
           target="_blank"
           rel="noopener noreferrer sponsored"
           className="cta-button px-4 py-2 text-xs"
+          onClick={() => trackAffiliateClick(id, name)}
         >
           Try Free →
         </a>
