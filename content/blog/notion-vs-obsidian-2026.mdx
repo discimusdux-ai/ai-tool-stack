@@ -1,0 +1,201 @@
+---
+title: "Notion vs Obsidian (2026): You're Not Comparing Two Note Apps"
+description: "A practitioner's comparison of Notion and Obsidian in 2026 — real pricing including Notion credits, what the export actually loses, Obsidian's sync bugs, AI in both, and who should pick which."
+date: "2026-09-04"
+updatedAt: "2026-09-04"
+author: "AI Tool Stack Team"
+category: "Comparisons"
+tags: ["Notion", "Obsidian", "note-taking", "knowledge management", "second brain", "AI notes", "comparison"]
+featured: false
+---
+
+Most Notion vs Obsidian comparisons run the same script: Notion is for teams, Obsidian is for thinkers, pick your personality type. That's true enough to be useless. It tells you nothing about what either one costs in year three, what happens when you want out, or which one is going to fail you on a Tuesday morning.
+
+Here's the framing that actually resolves the decision: **one of these is a subscription to a database. The other is a file format with an editor attached.**
+
+That's not a philosophical distinction. It's an operational one, and it determines your pricing model, your exit cost, your AI strategy, and your failure modes. Notion holds your notes in a proprietary block store and rents you access, increasingly metered. Obsidian holds nothing — your notes are Markdown files sitting in a folder on your disk, and Obsidian sells you the plumbing to move that folder around.
+
+Once you see it that way, most of the "which is better" noise resolves itself. Below is the real data: current pricing from both vendors, what each one breaks on, and the specific situations where the obvious answer is wrong.
+
+---
+
+## The 60-second verdict
+
+| If this is your situation | Pick | Why |
+|---|---|---|
+| A team that co-edits, assigns, and tracks work in the same place it writes | **Notion** | Obsidian has no native real-time co-editing. Sync moves *your* devices, not *your team*. |
+| A solo knowledge worker building something to reread in ten years | **Obsidian** | Plain Markdown on your disk survives the vendor. Notion's export does not survive your databases. |
+| You need relational databases — tasks linked to projects linked to clients | **Notion** | Relations, rollups, and formulas are the product. Obsidian's Bases layer is younger and thinner. |
+| Your notes contain material you cannot send to a cloud LLM | **Obsidian** | Local embeddings and Ollama-backed plugins keep everything on the machine. |
+| You want AI that already understands your whole workspace, zero setup | **Notion** | Bundled into Business. No API keys, no plugin config. You pay for that convenience. |
+| Budget is genuinely near zero and it's just you | **Obsidian** | The app is free, including commercial use. Notion Free is real but AI is a trial allocation only. |
+| You're choosing what the *whole company* standardises on | Probably **Notion**, with a plan | See the exit-cost section before you commit. It's the part people skip. |
+
+---
+
+## What each one actually is
+
+**Notion** is a block-based cloud workspace where every page can be a row in a database, and every database can be projected as a table, board, calendar, timeline, or gallery. Properties, relations, rollups, formulas. The mental model is *your knowledge is a relational system and I'll help you query it*. Around 100 million active users reported as of Q1 2026 — treat that number as vendor-adjacent and reported, not audited — and roughly 25% of the note-taking/knowledge-management category by one 2026 estimate.
+
+**Obsidian** is a Markdown editor over a folder. Notes link with `[[wikilinks]]`, backlinks and a graph view come for free, and 2,500+ community plugins do the rest. The mental model is *your knowledge is a network of files and the app should get out of the way*. Much smaller share — around 8% — but near-total dominance among researchers, developers, and people who have already been burned once by a shutdown.
+
+The two products moved in **opposite directions** on price over the last eighteen months, and that's the most underreported fact in this comparison:
+
+- Notion **retired the standalone AI add-on in May 2025**. You used to bolt AI onto any plan for roughly $8–10/seat. Now full AI — Notion Agent, AI search, AI Meeting Notes, Enterprise Search — requires **Business at $20/seat**. Legacy add-on subscribers are grandfathered, but cancel once and you can't get back in at the old price.
+- Obsidian **eliminated its commercial licence requirement on 20 February 2025**. Before that, anyone at a company with two or more employees was required to buy a $50/user/year licence. That requirement is gone. Obsidian is now free for work.
+
+One vendor moved its AI behind a higher tier. The other made its paid requirement optional. That divergence is the story of this comparison.
+
+---
+
+## Pricing: the real numbers
+
+### Notion (per seat, annual billing unless noted)
+
+| Plan | Annual | Monthly | AI included? |
+|---|---|---|---|
+| Free | $0 | $0 | Limited trial allocation only |
+| Plus | $10/seat | $12/seat | Limited trial allocation only |
+| Business | $20/seat | $24/seat | Full Notion AI suite |
+| Enterprise | Custom | Custom | Full suite + zero data retention from LLM providers |
+| **Notion credits** (add-on) | **$10 per 1,000 credits/month, no rollover** | — | Required for Custom Agents |
+
+Two things people miss:
+
+**One — "AI included" has a meter behind it.** Notion's own help documentation states that Business and Enterprise plans carry a *usage allowance* measured in two windows: a rolling six-hour window and your monthly billing cycle. Blow through the six-hour allowance and certain AI features pause until it refreshes. Blow through the monthly one and they pause until your next billing cycle. Notion does not publish the allowance in any unit you can count in advance. You find out by hitting it.
+
+**Two — agents are metered separately.** Custom Agents left beta on **4 May 2026** and now consume Notion credits at $10 per 1,000, monthly, no rollover. Notion publishes per-run estimates, which is more transparency than most vendors offer: a Q&A agent runs ~$0.03–0.11, task routing ~$0.05–0.15, project reporting ~$0.08–0.18. Workers — the cheaper, non-reasoning automation primitive — are free in beta but **require credits from 15 October 2026** at roughly $0.0023 per run (~4,348 runs per $10). Admins get per-agent credit limits, a usage dashboard, alerts, and auto-pause when credits run out. Credit for that: it's a genuinely well-built spend guardrail, and better than several rivals we've reviewed.
+
+### Obsidian
+
+| What | Price | Billing | Required? |
+|---|---|---|---|
+| Obsidian app (desktop + mobile) | **Free** | — | This is the whole product |
+| Sync Standard | $4/user/mo annual, $5 monthly | Monthly or annual | Optional |
+| Sync Plus | $8/user/mo annual, $10 monthly | Monthly or annual | Optional |
+| Publish | $8/site/mo annual, $10 monthly | Per site, not per user | Optional |
+| Catalyst | $25 / $50 / $100+ one-time | One-time | Optional, unlocks no features |
+| Commercial licence | $50/user/year | Annual | **Optional since Feb 2025** |
+
+Sync Standard gets you 1 GB, one synced vault, one month of version history. Sync Plus gets 10 GB (expandable to 100 GB for $16/mo annual), ten vaults, twelve months of history. Refunds: full, no questions, within 7 days on Sync and Publish. Catalyst, Commercial, and Obsidian Credit purchases are **non-refundable** — note that before you click.
+
+### The five-year number
+
+This is where the comparison stops being abstract. A five-person team, five years:
+
+- **Notion Business:** 5 × $20 × 60 months = **$6,000**, before a single credit of agent usage.
+- **Obsidian + Sync Standard for everyone:** 5 × $4 × 60 = **$1,200**. Add optional Commercial licences at $50/user/year and it's $2,450.
+
+Notion is roughly **2.5–5x** the cost. That gap buys real things — co-editing, permissions, comments, databases, a bundled AI layer — and for a lot of teams it's worth every dollar. But you should price it deliberately instead of discovering it in year three.
+
+---
+
+## The exit cost nobody prices in
+
+If you take one thing from this piece, take this section.
+
+Notion's export produces a clean-looking zip that is **not a backup you can rebuild from**. Markdown & CSV export gives you page bodies as `.md` files and each database as a flat `.csv`. What silently does not come along:
+
+- **Relations** collapse into plain title text or a raw internal page ID. Re-import and Notion creates a new text column — it does not reconnect anything.
+- **Rollups and formulas** export as the *number you happened to see at export time*, not the definition. On re-import that column is dead text. You saved the answer and threw away the question.
+- **Views, filters, sorts, groupings** aren't in the file at all. Notion is explicit that when exporting a database "you can only choose between the current view and the default view," and "exporting all views at once isn't supported." Form views can't be exported at all.
+- **Callout blocks** come out as raw HTML. Images land in separate folders with broken references.
+- **Filenames** get a 32-character hex ID appended. Nest three levels deep and the path can exceed 260 characters, at which point the file silently fails to extract from the zip on Windows.
+
+Operationally: a workspace export can take **up to 30 hours** to process, arrives as an emailed link, and that **link expires after 7 days**. Request one on a Friday and it can finish Saturday and expire while you're still deciding where to put it. Whole-workspace PDF export is also being retired, rolling out to workspaces through **31 August 2026** — if a compliance archive depends on it, that process needs replacing, not rescheduling.
+
+The community's verdict on how hard this is: there has been a **$5,000 bounty open on the Obsidian Importer GitHub repo (issue #421)** for proper Notion database import — for over two years, unclaimed.
+
+Obsidian's exit cost is zero by construction. The files are already Markdown, already on your disk, already in whatever folder you chose. You can `git init` the vault this afternoon. That is the entire pitch, and it is not a small one.
+
+None of this means don't use Notion. It means: **if you build a relational workspace in Notion, you are building something that only exists inside Notion.** Price the lock-in as part of the subscription, because it is.
+
+---
+
+## AI: bundled convenience vs. bring-your-own-brain
+
+**Notion's approach** is vertical integration. Notion Agent, AI search across your workspace, AI Meeting Notes, and Enterprise Search all ship inside Business. No API key, no configuration, and the model already has context on every page you can see. Custom Agents add scheduled autonomous work on top, metered in credits. For a team that just wants AI to work, this is the better experience and it isn't close.
+
+The cost is control. You're on Notion's model choices, Notion's allowance windows, and Notion's data path — zero data retention from LLM providers is an **Enterprise-plan guarantee**, not a Business one. Read that line on the pricing page carefully if you're in a regulated field.
+
+**Obsidian's approach** is that AI is somebody else's plugin, and there are a lot of them:
+
+- **Smart Connections** — semantic search over your vault using a *local* embedding model. No API key, no setup, works on mobile, nothing leaves the machine.
+- **Copilot** — now a full agent host. V4 runs opencode, Claude Code, and Codex inside Obsidian, using your *existing* Claude or ChatGPT login rather than a separate subscription. Open source; works without any Copilot licence if you bring your own agent account, provider key, or local model.
+- **Copilot Personal** — a different plugin, free tier with BYOK, $4.99/mo Pro for agent mode and semantic RAG, 11 providers.
+- **Ollama + `nomic-embed-text`** for a fully offline stack. Community benchmarks put embedding a 10,000-note vault at around 2.5 minutes on Apple Silicon, with sub-100ms search.
+
+If your notes include client material, legal work, health data, or unpublished research, that offline path is not a nice-to-have — it's the reason to choose Obsidian outright. But be honest about the tax: you are now the systems integrator. Plugin versions drift, an update breaks your config, and nobody is on the hook but you.
+
+---
+
+## Where Notion breaks
+
+**1. It gets slow, and it's structural.** Users with hundreds of pages and complex relations report workspaces becoming unusable. Notion's own help documentation attributes roughly 70% of performance complaints to overloaded databases. Verbatim from a Hacker News thread analysed in a June 2026 churn study: *"Moved everything out of Notion into Obsidian. Notion was unusable after hundreds of items."* And: *"Every few months I have to split up pages and move stuff to archive because it becomes unusably slow."* This is a ticking-clock pattern — you love it at month three and hit the wall at month nine.
+
+**2. Billing is the most-complained-about part of the product.** Trustpilot's own review summaries for notion.so across multiple regions converge on the same themes: unexpected charges, difficulty cancelling, and unresponsive support. Recurring specifics from 2026 reviews include being billed a full annual seat for members added without a prompt, refusal to refund outside a ~3-day window, and iPad in-app purchases that Notion support said it "cannot see," with the proposed fix being *subscribe again*. The product gets praise in the same reviews. The billing does not.
+
+**3. The API is too slow to build on.** Documented at ~3 requests/second per integration (~180/minute), with HTTP 429s and no paid tier that lifts it. Developers building sites on Notion-as-CMS routinely hit it, and the community consensus is self-throttling with exponential backoff. One developer's summary: *"we have just ruled out developing a service with Notion's API because of that limit."* If your plan involves Notion as a data backend, test this first.
+
+**4. The AI allowance is unpublished.** Covered above, but it belongs on the cons list. A meter you cannot read before you hit it is a real product flaw, not a footnote.
+
+---
+
+## Where Obsidian breaks
+
+Obsidian gets a lot of uncritical praise from its own community. It doesn't deserve all of it.
+
+**1. Sync has had genuinely alarming bugs.** From Obsidian's own forums in 2026: an April report that Sync **silently resurrects deleted and moved files** when an offline device reconnects — roughly 80 previously deleted `.md` files reappearing across a vault, because Sync's conflict model treats deletion as "new local creation" rather than a conflicting side. A separate April report describes Sync **intermittently emptying incoming notes on Android** and failing to recognise the diff, leaving the user unable to restore the latest version from history. Both were reproduced without community plugins.
+
+**2. Mobile is the weak link.** The iOS app hit a restart loop after v1.12.4 in March 2026 — a few taps, freeze, reload, back to the start page — and users couldn't reach the plugin settings fast enough to disable the culprit. Android users report crashes, lag, and freezes while simply typing. Plugins are usually blamed, and often are, but "it's a plugin" is a diagnosis, not a fix.
+
+**3. The free Git-sync workaround is worse than people claim.** If you're planning to skip the $4 and use the Git plugin on mobile: iOS and Android can't run the real git binary, so the plugin uses a JavaScript reimplementation. No SSH auth (HTTPS with a personal access token stored on your phone), no rebase, no submodules, no git-LFS, and repo size capped by available RAM. The plugin's *own documentation* says the mobile git implementation is very unstable and recommends you use something else. Failure modes are crashes on clone or pull, buffer overflows, or hanging forever — and they're memory failures, so it works for weeks and then breaks because you had too many tabs open.
+
+**4. No real-time co-editing.** Sync moves your devices, not your colleagues. Third-party plugins (Relay, Peerdraft) and shared vaults exist, but this is not the same product Notion ships, and pretending otherwise is how teams end up unhappy three months in.
+
+---
+
+## Head-to-head
+
+| | Notion | Obsidian |
+|---|---|---|
+| Where notes live | Notion's cloud, proprietary blocks | Plain `.md` files on your disk |
+| Entry price | $0 (AI is trial-only) | $0, including commercial use |
+| Full AI | $20/seat/mo annual (Business) | Free–$5/mo plugin + your own API spend |
+| Metered extras | Credits $10/1,000, no rollover | None |
+| Real-time co-editing | Native | Not native |
+| Relational databases | Core strength | Bases layer, younger and thinner |
+| Offline | Limited | Fully offline by default |
+| Local/private AI | No | Yes (Ollama, local embeddings) |
+| Extensibility | ~70 integrations + public API (3 req/s) | 2,500+ community plugins |
+| Export fidelity | Loses relations, rollups, formulas, views | Nothing to lose — it's already files |
+| Mobile stability | Good | Documented crash/restart issues |
+| 5-yr cost, team of 5 | ~$6,000+ | ~$1,200–2,450 |
+
+---
+
+## Who should buy which
+
+**Buy Notion if** more than two people need to be in the same document, or if your knowledge is genuinely relational — tasks that belong to projects that belong to clients. Nothing in the Obsidian ecosystem replicates Notion databases with comparable polish, and the bundled AI removes an entire category of setup work. Budget Business at $20/seat from day one; Plus without AI is a trap you'll pay to escape. Set per-agent credit limits before you roll agents out, not after.
+
+**Buy Obsidian if** it's mostly you, or if the notes are supposed to outlive the tool. Researchers, writers, consultants, anyone with a decade-long reading habit. Pay the $4 for Sync — the free Git route on mobile is not worth the reliability cost, and Obsidian's own plugin docs agree. Add Smart Connections first, and only reach for an agent plugin once you have enough notes for it to matter.
+
+**Run both if** you're a solo operator with clients. This is what a lot of experienced people quietly do: Notion as the client-facing surface — shared project pages, wikis, anything someone else needs a link to — and Obsidian as the private thinking layer where the actual work happens. Combined cost is $10 Plus + $4 Sync = **$14/month**, which is cheaper than one Notion Business seat and gets you both halves of the job.
+
+**Skip both if** your work is canvas-shaped rather than document-shaped or database-shaped. Neither tool is a whiteboard, and forcing either into that role is how people end up abandoning a system at month three.
+
+---
+
+## Bottom line
+
+Notion is the better product for teams and the worse product to leave. Obsidian is the better product to own and the worse product to share. That trade has actually *sharpened* since 2025 — Notion moved AI up a tier and added a credit meter; Obsidian dropped its commercial licence requirement and stayed free.
+
+Decide on the failure you'd rather have. If the painful failure is *your team can't find the current version of anything*, buy Notion and accept the lock-in as a line item. If the painful failure is *you can't open your own notes without an active subscription*, buy Obsidian and accept that you're the sysadmin.
+
+What you should not do is drift into Notion, build three years of relational databases inside it, and only then read the export documentation.
+
+---
+
+**Related reading:** [Best AI Note-Taking Tools 2026](/blog/best-ai-note-taking-tools-2026) · [Best AI Tools for Small Business 2026](/blog/best-ai-tools-small-business-2026) · [Best AI Research Tools 2026](/blog/best-ai-research-tools-2026)
+
+*Disclosure: AI Tool Stack reviews independently. We have no active affiliate relationship with either Notion or Obsidian — the Notion affiliate program runs through PartnerStack and is currently frozen for us, and Obsidian does not operate one. Pricing was verified against both vendors' own pricing and help documentation on 4 September 2026; both vendors change prices, so confirm before you buy.*
