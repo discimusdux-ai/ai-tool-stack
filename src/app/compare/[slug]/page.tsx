@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { COMPARISONS, getComparisonBySlug } from "@/lib/comparisons";
 import { ComparisonTable } from "@/components/affiliate/ComparisonTable";
+import { CTAButton } from "@/components/affiliate/CTAButton";
 import { getAffiliateUrl } from "@/lib/affiliate-links";
 import { StructuredData } from "@/components/seo/StructuredData";
 import { NewsletterForm } from "@/components/email/NewsletterForm";
@@ -176,14 +177,12 @@ export default async function ComparisonPage({ params }: Props) {
                 </ul>
               </div>
 
-              <a
-                href={getAffiliateUrl(tool.id)}
-                target="_blank"
-                rel="noopener noreferrer sponsored"
-                className="cta-button block w-full text-center"
-              >
-                Try {tool.name} Free →
-              </a>
+              <CTAButton
+                productId={tool.id}
+                label={`Try ${tool.name} Free`}
+                size="md"
+                className="w-full justify-center"
+              />
             </div>
           ))}
         </div>
