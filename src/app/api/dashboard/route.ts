@@ -93,7 +93,7 @@ async function getGA4Metrics(
       // All-time: GA4 only returns data from whenever the property started collecting,
       // so a far-past start date effectively gives lifetime totals.
       runGA4Report(accessToken, propertyId, {
-        dateRanges: [{ startDate: "2015-01-01", endDate: "today" }],
+        dateRanges: [{ startDate: "2015-08-15", endDate: "today" }],
         metrics: [
           { name: "totalUsers" },
           { name: "sessions" },
@@ -103,7 +103,7 @@ async function getGA4Metrics(
       }),
       // Top Pages now reflects all-time traffic, not just the last 7 days.
       runGA4Report(accessToken, propertyId, {
-        dateRanges: [{ startDate: "2015-01-01", endDate: "today" }],
+        dateRanges: [{ startDate: "2015-08-15", endDate: "today" }],
         dimensions: [{ name: "pagePath" }],
         metrics: [{ name: "screenPageViews" }, { name: "totalUsers" }],
         limit: 10,
