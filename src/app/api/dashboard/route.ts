@@ -12,6 +12,10 @@ interface GA4Metrics {
   prevTotalUsers: number;
   prevSessions: number;
   prevPageViews: number;
+  allTimeUsers: number;
+  allTimeSessions: number;
+  allTimePageViews: number;
+  allTimeAvgSessionDurationSec: number;
   topPages: { path: string; views: number; users: number }[];
   dailyViews: { date: string; views: number; users: number }[];
 }
@@ -68,7 +72,7 @@ async function getGA4Metrics(
     const accessToken = tokenResponse.token;
     if (!accessToken) throw new Error("Failed to obtain access token");
 
-    const [current, previous, topPages, daily] = await Promise.all([
+    const [current, previous, allTime, topPages, daily] = await Promise.all([
       runGA4Report(accessToken, propertyId, {
         dateRanges: [{ startDate: "7daysAgo", endDate: "yesterday" }],
         metrics: [
@@ -86,8 +90,20 @@ async function getGA4Metrics(
           { name: "screenPageViews" },
         ],
       }),
+      // All-time: GA4 only returns data from whenever the property started collecting,
+      // so a far-past start date effectively gives lifetime totals.
       runGA4Report(accessToken, propertyId, {
-        dateRanges: [{ startDate: "7daysAgo", endDate: "yesterday" }],
+        dateRanges: [{ startDate: "2015-01-01", endDate: "today" }],
+        metrics: [
+          { name: "totalUsers" },
+          { name: "sessions" },
+          { name: "screenPageViews" },
+          { name: "averageSessionDuration" },
+        ],
+      }),
+      // Top Pages now reflects all-time traffic, not just the last 7 days.
+      runGA4Report(accessToken, propertyId, {
+        dateRanges: [{ startDate: "2015-01-01", endDate: "today" }],
         dimensions: [{ name: "pagePath" }],
         metrics: [{ name: "screenPageViews" }, { name: "totalUsers" }],
         limit: 10,
@@ -103,6 +119,7 @@ async function getGA4Metrics(
 
     const currentRow = current.rows?.[0];
     const prevRow = previous.rows?.[0];
+    const allTimeRow = allTime.rows?.[0];
 
     return {
       data: {
@@ -113,6 +130,10 @@ async function getGA4Metrics(
         prevTotalUsers: parseInt(prevRow?.metricValues?.[0]?.value ?? "0"),
         prevSessions: parseInt(prevRow?.metricValues?.[1]?.value ?? "0"),
         prevPageViews: parseInt(prevRow?.metricValues?.[2]?.value ?? "0"),
+        allTimeUsers: parseInt(allTimeRow?.metricValues?.[0]?.value ?? "0"),
+        allTimeSessions: parseInt(allTimeRow?.metricValues?.[1]?.value ?? "0"),
+        allTimePageViews: parseInt(allTimeRow?.metricValues?.[2]?.value ?? "0"),
+        allTimeAvgSessionDurationSec: parseFloat(allTimeRow?.metricValues?.[3]?.value ?? "0"),
         topPages: (topPages.rows ?? []).map((row) => ({
           path: row.dimensionValues?.[0]?.value ?? "",
           views: parseInt(row.metricValues?.[0]?.value ?? "0"),
