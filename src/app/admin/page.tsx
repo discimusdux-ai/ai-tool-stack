@@ -11,6 +11,10 @@ interface GA4Metrics {
   prevTotalUsers: number;
   prevSessions: number;
   prevPageViews: number;
+  allTimeUsers: number;
+  allTimeSessions: number;
+  allTimePageViews: number;
+  allTimeAvgSessionDurationSec: number;
   topPages: { path: string; views: number; users: number }[];
   dailyViews: { date: string; views: number; users: number }[];
 }
@@ -178,7 +182,7 @@ export default function AdminDashboard() {
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           <div>
             <h1 className="text-lg font-bold">AI Tool Stack</h1>
-            <p className="text-xs text-gray-400">Analytics Dashboard · Last 7 days</p>
+            <p className="text-xs text-gray-400">Analytics Dashboard · All-time & last 7 days</p>
           </div>
           <div className="flex items-center gap-4">
             <span className="text-xs text-gray-500">{generatedAt}</span>
@@ -203,6 +207,21 @@ export default function AdminDashboard() {
 
           {ga4 ? (
             <>
+              {/* All-time totals */}
+              <p className="text-xs text-gray-500 font-medium mb-2">All-time</p>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                <StatCard title="Users (All-time)" value={ga4.allTimeUsers} />
+                <StatCard title="Sessions (All-time)" value={ga4.allTimeSessions} />
+                <StatCard title="Page Views (All-time)" value={ga4.allTimePageViews} />
+                <StatCard
+                  title="Avg. Session (All-time)"
+                  value={ga4.allTimeAvgSessionDurationSec}
+                  format={formatDuration}
+                />
+              </div>
+
+              {/* Last 7 days, with prior-7-day comparison */}
+              <p className="text-xs text-gray-500 font-medium mb-2">Last 7 days</p>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
                 <StatCard title="Users" value={ga4.totalUsers} prev={ga4.prevTotalUsers} />
                 <StatCard title="Sessions" value={ga4.sessions} prev={ga4.prevSessions} />
@@ -235,7 +254,7 @@ export default function AdminDashboard() {
               {/* Top Pages */}
               <div className="bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
                 <div className="px-5 py-4 border-b border-gray-800">
-                  <p className="text-sm font-semibold text-gray-200">Top Pages</p>
+                  <p className="text-sm font-semibold text-gray-200">Top Pages (All-time)</p>
                 </div>
                 <div className="divide-y divide-gray-800">
                   {ga4.topPages.map((page) => (
