@@ -105,6 +105,17 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     lastChecked: "2026-06-04",
   },
 
+  fliki: {
+    id: "fliki",
+    name: "Fliki",
+    url: "https://fliki.ai/?via=youraitoolstack",
+    category: "ai-video",
+    trackingParams: {},
+    isActive: true, // Approved 2026-09-11, own platform (affiliates.fliki.ai), 30% lifetime commission
+    lastChecked: "2026-09-11",
+    note: "Affiliate link: fliki.ai/?via=youraitoolstack",
+  },
+
   // ── Email Marketing ────────────────────────────────────
   convertkit: {
     id: "convertkit",
