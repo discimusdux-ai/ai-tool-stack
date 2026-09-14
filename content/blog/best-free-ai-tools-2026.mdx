@@ -1,0 +1,150 @@
+---
+title: "Best Free AI Tools in 2026: 7 That Are Actually Free (And What Can Be Taken Back)"
+description: "Seven genuinely free AI tools, priced and stress-tested in September 2026 — ChatGPT Free, Gemini Free, Claude Free, Canva Free, DaVinci Resolve, Obsidian, and self-hosted n8n — plus the free tiers that got cut this year."
+date: "2026-09-14"
+updatedAt: "2026-09-14"
+author: "AI Tool Stack Team"
+category: "ai-tools"
+tags: ["free ai tools", "chatgpt", "gemini", "claude", "canva", "davinci resolve", "obsidian", "n8n"]
+featured: false
+---
+
+Free AI in 2026 is better than paid AI was in 2024. ChatGPT's free plan runs a current flagship model with no cap on text chats. Gemini is attached to every Google account. Claude gives away its default model. DaVinci Resolve hands you a colour suite that films get graded on, with no watermark.
+
+And 2026 is also the year free tiers started getting clawed back. Google shut down the free Gemini Code Assist tier on 18 June 2026, taking 6,000 monthly completions with it — the replacement is $19 per user per month. On 7 April 2026 Google pulled Pro-class models out of the Gemini API free tier; Flash only from then on. On 13 May 2026 OpenAI replaced its legacy developer free tier with a one-time $15 trial credit. GitHub ended flat-rate Copilot Pro on 1 June 2026 and capped free users at 50 messages a month. Microsoft retired Deep Research, Podcasts, and Group Chat for free Copilot users on 18 August 2026.
+
+So the useful question is not "what's free right now." It is:
+
+**Can this be taken away from you?**
+
+That splits every tool on this list into two piles. A *free tier* is a marketing budget: it exists because a vendor wants your habit, and it is repriced whenever the vendor's economics change. *Free software* — a perpetual licence or code running on your own hardware — is yours. The version you have today keeps working even if the company raises prices, gets acquired, or dies.
+
+Both piles are worth using. But you should know which one you are building on before you put a business process inside it.
+
+## Methodology
+
+Pricing and limits here were read off vendor pricing pages, help-centre articles, and licence documents in the week of 8–14 September 2026, not from aggregator databases — which we repeatedly find months stale. Where a vendor no longer publishes a number (Google's free API rate limits, Anthropic's message caps) we say so instead of quoting community reverse-engineering as fact. We have no affiliate relationship with any of the seven tools below; everything here is reviewed independently.
+
+## The verdict table
+
+| Tool | Best free for | Free forever? | The catch |
+| --- | --- | --- | --- |
+| ChatGPT Free | General chat, unlimited typing | Free tier (revocable) | Ads since Feb 2026; tools still metered |
+| Gemini Free | Anything inside Google Workspace | Free tier (revocable) | Compute-based caps nobody can see |
+| Claude Free | Long-form writing and editing | Free tier (revocable) | Tightest usage window of the three |
+| Canva Free | Fast social/design output | Free tier (revocable) | Watermarks on Pro assets; AI heavily gated |
+| DaVinci Resolve | Professional video and colour | **Yes — perpetual** | No Neural Engine AI features |
+| Obsidian | Notes you'll still own in 2036 | **Yes — perpetual** | You assemble your own AI layer |
+| n8n Community | Unlimited automation runs | **Yes — source-available** | You run and secure the server |
+
+## 1. ChatGPT Free — the best free chatbot, now ad-supported
+
+**Best for:** general-purpose chat, drafting, and search-grounded questions.
+**Price:** $0, no card. Go $8, Plus $20, Pro $100–$200, Business $20/seat.
+
+The free plan changed shape on 6 August 2026, when OpenAI made GPT-5.6 Luna the default for Free and Go, and from the week of 10 August removed the message cap on text chats entirely — retiring the roughly 10-messages-per-5-hours limit that had been the main upgrade pressure. Free accounts also get web search, file and image uploads, image generation, GPTs, memory, and a Think button for harder problems, with 500 MB of Library storage.
+
+**Where it breaks.** "Unlimited" covers typing and stops there: OpenAI's own release notes keep limits on file uploads, image generation, voice, Deep Research, and Agent mode, and its pricing page still describes free access to the flagship as *limited*. Second, ads. OpenAI began testing advertising in ChatGPT in the US on 9 February 2026, expanded to the UK, Mexico, Brazil, Japan, and South Korea from 7 May, and by 31 August announced ChatGPT Ads had passed a $1 billion annualised run rate across 40-plus countries with direct Ads Manager buying in India, Europe, the Middle East, and North Africa. Ads appear on Free and Go only. Third, the model under you is not stable — silent downgrades when a limit is hit are the single most repeated complaint on r/OpenAI and r/ChatGPT, from free and paying users alike, and OpenAI does not notify you in-product when it happens.
+
+Use it as your default free assistant. Do not use it as the place your sensitive client documents live.
+
+## 2. Gemini Free — the strongest free tier if you already live in Google
+
+**Best for:** people whose work is already in Gmail, Docs, and Drive; and developers who want a free API key.
+**Price:** $0 with a Google account. Paid tiers are Google AI Plus, Pro, and Ultra, bundled into Google One.
+
+There are two different free Geminis and confusing them is expensive. The consumer app is free with a Google account and includes a current Flash-class default model, image generation, voice, and metered access to the stronger Pro model. Separately, Google AI Studio and the Gemini API have a free developer tier with no credit card: Flash and Flash-Lite class models plus Gemma, embeddings, live, TTS, and transcription. Google's pricing page states plainly that "Google AI Studio usage is free of charge in all available regions."
+
+**Where it breaks.** Google stopped publishing free-tier rate limits — its rate-limits page now says your limits "can be viewed in Google AI Studio," per project, with the daily quota resetting at midnight Pacific. Every "1,500 requests a day at 10 RPM" table you'll find online, including on pages updated this year, is no longer an official figure. On the consumer side, Google switched from counting prompts to measuring compute in May 2026: your allowance refreshes every five hours inside a weekly ceiling, and it is spent faster by harder prompts. There is no counter to ration, which makes the free tier unpredictable rather than generous.
+
+Then there's data. Free-tier prompts and responses may be used to improve Google's models; the contractual no-training treatment lives on paid Cloud Billing or Vertex AI. Google's own developer forum has open threads this month arguing about how that policy applies to EEA accounts, and a long-running complaint (August 2026) that deleted AI Studio chats remain recoverable after the interface says they are gone. And Google has already proven it will cut: free Code Assist ended 18 June 2026, Pro models left the free API tier on 7 April 2026.
+
+Free, excellent, and the least predictable of the three. Our [three-way chatbot comparison](/blog/claude-vs-chatgpt-vs-gemini-2026) goes deeper on model quality.
+
+## 3. Claude Free — the best free tier for writing, the tightest for volume
+
+**Best for:** long-form drafting, editing, and code review in short sessions.
+**Price:** $0. Pro $20/mo ($200/yr), Max $100/$200, Team $20–$125.
+
+Anthropic's free plan is more capable than its reputation: web search, memory across conversations, file creation and code execution, Artifacts, Projects, desktop extensions, Slack and Google Workspace connectors, remote MCP connectors, and extended thinking are all listed as available on Free, running the current default Sonnet-class model. For prose specifically it is the one we reach for first.
+
+**Where it breaks.** The limit. Anthropic publishes no message count for any tier — not Free, not Pro, not Max. What it publishes is *relative*: Pro is at least 5× Free per session, Max 5× is roughly five times Pro. Usage is metered against a rolling five-hour window that starts at your first message, with a weekly cap layered on for paid plans, and consumption depends on conversation length, features used, model, and effort level. Community measurements put free usage somewhere around 15–40 messages per window, but that is reverse-engineering, not specification, and anyone printing a confident number is guessing. Top-tier models are paid-only. And Anthropic re-cut paid limits as recently as 14 September 2026, replacing a temporary +50% weekly allowance with a permanent +25% — which is a cut dressed as an increase. Free tiers sit downstream of decisions like that.
+
+## 4. Canva Free — generous editor, stingy AI
+
+**Best for:** social graphics, quick decks, and non-designers who need something shipped today.
+**Price:** $0. Pro is US$180/yr; Business US$250/yr per person (yearly saves ~16%, tax excluded — and Canva's Pricing Promise sets regional prices, so there is no single global dollar figure).
+
+Free gives you the full drag-and-drop editor, 1,000+ design types, 1.6M+ templates, 4.7M+ free photos, videos, graphics, and audio, one Brand Kit limited to three colours, and — this is the part people miss — clean, watermark-free exports of anything built from free content.
+
+**Where it breaks.** Pro content is watermarked for free users, and the escape hatch is a one-off licence fee *per design*: use the same photo in a second design and you pay again. Background removal, resize, and translate are Pro-only. The AI allowance is not credits but a shared monthly allowance: Canva Free gets up to 200 Standard AI uses or 20 Premium AI uses, resetting at 00:00 UTC on the first of each month, and Premium/Ultra AI tools require a paid plan. Independent hands-on testing in mid-2026 found tighter real-world walls than the marketing implies, including a lifetime cap on Magic Write uses for free accounts. Canva has also been re-gating existing features rather than raising headline prices — QR codes became watermarked unless you're on Business in August 2026 — which is the shape of shrinkflation, and it hits free users first.
+
+Canva runs an Impact.com affiliate programme; we are not confirming an active link, so treat this as an independent review. For a deeper look at where Canva loses, see [Gamma vs Canva for presentations](/blog/gamma-vs-canva-presentations-2026).
+
+## 5. DaVinci Resolve — the strongest free product in software, full stop
+
+**Best for:** anyone editing video who does not want a subscription.
+**Price:** Free. Studio is $295 once, perpetual, including updates within the major version.
+
+This is the pile-two entry that reframes the whole list. Resolve Free is not a trial and not a crippled demo: full Cut and Edit pages with multicam, Fusion compositing, Fairlight audio post, and Blackmagic's colour tools, exporting HD and UHD with no watermark, no time limit, and no export gate. Compare it to Premiere Pro at $59.99/month — $720 a year — and the free version wins on price by definition while remaining a legitimate professional tool.
+
+**Where it breaks.** The AI is the paywall. Magic Mask, Voice Isolation, Dialogue Separator, Smart Reframe, Speed Warp, Super Scale, and Face Recognition all run on the Neural Engine and all require Studio. Free also limits high-end resolutions and frame rates, some advanced noise reduction, film grain, stereoscopic 3D, and HDR grading tools, and gives you less codec and hardware-acceleration headroom — which bites hardest on 10-bit H.264/H.265 and pro camera codecs. Multi-user collaboration needs a PostgreSQL setup and Studio, and it is genuinely fiddly compared to Premiere plus Frame.io. There is no generative AI at all: Resolve accelerates footage you already shot, it doesn't invent pixels.
+
+If AI editing is the point, our [AI video editing roundup](/blog/best-ai-video-editing-tools-2026) covers the metered alternatives. If *editing* is the point, start here and buy Studio only when a specific tool blocks you.
+
+## 6. Obsidian — free for work, and the exit door is always open
+
+**Best for:** notes, research, and anything you want readable in a decade.
+**Price:** App free for all uses, including commercial. Optional Sync $4/user/mo billed annually, Publish $8/site/mo, Catalyst $25 one-time, Commercial $50/user/yr (optional).
+
+Obsidian dropped its commercial-licence requirement on 20 February 2025: anyone can use it at work for free, with no account, no ads, and no tracking. Your notes are plain Markdown files on your own disk, which is the entire argument. There is no vendor that can meter you, because there is no vendor in the loop.
+
+**Where it breaks.** AI is bring-your-own — Smart Connections for local embeddings, Copilot plugins riding your existing model login, or a local Ollama stack; nothing works out of the box. The paid Sync service has a rough 2026 track record in the official forums: reports of deleted files resurrecting on reconnect and notes emptying on Android in April, plus an iOS restart loop in v1.12.4 in March. Sync Standard is also thin at 1 GB total storage, 5 MB max file size, and one month of version history. Catalyst and Commercial licences are non-refundable; Sync and Publish carry a 7-day refund. And the blank-canvas problem is real: Obsidian gives you a file format and an editor, not a system.
+
+If you're weighing this against a database-shaped tool, [Notion vs Obsidian](/blog/notion-vs-obsidian-2026) is the direct comparison — including what it costs to leave Notion.
+
+## 7. n8n Community Edition — unlimited automation for the price of a VPS
+
+**Best for:** anyone whose Zapier bill scales with task count.
+**Price:** Free to self-host. You pay for the server.
+
+Run the official Docker image on a small Linux box and you get every core node with no cap on workflows or executions. That is the whole pitch, and against per-task cloud automation pricing it is dramatic: the meter simply doesn't exist. Workflows are JSON, so they're portable and version-controllable.
+
+**Where it breaks.** n8n is *source-available*, not OSI open source. The Sustainable Use License permits use, modification, and redistribution with three limits: internal business purposes or personal/non-commercial use only; distribution to others must be free and non-commercial; and you may not obscure licensing notices. In practice you can automate your own company's operations commercially — but you may not host n8n and charge people to access it, or white-label it, without a separate commercial agreement. Enterprise-licensed features live in files marked `.ee.` and stay switched off without a key. And you own the operations: persist `/home/node/.n8n`, pin `N8N_ENCRYPTION_KEY` yourself rather than letting it auto-generate, terminate SSL at a reverse proxy, never expose port 5678, and keep off-server backups. That is a real job, not a free lunch.
+
+For the hosted alternatives, see [Make vs Zapier](/blog/make-vs-zapier-2026) and our [automation roundup](/blog/best-ai-automation-tools-2026).
+
+## Sidebar: Ollama, if you want the model itself to be free
+
+Local models are the extreme end of pile two — nothing to revoke, nothing to meter, no data leaving the machine. Ollama's floor is roughly 8 GB RAM, 10 GB of disk, and a 64-bit AVX2 CPU with no GPU required; comfortable daily use means 16 GB RAM plus an 8–12 GB GPU or a 16 GB Apple Silicon Mac, which runs 7B–14B models at 30–60 tokens/sec. At Q4 quantisation the rule of thumb is 8 GB for 7B, 16 GB for 13–14B, 24 GB+ for 32B. The honest caveat: a 14B local model is not a substitute for a frontier model on hard reasoning. It is a substitute for sending routine text to somebody else's server.
+
+## Comparison table
+
+| | ChatGPT Free | Gemini Free | Claude Free | Canva Free | Resolve | Obsidian | n8n CE |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Cost | $0 | $0 | $0 | $0 | $0 | $0 | $0 + server |
+| Card required | No | No | No | No | No | No | No |
+| Revocable by vendor | Yes | Yes | Yes | Yes | No | No | No |
+| Ads | Yes (Free/Go) | No | No | No | No | No | No |
+| Published limits | Partly | No | No | Yes | n/a | n/a | None |
+| Commercial use | Yes | Yes | Yes | Yes (free assets) | Yes | Yes | Internal only |
+| Data used for training | Configurable | Free tier: yes | Configurable | Per terms | Local | Local | Local |
+| First upgrade trigger | Uploads, images, Deep Research | Compute cap, Pro models | 5-hour window | Pro assets, AI uses | Neural Engine AI | Sync across devices | Enterprise features |
+
+## What we'd actually run for $0
+
+**The solo creator.** Resolve for video, Canva Free for thumbnails and social, ChatGPT Free for copy. Total: $0. The only likely purchase in year one is Canva Pro at $180/yr, and only if Pro assets keep watermarking your work.
+
+**The researcher or writer.** Obsidian for the vault, Claude Free for drafting, Gemini Free for anything that needs Google's index. Total: $0, plus $48/yr if you want Obsidian Sync — which we'd rather see spent on a Syncthing setup or plain iCloud/Dropbox folder, both free.
+
+**The small operations team.** n8n Community on a $6–12/month VPS replaces a per-task automation subscription outright; Gemini Free covers Workspace-adjacent AI; ChatGPT Free handles ad-hoc drafting. Real cost: roughly $100–150/year of hosting, versus $500+ for equivalent cloud automation seats. Budget the setup time honestly — one afternoon, plus a backup habit.
+
+The pattern in all three: the tools we'd build a *process* on are the ones nobody can reprice. The tools we use for *drafts* are the free tiers.
+
+## Bottom line
+
+Free AI in 2026 is not a compromise — the free tiers of ChatGPT, Gemini, and Claude are the best consumer AI most people will ever need, and Resolve, Obsidian, and n8n are genuinely professional tools that happen to cost nothing. But the year's receipts are unambiguous: Code Assist's free tier is gone, Gemini's free API lost Pro models, Copilot's flat rate ended, Copilot's free features were retired, ChatGPT Free now carries ads, and two of the three big chat vendors have stopped publishing what your limit even is.
+
+So use the free tiers freely, and keep one rule: anything you would be genuinely hurt to lose should sit on a perpetual licence, a local file, or your own server. That is the difference between free and free-for-now.
+
+*Affiliate disclosure: AI Tool Stack earns commissions from some tools we cover. None of the seven tools in this article are affiliate partners of ours — every one is reviewed independently. Canva, Semrush, HubSpot, and Monday.com run programmes on Impact.com that we may join in future; we do not currently claim active links. Pricing and limits were verified against vendor pages between 8 and 14 September 2026 and change often — check the vendor's own billing page before you buy.*
