@@ -53,6 +53,16 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     isActive: true, // Verified: own platform (affiliates.writesonic.com), 20% recurring 12mo
     lastChecked: "2026-06-04",
   },
+  rytr: {
+    id: "rytr",
+    name: "Rytr",
+    url: "https://rytr.me/?via=youraitoolstack",
+    category: "ai-writing",
+    trackingParams: {},
+    isActive: true, // Approved 2026-09-14, own platform (affiliates.rytr.me), 30% recurring 12mo
+    lastChecked: "2026-09-14",
+    note: "Affiliate link: rytr.me/?via=youraitoolstack",
+  },
 
   // ── SEO & Marketing ────────────────────────────────────
   semrush: {
