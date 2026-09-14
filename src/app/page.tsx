@@ -7,7 +7,9 @@ import { HeroSearch } from "@/components/ui/HeroSearch";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 import { FeaturedTools } from "@/components/ui/FeaturedTools";
 import { ComparisonWidget } from "@/components/ui/ComparisonWidget";
+import { LatestArticles } from "@/components/ui/LatestArticles";
 import { CATEGORIES } from "@/lib/constants";
+import { getAllPosts } from "@/lib/blog";
 
 const STATS = [
   { value: 100, suffix: "+", label: "Tools Reviewed",   icon: "🔍" },
@@ -17,6 +19,8 @@ const STATS = [
 ];
 
 export default function HomePage() {
+  const latestPosts = getAllPosts().slice(0, 3);
+
   return (
     <>
       {/* ── Hero ── */}
@@ -110,6 +114,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ── Latest Articles & Reviews (auto-updates as new content ships) ── */}
+      <LatestArticles posts={latestPosts} />
 
       {/* ── Tool Marquee ── */}
       <ToolMarquee />
