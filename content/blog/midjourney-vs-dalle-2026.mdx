@@ -1,0 +1,143 @@
+---
+title: "Midjourney vs DALL·E in 2026: One Is a Studio You Rent, the Other Is a Meter You Feed"
+description: "A practitioner's comparison of Midjourney and OpenAI's image models in 2026 — real pricing, fast GPU hours vs per-image tokens, commercial rights, privacy, moderation, and who should buy which."
+date: "2026-09-16"
+updatedAt: "2026-09-16"
+author: "AI Tool Stack Team"
+category: "ai-image"
+tags: ["midjourney", "dall-e", "openai", "ai image generation", "comparison", "pricing"]
+featured: false
+---
+
+Start with the uncomfortable fact that most "Midjourney vs DALL·E 3" articles still ignore: **you cannot buy DALL·E 3 anymore.** OpenAI removed the `dall-e-3` and `dall-e-2` model IDs from the API on 12 May 2026, and the consumer image button inside ChatGPT now routes to the GPT Image family — GPT Image 2.5 shipped 8 September 2026 as `gpt-image-2.5-flare` (fast default) and `gpt-image-2.5-sunburst` (editing precision), with `gpt-image-1` itself scheduled to deprecate on 23 October 2026. "DALL·E" in 2026 is a brand name for a lineage, not a product you subscribe to.
+
+That is not pedantry. It is the whole comparison. Midjourney is a subscription to a rendering queue run by a ~60-person self-funded lab that has shipped one product line for four years. OpenAI's image generation is a feature inside an assistant and a token-metered endpoint inside a platform, where the model underneath you gets replaced roughly every quarter and the old one is switched off with a dated deprecation notice.
+
+So the real question is not "which makes prettier pictures." It is:
+
+**Are you buying time in a studio, or metered access to a model that will be a different model next quarter?**
+
+Everything below follows from that.
+
+## Head-to-head at a glance
+
+| | Midjourney | OpenAI image generation (the "DALL·E" line) |
+| --- | --- | --- |
+| What you actually buy | Monthly subscription measured in **fast GPU hours** | ChatGPT seat (bundled, undisclosed caps) **or** per-image API tokens |
+| Current model | V8.2 default since ~24 Jul 2026 (V8 Alpha 17 Mar, V8.1 ~11 Jun); V7 still selectable | GPT Image 2.5 (`flare` / `sunburst`), shipped 8 Sep 2026 |
+| Free tier | **None.** Removed March 2023, never returned | Yes — ChatGPT Free generates images, roughly 2–3 per rolling 24h (community-measured) |
+| Entry price | $10/mo Basic ($8/mo billed annually) | $0, or $20/mo ChatGPT Plus, or ~$0.005/image on API |
+| Public API | **No public API** | Yes — that is the primary professional surface |
+| Unlimited generation | Yes, Relax mode on Standard+ | No — every image is metered, always |
+| Privacy by default | **No.** Generations are public unless Stealth Mode (Pro $60+) | Yes; API traffic is not published |
+| Best at | Cinematic look, style consistency, art direction | Prompt adherence, conversational editing, text-in-image, pipeline work |
+| Weakest at | Text in images, hands, integration, privacy | Distinctive aesthetic, moderation false positives |
+| Legal overhang | Consolidated Disney/Universal/Warner suit, unresolved | Copyright-character refusals baked into moderation |
+
+Neither vendor runs an affiliate program we participate in. Both are reviewed independently here.
+
+## Midjourney's price is not $10 — it's the fast-hour meter
+
+Midjourney publishes four tiers, and the numbers on its own plan-comparison doc are the ones to trust (aggregators routinely quote stale variants):
+
+| Plan | Monthly | Annual (effective/mo) | Fast GPU time | Relax mode | Stealth Mode |
+| --- | --- | --- | --- | --- | --- |
+| Basic | $10 | $96/yr ($8) | 3.3 hr (200 min) | **None** | No |
+| Standard | $30 | $288/yr ($24) | 15 hr | Unlimited images | No |
+| Pro | $60 | $576/yr ($48) | 30 hr | Unlimited images + SD video | **Yes** |
+| Mega | $120 | $1,152/yr ($96) | 60 hr | Unlimited images + SD video | **Yes** |
+
+Annual billing is a flat 20% off, paid upfront. Extra fast hours are $4/hr on every tier. Concurrency scales too: 3 fast jobs on Basic and Standard, 12 on Pro and Mega.
+
+Here is the line that decides your tier, and it is not the fast hours. **Basic has no Relax mode.** When its 3.3 hours are gone you either stop generating until the next billing cycle or pay $4/hr. Every upscale, every variation, every re-roll draws from the same pool, and HD mode (`--hd`) and `--q 4` consume roughly **4× the GPU time of a standard job**. Reddit's read on Basic is blunt and correct: it's a paid trial. One documented complaint puts it plainly — "200 images sounds like a lot. It's not. Upscaling 4× eats 4 images worth of credits per generation. Ran out in 4 days."
+
+Standard at $30 is therefore the real floor, because it is the first tier where you can iterate without a meter running. Relax queues your job behind fast traffic — typically under a minute to a few minutes — and costs nothing. For a working designer, that single row is worth more than the extra 11.7 fast hours.
+
+Two more clauses that belong in a budget conversation rather than a surprise:
+
+- **Stealth Mode is a $60/mo feature.** By default your generations are publicly viewable and remixable, and Midjourney's own docs say creations can surface on the Explore page even when made in private Discord servers or DMs. Stealth is described as a best-efforts non-publication commitment — not encryption, not a confidentiality guarantee. Independent terms reviews score Midjourney's data practices harshly for exactly this (one puts its ToS fairness at 42/100, another rates privacy 38/100).
+- **The $1M revenue clause.** All plans grant commercial use rights, but a company — *or an employee of a company* — with more than $1,000,000 USD in annual gross revenue must be on Pro or Mega to own its assets. If you are a contractor working inside a large brand, your personal revenue is not the test. Read that clause before you invoice.
+
+And the license runs both ways: you own your outputs, but you grant Midjourney a perpetual, worldwide, royalty-free, irrevocable, sublicensable license over what you submit, and it survives account termination. Cancelling does not refund the current period.
+
+## OpenAI's price is whatever the `quality` parameter says
+
+There are three ways to pay, and they behave nothing alike.
+
+**Path 1 — ChatGPT subscription.** Free generates images at roughly 2–3 per rolling 24-hour window (community-measured; the reset runs 24h from your first generation, not at midnight). Plus at $20/mo is the individual sweet spot, with community estimates around 50 image prompts per rolling 3-hour window — OpenAI has never published an official image cap on any consumer tier. Go sits at $8/mo, Pro at $200/mo buys the ceiling. Every image *edit* also draws on your shared message limit, which is why "I'll just tweak it once more" costs more than people expect.
+
+**Path 2 — the API.** This is where the real numbers live, and they are token-based, not per-image: **$5/1M text input, $8/1M image input, $30/1M image output** on the current flagship. What matters is that the effective per-image cost is set almost entirely by the `quality` parameter:
+
+| Model | Low | Medium | High |
+| --- | --- | --- | --- |
+| GPT Image 2 / 2.5 (1024×1024) | ~$0.006 | ~$0.053 | ~$0.211 |
+| GPT Image 2 / 2.5 (1024×1536, 1536×1024) | ~$0.005 | ~$0.041 | ~$0.165 |
+| GPT Image 1.5 | ~$0.009 | — | ~$0.20 |
+| GPT Image 1 *(deprecating 23 Oct 2026)* | $0.011 | $0.042 | $0.167 |
+| GPT Image 1 Mini | ~$0.005 | ~$0.011 | ~$0.052 |
+
+That is a **~35× spread inside one model**. Choosing `high` instead of `low` costs more than choosing a different model does. The quality ladder on GPT Image 2.5 now runs `low`, `medium`, `high`, `xhigh`, `max`, `auto`, with output up to 3840×2160, so budget forecasting requires pinning the parameter, not the model name.
+
+**Path 3 — the legacy numbers still circulating.** DALL·E 3 at $0.04 (standard) and $0.08 (HD) per image is quoted in 2026 posts as if you can still buy it. You cannot; those model IDs were removed in May 2026. If a pricing table mixes DALL·E 3 per-image rates with GPT Image token rates in the same column, it was not checked.
+
+Also worth flagging: image *input* is the surprise line item. Sending reference images for edits at high input fidelity has been reported at roughly $0.035–$0.067 per input image — an editing-heavy workflow can cost more in inputs than outputs.
+
+## Stacked yearly cost, by how you actually work
+
+| Workflow | Midjourney | OpenAI |
+| --- | --- | --- |
+| Hobbyist, ~30 images/mo | $96/yr (Basic annual) — no Relax | **$0** on ChatGPT Free, if you tolerate 2–3/day |
+| Working designer, daily iteration | **$288/yr** (Standard annual, unlimited Relax) | $240/yr (Plus) + undisclosed caps |
+| Agency needing client confidentiality | **$576/yr** (Pro — Stealth + $1M clause) | $240/yr (Plus) or API with no public gallery |
+| Product shipping 5,000 images/mo | Not possible — no API | ~$30/mo at Mini Low; ~$1,055/mo at High |
+| Brand hero shots, 200/mo | Standard, unlimited Relax | ~$42/mo at High |
+
+The pattern: **Midjourney gets cheaper the more you generate; OpenAI gets cheaper the less you generate — until you need automation, where Midjourney's price is infinity because the product does not exist.**
+
+## Where each one actually wins
+
+**Midjourney wins on look and on art direction.** Its outputs still carry a cinematic, atmospheric quality that competitors chase, and V8 rebuilt the stack — a from-scratch migration off TPUs to a GPU-native PyTorch architecture, roughly 5× faster, native 2K output, and persistent Style Creator codes that make a house style reproducible across a campaign. If you need forty images that look like they came from the same photographer, this is the tool.
+
+**OpenAI wins on obedience and on plumbing.** Because images come out of the same multimodal context that handles text, "change only the jacket colour" across several turns works in a way Midjourney's edit tooling still does not. Text rendering is dramatically more reliable. And there is an API, a documented deprecation calendar, and quality tiers you can put in a spreadsheet — which is what shipping a product actually requires.
+
+## Cons, honestly
+
+**Midjourney:**
+
+1. **Text in images is still the headline failure.** One comprehensive test logged a ~10% keeper rate for accurate text on the pre-V8 line — nine in ten prompts containing text produced misspellings or garble. V8 improved it materially (early reports approaching 50%+ keeper rates for short strings in quotes), but long strings remain unreliable, and FLUX, Ideogram, Recraft and Adobe Firefly all beat it here. Signage, product labels and UI text are the wrong job for this tool.
+2. **No public API, still.** Every serious competitor has one. For manual design teams that is survivable; for anyone embedding generation in a product or batch pipeline it is a hard blocker.
+3. **V8 traded interpretation for precision.** The community critique that stuck — "the camera got more precise, but the photographer left" — describes a real shift: loose prompts like "woman in a forest" that V7 would fill in with mood and composition now execute literally and land flat. The default aesthetic also gained a visible AI sheen, with `--raw` the recommended workaround. And the break is not free: style references sv1–sv5 are incompatible with the V8 series, so curated style-code libraries were invalidated.
+4. **Privacy is structural, not configurable.** Public by default, Stealth at $60/mo only, best-efforts wording, and a 2024 incident in which a moderator reportedly accessed a Stealth-mode image.
+5. **The litigation is real and unresolved.** Disney, Universal and Warner Bros. Discovery are consolidated before Judge John A. Kronstadt in the Central District of California (lead case 2:25-cv-05275, filed 11 June 2025; WBD's complaint consolidated November 2025). In June 2026 the magistrate denied Midjourney broader discovery into the studios' own AI use; Midjourney moved for partial judgment on the pleadings on the contributory-infringement claims, heard 28 September 2026, leaning on this year's Supreme Court *Cox* decision. Non-expert discovery closes 21 September 2026. Nothing is decided, and Midjourney's terms disclaim any warranty of non-infringement on your outputs.
+
+**OpenAI:**
+
+1. **Moderation false positives are the top complaint, by volume.** OpenAI's own developer forum in August 2026 carries threads titled "The guardrail restrictions are making ChatGPT's image-generation tools almost useless" and multi-page complaints about ordinary requests — a character's apartment, a machine shop, a boat at night — returning warnings about "nudity, sexuality, or erotic content." A separate bug thread documents `gpt-image-2` with `moderation: low` refusing prompts that succeed instantly in ChatGPT, meaning API developers face *stricter* filtering than consumers.
+2. **You are renting a model with an expiry date.** DALL·E 3 retired 12 May 2026. `gpt-image-1` deprecates 23 October 2026. Two new model IDs landed 8 September 2026. Anything you built on prompt-specific behaviour is a maintenance item, not an asset.
+3. **Nothing about the consumer allowance is published.** No official image cap on Free, Plus or Pro — every number in circulation is reverse-engineered. Users report spinners and 20–40 minute queues during US afternoons on a paid plan, with limits absent from the pricing page.
+4. **Aesthetic default is competent, not distinctive.** It follows instructions well and rarely surprises you upward. For brand work with a point of view, that is a real cost.
+5. **Editing costs compound quietly.** Reference-image inputs bill separately, and in ChatGPT each edit eats your shared message limit.
+
+## Who should buy which
+
+**Buy Midjourney Standard ($288/yr) if** you are a designer, art director or content team generating daily for look-driven work — editorial imagery, concept art, moodboards, campaign visuals. Unlimited Relax plus Style Creator codes is the best value in the category for humans working by hand.
+
+**Buy Midjourney Pro ($576/yr) if** client material must not appear on a public Explore page, or if you or your employer clear $1M in revenue. Treat this as a compliance line item, not an upgrade.
+
+**Use ChatGPT Free or Plus ($240/yr) if** images are occasional and supporting — blog headers, deck illustrations, a quick mockup — or if you need conversational editing of an image you already have. If you already pay for Plus, your marginal image cost is zero.
+
+**Use the OpenAI API if** anything is automated. Prototype on `gpt-image-1-mini` at Low (~$0.005), ship general production on GPT Image 2.5 Medium (~$0.041–$0.053), reserve High (~$0.165–$0.211) for hero assets. Pin the model ID *and* the quality parameter, and calendar the deprecation dates.
+
+**Pay for both if** you are a small studio: Midjourney Standard for the look, ChatGPT Plus for the edits and the text-bearing assets. That is $528/yr and it is the honest answer for most teams we talk to — the tools are not substitutes, they are different halves of one workflow.
+
+**Buy neither if** legible in-image text is the deliverable (look at Ideogram, Recraft or Firefly), or if you need self-hosting and no third-party licence over your inputs (Stable Diffusion or FLUX).
+
+## Bottom line
+
+Midjourney sells you a queue and asks you to accept a public gallery, no API, and an unresolved copyright suit in exchange for the best default aesthetic on the market. OpenAI sells you a metered endpoint with excellent obedience, real text rendering and a deprecation calendar, and asks you to accept unpredictable moderation, undisclosed consumer caps, and a model that will not be the same model next quarter.
+
+Pick based on which uncertainty you can absorb. If your business is *the image*, pay Midjourney and budget the Pro tier for privacy. If your business *contains* images, pay OpenAI per token and never let the quality parameter default to `high` by accident.
+
+---
+
+*Disclosure: AI Tool Stack earns affiliate commissions from some tools we cover. Neither Midjourney nor OpenAI has an affiliate program we participate in — both are reviewed independently. Pricing verified against vendor documentation and public court filings on 16 September 2026; image model IDs and prices in this category change quickly, so re-check the vendor pricing page before committing budget.*
