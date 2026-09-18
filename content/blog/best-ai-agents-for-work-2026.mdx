@@ -1,0 +1,164 @@
+---
+title: "Best AI Agents for Work in 2026: 7 Tools, and the Meter Behind Each One"
+description: "We priced seven AI agents you can actually buy in 2026 — Manus, ChatGPT agent mode, Claude, Lindy, Zapier Agents, n8n and Microsoft Copilot Studio — and found that not one of them sells you a completed task. Here is what each meter really charges for."
+date: "2026-09-18"
+updatedAt: "2026-09-18"
+author: "AI Tool Stack Team"
+category: "ai-tools"
+tags: ["ai agents", "ai automation", "manus", "chatgpt agent", "claude", "lindy", "zapier", "n8n", "copilot studio", "pricing"]
+featured: false
+---
+
+Every vendor in this category sells you the same story: describe the outcome, walk away, come back to finished work. What none of them sells you is a finished task.
+
+They sell messages. Activities. Credits. Executions. Copilot Credits. Workflow runs. Seven products, six different billing units, and in five of the seven cases the vendor will not tell you how many units your job consumes until after the job has run. That is the actual buying decision in 2026 — not which agent is smartest, but which meter you can live with when the agent decides your request needed forty steps instead of four.
+
+We priced all seven off vendor pricing pages and help docs in September 2026, read the fine print on what counts as a billable unit, and pulled the complaints from vendor forums and community threads rather than from review-site star ratings. Every number below carries a date, because this category reprices roughly every quarter.
+
+## The verdict table
+
+| Tool | Best for | Entry price | What you're actually billed for |
+| --- | --- | --- | --- |
+| **Manus** | One-off autonomous jobs with a deliverable at the end | $20/mo (4,000 credits) | Credits, consumed by model tokens + VM time + third-party APIs |
+| **ChatGPT agent mode** | Occasional browse-and-do tasks inside a tool you already pay for | $20/mo Plus | Agent invocations: 40/mo on Plus, 400/mo on Pro |
+| **Claude (Cowork / Code / Agent SDK)** | Document and codebase work you supervise | $20/mo Pro ($17 annual) | An unpublished rate limit; programmatic runs on a separate credit track |
+| **Lindy** | A Slack-native assistant handling inbox, meetings, follow-ups | $29.99/user/mo (3,000 credits) | Credits from one shared team pool |
+| **Zapier Agents** | Judgement-heavy tasks on top of the widest connector library | Free (400 activities), Pro $400/yr | Activities — every action, browse, search and lookup |
+| **n8n** | Unattended, repeating, high-volume agent workflows | €24/mo Cloud, or free self-hosted | Full workflow executions, not steps |
+| **Microsoft Copilot Studio** | IT-governed agents inside a Microsoft tenant | $0.01/Copilot Credit, or $200/25,000-credit pack | Copilot Credits, priced per action type |
+
+## Methodology
+
+Prices were read from each vendor's own pricing page or help centre between 16 and 18 September 2026; where a live page and the vendor's own docs disagreed, we say so in the entry. Cons come from vendor community forums, public bug threads and security research published this year — not from aggregator summaries, which in this category were wrong about at least two products (Devin's retired ACU pricing and Lindy's entry tier) at the time of writing. We have no affiliate relationship with any of the seven; everything here is reviewed independently.
+
+## The one question that sorts this whole category
+
+**Is the work supervised, or unattended?**
+
+That single split predicts which meter you should buy, and almost everyone gets it backwards.
+
+Supervised work — you type a request, watch it run, judge the output — is priced per interaction. ChatGPT gives you 40 agent invocations a month on Plus. Claude gives you an unpublished share of a five-hour rolling window. Manus gives you credits that only burn while a task is active. These meters are generous for a human working at human speed, because a human can only start so many jobs a day.
+
+Unattended work — a schedule or a webhook fires it, nobody is watching — is priced per run, and this is where per-interaction plans detonate. OpenAI's own help centre spells it out: scheduled tasks count as agent invocations against your monthly limit. A daily agent on ChatGPT Plus consumes 30 of your 40 monthly invocations doing one job. Zapier's Agents Pro plan buys 1,500 activities a month, which sounds like plenty until you learn an activity is *each* action, browse, web search and knowledge lookup — roughly 50 a day for the entire account, shared across your team.
+
+Unattended work belongs on an execution meter (n8n) or a per-action meter you can forecast (Copilot Studio at a flat cent per credit). Supervised work belongs on a subscription. Buy the wrong one and you will hit a ceiling in the second week of the month.
+
+## 1. Manus — the most autonomous, and the most opaque
+
+**Best for:** self-contained jobs with a deliverable — a research report, a small app, a deployed site.
+**Price:** Free (300 refresh credits/day) · $20/mo for 4,000 credits · $40/mo for 8,000 · $200/mo for 40,000, all with 300 daily refresh credits, 20 concurrent and 20 scheduled tasks. Annual billing is marked "Save 17%". [manus.im/pricing, 2026-09-18]
+
+Manus remains the purest expression of the category: you describe an outcome, it plans, browses, writes code, runs it in a cloud VM and hands you a file. Wide Research fans one job out across many sources in parallel. It is genuinely good at scoped, structured work, and after Chinese regulators blocked Meta's planned acquisition in April 2026 the company has kept shipping independently.
+
+The pricing ladder is admirably linear — 200 credits per dollar on every tier, so scaling up buys more, never cheaper — and the daily refresh is real: 300 credits a day is about 9,000 a month, more than twice what the entry tier's own monthly pool gives you.
+
+**Where it breaks.** A credit covers three things at once — LLM tokens, virtual machine time and third-party API calls — so consumption tracks how much work the agent *decides* to do, not what you asked for. Manus's own docs put a simple query at 10–50 credits, web research at 100–300, deep research at 500–900, a web app build at 500–1,000+ and a Wide Research run at 800–1,500+. Against a 4,000-credit plan, four ambitious jobs can end your month, and credits do not roll over. There is no live meter warning you mid-run; you learn the cost afterwards. Reliability degrades on long jobs — stalling, looping, or confidently going off-script — and the tasks that fail are the expensive ones. Support is the third complaint: refund disputes dominate its ~2.2/5 G2 reviews. There is no self-hosting, so Manus's cloud touches whatever you connect to it.
+
+## 2. ChatGPT agent mode — cheap to try, hard-capped
+
+**Best for:** occasional browse-and-act tasks for people already paying for ChatGPT.
+**Price:** included in Plus ($20/mo), Pro, Business, Enterprise and Edu. Not available on Free. Limits: **40 agent messages/month on Plus, 400 on Pro, 40 on Business & Enterprise**, or 30 credits per message on flexible-pricing Business/Enterprise plans. [help.openai.com, 2026-09-18]
+
+This is the most honest limit in the roundup, and the one buyers most often miss. OpenAI publishes an actual number — rare in 2026 — and the number is small. Only user-initiated requests count; clarifications and authentication steps inside a run are free, which is a fair design. Concurrency is separately rate-limited.
+
+For a strategist who fires off a handful of "go check these twelve competitor pricing pages and build me a table" jobs a week, 40 a month on a subscription you already own is excellent value.
+
+**Where it breaks.** Forty invocations is 1.3 a day, and scheduled tasks draw from the same pool, so any recurring agent eats the allowance. Getting to 400 means the $200 Pro tier — a 10× price jump for a 10× limit, with no middle rung. Speed is the running complaint: users on public forums this summer reported agent-driven coding tasks that used to take 90 seconds stretching past 10 minutes, with "reduce your thinking level" as the standard advice. And September 2026 brought a well-documented capacity cluster on the OpenAI developer forum — `Selected model is at capacity` failures on Pro accounts that still showed 0% of their weekly quota used, with `server_overloaded` in preserved logs. Unresolved as of publication. Paying the top tier does not buy you a guaranteed slot.
+
+## 3. Claude — the best-behaved agent, on a meter you cannot read
+
+**Best for:** long document work, codebase work, and research you stay close to.
+**Price:** Pro $17/mo billed annually ($200 up front) or $20 monthly; Max at $100 and $200/mo for 5× and 20× Pro's usage. Claude Code, Cowork, Design and Science are all bundled into paid plans; Free gets none of them. [claude.com/pricing, 2026-09-18]
+
+Anthropic's agent surfaces multiplied this year — Cowork for knowledge work, Claude Code for repos, Skills, Connectors, Claude in Chrome — and none of them carry a separate price. That bundling is the strongest value argument in the category: one $20 subscription covers a chat assistant, a coding agent and a document agent.
+
+Two 2026 changes matter for buyers. First, since **15 June 2026** programmatic Claude Code usage (headless `claude -p`, the Agent SDK, anything a cron or webhook starts) no longer draws on your interactive Pro/Max limit — it runs on a separate monthly Agent SDK credit that eligible Pro, Max, Team and Enterprise users must *claim*, then bills at API rates once exhausted. If you automate anything, claim it; nothing on screen tells you it exists. Second, fast mode for Opus 5 is a research preview priced at $10/$50 per million tokens, so "faster" is a paid axis now, not a plan feature.
+
+**Where it breaks.** Anthropic publishes no message counts on any tier — only relative multiples ("5× Pro"), which makes cross-vendor comparison impossible by design. Parallel agents are linear in cost, not free: Anthropic's own docs note background sessions draw down subscription usage exactly like interactive ones, so ten agents burn quota ten times faster, and agent-team orchestration is the most expensive mode because every inter-agent message is a model round trip. Third-party analysis puts heavy parallel use at $50–$65 a day per developer, which is Max territory fast. And the interactive limit is a rolling window, so hitting it means waiting, not paying an overage.
+
+## 4. Lindy — an assistant you hire per seat
+
+**Best for:** a Slack-native teammate doing inbox triage, meeting prep, recaps and follow-up nudges.
+**Price:** Plus $29.99/user/mo (3,000 credits/user) · Pro $99.99 (15,000, ~5× Plus) · Max $199.99 (35,000, ~12× Plus) · Enterprise custom. 7-day trial. [lindy.ai/pricing, 2026-09-18]
+
+Lindy is the only tool here that behaves like a colleague rather than a tool: it lives in Slack threads and DMs, runs scheduled routines, keeps workspace context, and ships 40+ skills with approvals built in. Notably, **nothing is feature-gated** — every plan gets every capability, and the tiers only change how many credits you get. It also publishes credit bands, which almost nobody does: everyday asks 2–250 credits, deep work (a competitor report, a day's support triage) 250–1,000, big builds (dashboards, decks from CRM data, internal tools) 1,000–2,500.
+
+Run that math and Plus's 3,000 credits is roughly two pieces of deep work a month per seat. Pro is the realistic tier for anyone actually delegating.
+
+**Where it breaks.** Credits pool across the whole workspace, so one enthusiastic colleague can spend the team's month — the vendor's docs literally tell admins to sort the Members list by the Credits column to find out who. Unused credits do not roll over. Heavy features are disproportionate: voice and phone workflows burn far faster than text, and phone numbers are a separate cost. And the vendor's own documentation site listed Plus at $49.99 with different usage multiples while the live pricing page said $29.99 on the day we checked — if a vendor's two pages disagree, treat any third-party number as fiction and read the billing screen before you commit. The mitigating design: when a task starts drawing unusually hard, Lindy pauses and asks before continuing, which is the closest thing to a live meter anyone in this roundup ships.
+
+## 5. Zapier Agents — the widest reach, the tightest ceiling
+
+**Best for:** low-volume, judgement-heavy tasks that need to touch a long tail of apps.
+**Price:** Free 400 activities/mo (testing counts), Pro $400/year (~$33.33/mo) for 1,500 activities, Enterprise custom. Sold as a standalone add-on — no paid Zaps plan required. [help.zapier.com, 2026-09-18]
+
+Nothing else here inherits Zapier's connector library, and Agents is genuinely separable: you can buy it without a Zaps subscription, which makes it the cheapest serious agent to trial. Two design choices deserve credit. Activities are a *separate* meter from Zap tasks, so an agent cannot quietly eat the automation budget your production Zaps depend on. And per-run caps — 10 activities on Free, 40 on Pro — mean a runaway agent stops and asks rather than draining the month.
+
+**Where it breaks.** The activity definition is broad: a trigger, an action, a web browse, a search and a knowledge lookup each count one. So 1,500 a month is roughly 50 a day for the whole account, and Zapier's FAQ confirms Team accounts share one pool — five people means about ten activities each per day. No overage rate is published, so past the cap your agents simply stop: no runs, no actions, no browsing, no triggers, until the billing date. And the limit does not reset on upgrade the way Zaps quotas do — it tops up to the new plan's number. Anything running thousands of times a month should be an ordinary Zap, not an agent — see our [Make vs Zapier comparison](/blog/make-vs-zapier-2026) for which platform wins at that volume.
+
+## 6. n8n — the only meter that ignores complexity
+
+**Best for:** unattended agent workflows that run constantly, and anyone who wants a floor price of zero.
+**Price:** Starter €24/mo (€20 annual) for 2,500 executions, 5 concurrent, 2,300 AI credits · Pro €60/mo (€50 annual) for 10,000 executions (a larger Pro tier lists ~145€ for 50,000), 20 concurrent, up to 13,700 AI credits · Business €800/mo (€667 annual, self-hosted) for ~40,000 · Enterprise custom. Community Edition is free to self-host. [n8n.io/pricing, 2026-09-18]
+
+n8n's billing unit is the reason it belongs in an agent roundup: **one full workflow run is one execution, whatever it contains.** A 3-node flow and a 50-node agent loop cost the same. Every plan includes unlimited users, unlimited workflows and every integration; only run volume scales the bill. For agents that fire on webhooks and repeat forever, that is the cheapest predictable meter available — and the Community Edition on a $5 VPS gives you unlimited executions for the price of the server.
+
+**Where it breaks.** It is a builder's tool, not an assistant — you are wiring an agent, not delegating to one. The execution meter is generous but the sub-meters are not: sub-workflows called via Execute Workflow each bill as their own execution, and AI credits are a second, smaller allowance on top. Scheduling arithmetic catches everyone: a workflow polling every five minutes costs about 8,640 executions a month on its own, which is 3.5× the entire Starter plan. Pricing is in euros, so US buyers pay an exchange-rate-dependent number (roughly $28 and $70 at September 2026 rates). And the free Community Edition is **fair-code, not open source** — the Sustainable Use Licence permits internal use but not paid hosting or white-labelling. We covered the same distinction in [Best Free AI Tools 2026](/blog/best-free-ai-tools-2026) and the wider platform trade-offs in [Best AI Automation Tools 2026](/blog/best-ai-automation-tools-2026).
+
+## 7. Microsoft Copilot Studio — the only fully published rate card
+
+**Best for:** organisations that need agents inside a governed Microsoft tenant, with a forecastable bill.
+**Price:** pay-as-you-go at **$0.01 per Copilot Credit**, or capacity packs of 25,000 Copilot Credits at **$200/pack/month**, or a one-year pre-purchase plan with 5–20% discounts by volume (tiers run from 300,000 to 300,000,000 credits). An Azure subscription is required. [microsoft.com + learn.microsoft.com, 2026-09-18]
+
+Microsoft is the only vendor here that publishes what each *kind* of agent action costs, and it is worth quoting because it is the most usable pricing artefact in the category: a classic answer is 1 credit, a generative answer 2, an agent action 5, tenant graph grounding 10, agent flow actions 13 per 100, content processing 8 per page, and the text/generative AI tool tiers run 1, 15 and 100 credits per 10 responses. Voice runs 10, 35 or 75 credits a minute by tier. One grounded prompt can therefore cost 12 credits — twelve cents — and you can model a deployment before you build it. Users already licensed for Microsoft 365 Copilot ($30/user/mo) consume no credits for internal-facing scenarios.
+
+**Where it breaks.** The unit changed from "messages" to Copilot Credits on 1 September 2025, so every older guide describing message packs is describing a currency that no longer exists. The published rate card is per action, not per outcome — a single failed agent run still bills every step it took. Bring-your-own-model configurations, including Azure Foundry models, are billed separately, outside this rate card. And the whole thing presumes a tenant, an Azure subscription, a billing policy in the Power Platform admin centre and someone who enjoys reading licensing guides. Two people in a startup should not go near it; a regulated 5,000-seat enterprise should probably start here.
+
+## Sidebar: the coding agent we left out, and why
+
+Devin belongs in this conversation but not in this list, because it is a repo agent rather than a work agent — and because it is the clearest example of how fast this category's pricing rots. Cognition originally metered Devin in **Agent Compute Units** at roughly $2.25 each, with a $500/month team plan including 250 ACUs. Nearly every comparison article on the web still describes that model. It is gone: self-serve plans now run $0 Free, $20 Pro, $200 Max, and Teams at $80/mo plus $40 per developer seat, each carrying daily and weekly quotas that refresh automatically, with extra usage at API rates. The quotas are not published in forecastable units. If coding agents are your actual use case, start with [Best AI Coding Assistants 2026](/blog/best-ai-coding-assistants-2026) instead.
+
+The lesson generalises. If a pricing article about an AI agent does not carry a date, assume it is describing a product that no longer exists.
+
+## Sidebar: the risk nobody prices
+
+Every agent above can be told what to do by content it reads. That is not a bug in one vendor's product; it is the category's structural weakness, and 2026 produced receipts.
+
+In June, LayerX disclosed **BioShocking**, an indirect prompt-injection class that compromised six AI browsers and extensions — including products from OpenAI, Anthropic and Perplexity — steering each into copying a user's SSH credentials from an authenticated GitHub repo to an attacker-controlled page, with no vulnerability in the underlying model (documented by the Cloud Security Alliance, 30 June 2026). Brave's research in June showed the same failure in both a cloud agent (Mozilla Tabstack, hijacked mid-summary into exfiltrating conversation history through a form) and a fully local on-device assistant — local hosting does not help. And on 16 September, Forever Security published **BragJack**, hijacking the built-in assistants in Chrome, Edge, Opera Neon, Perplexity Comet and Claude in Chrome from a single extension, with zero clicks, earning CVE-2026-0628 and CVE-2026-55945 and tens of thousands in bounties from Google, Anthropic, Microsoft and Perplexity.
+
+Practical consequence for buyers: scope every agent's credentials to what the job needs, prefer tools with explicit approval steps before write actions (Lindy, Zapier and Copilot Studio all have them), and do not connect an agent to a mailbox or repo you would not hand to a contractor on their first day.
+
+## Full comparison
+
+| | Manus | ChatGPT agent | Claude | Lindy | Zapier Agents | n8n | Copilot Studio |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Billing unit | Credits | Agent invocations | Undisclosed rate limit | Credits (pooled) | Activities | Executions | Copilot Credits |
+| Free option | 300 credits/day | None | Chat only | 7-day trial | 400 activities/mo | Self-host, unlimited | Azure $200 trial credit |
+| Entry paid | $20/mo | $20/mo (Plus) | $17/mo annual | $29.99/user/mo | $400/yr | €24/mo | $0.01/credit |
+| Published per-task cost | Ranges only | n/a (count-based) | None | Bands (2–2,500) | None | n/a (per run) | Full rate card |
+| Overage behaviour | Falls back to daily credits | Hard stop | Wait for window | Pauses and asks | Hard stop | Held runs | Bills on |
+| Good unattended? | Limited (20 scheduled) | No | Yes, via Agent SDK track | Yes (routines) | Not at volume | Yes | Yes |
+| Self-hostable | No | No | No | No | No | Yes | No |
+| Affiliate relationship | None | None | None | None | None | None | None |
+
+## What we'd actually buy
+
+**Solo operator, occasional autonomous jobs — $20/mo.** ChatGPT Plus, which you probably already own, and use its 40 monthly agent invocations for the jobs worth supervising. Add Manus's free tier for anything that needs a real deliverable; 300 credits a day covers a couple of web-research runs.
+
+**Consultant or analyst living in documents — $37/mo.** Claude Pro at $17 annual (Cowork plus Claude Code plus chat in one bundle) alongside ChatGPT Plus at $20. This is the highest-capability-per-dollar combination in the category, and the reason to pay for two is that neither one's meter is visible — when you hit one, you switch.
+
+**Small team wanting a shared teammate — $1,200/yr per seat.** Lindy Pro at $99.99/user. Plus's 3,000 credits will not survive real delegation, and Lindy is the only product here that is both genuinely proactive and equipped with approvals and a pause-and-ask meter.
+
+**Anything unattended and repeating — $0 to €600/yr.** n8n. Self-host the Community Edition on a small VPS if you have someone who can run it; take Cloud Starter at €20/mo annual if you don't. Do not run a daily agent on a per-invocation plan.
+
+**Regulated enterprise — start at $2,400/yr per 25,000 credits.** Copilot Studio, and use Microsoft's published rate card plus its usage estimator to model the bill before a line of agent config is written. It is the only place in this category where you can forecast rather than guess.
+
+## The bottom line
+
+The best AI agent for your work in 2026 is the one whose billing unit matches the shape of your work. Supervised, occasional, judgement-heavy jobs are cheap on a subscription and ruinous on an activity meter. Unattended, repeating jobs are cheap on an execution meter and impossible on a 40-invocation-a-month allowance.
+
+Three things to do before you buy anything above. Write down how many agent runs a week you actually need, then divide the plan's allowance by it — that number, not the sticker price, is your answer. Assume the first month costs more than you modelled, because five of these seven vendors will not tell you a task's price until it is spent. And re-check every figure on this page against the vendor's own billing screen: we dated each one for a reason, and this category reprices faster than any other we cover.
+
+---
+
+*Disclosure: we have no affiliate relationship with any product in this article — Manus, OpenAI, Anthropic, Lindy, Zapier, n8n and Microsoft are all reviewed independently. Elsewhere on this site we do have active affiliate arrangements (Writesonic, Synthesia) and we label them. All pricing was read from vendor pricing pages and help documentation between 16 and 18 September 2026 and is subject to change.*
