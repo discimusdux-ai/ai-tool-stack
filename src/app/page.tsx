@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { NewsletterForm } from "@/components/email/NewsletterForm";
@@ -10,6 +11,12 @@ import { ComparisonWidget } from "@/components/ui/ComparisonWidget";
 import { LatestArticles } from "@/components/ui/LatestArticles";
 import { CATEGORIES } from "@/lib/constants";
 import { getAllPosts } from "@/lib/blog";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};
 
 const STATS = [
   { value: 100, suffix: "+", label: "Tools Reviewed",   icon: "🔍" },

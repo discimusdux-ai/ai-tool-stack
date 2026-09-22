@@ -5,6 +5,7 @@ import { Header } from "@/components/ui/Header";
 import { Footer } from "@/components/ui/Footer";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://youraitoolstack.com"),
   title: {
     default: "Your AI Tool Stack — Find the Best AI & SaaS Tools for Your Business",
     template: "%s | Your AI Tool Stack",
@@ -53,9 +54,6 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
-  },
-  alternates: {
-    canonical: "https://youraitoolstack.com",
   },
 };
 

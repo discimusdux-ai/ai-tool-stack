@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "About Your AI Tool Stack",
   description:
     "Learn about Your AI Tool Stack — our mission, editorial process, and commitment to honest AI and SaaS tool reviews.",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 export default function AboutPage() {

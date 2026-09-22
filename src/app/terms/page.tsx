@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Terms of Service",
   description: "AI Tool Stack terms of service — usage terms, disclaimers, and legal information.",
+  alternates: {
+    canonical: "/terms",
+  },
 };
 
 export default function TermsPage() {

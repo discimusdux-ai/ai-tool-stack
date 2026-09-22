@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "AI & SaaS Tool Reviews — In-Depth Reviews & Ratings | AI Tool Stack",
   description:
     "Honest, in-depth reviews of the best AI and SaaS tools for 2026. We test and rate tools across writing, SEO, design, automation, CRM, and more.",
+  alternates: {
+    canonical: "/tools",
+  },
 };
 
 function getRatingColor(rating: number): string {

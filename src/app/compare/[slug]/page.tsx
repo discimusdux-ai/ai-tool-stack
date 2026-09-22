@@ -35,6 +35,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${comp.title} (2026 Comparison)`,
     description: comp.description,
+    alternates: {
+      canonical: `/compare/${comp.slug}`,
+    },
     openGraph: {
       title: `${comp.title} — Head-to-Head Comparison`,
       description: comp.description,

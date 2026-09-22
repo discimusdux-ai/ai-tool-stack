@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Tool Comparisons — Side-by-Side AI & SaaS Reviews",
   description:
     "Head-to-head comparisons of the most popular AI and SaaS tools. Feature breakdowns, pricing analysis, and clear winner verdicts.",
+  alternates: {
+    canonical: "/compare",
+  },
 };
 
 const CATEGORY_ICONS: Record<string, string> = {
