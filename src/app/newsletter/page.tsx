@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Newsletter — Weekly AI Tool Reviews & Exclusive Deals",
   description:
     "Join 10,000+ professionals who get our weekly deep-dives on the best AI tools, exclusive deals, and expert recommendations.",
+  alternates: {
+    canonical: "/newsletter",
+  },
 };
 
 export default function NewsletterPage() {

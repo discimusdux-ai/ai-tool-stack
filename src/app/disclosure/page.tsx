@@ -4,6 +4,9 @@ export const metadata: Metadata = {
   title: "Affiliate Disclosure",
   description:
     "How AI Tool Stack earns money, our editorial process, and our commitment to honest, unbiased reviews.",
+  alternates: {
+    canonical: "/disclosure",
+  },
 };
 
 export default function DisclosurePage() {

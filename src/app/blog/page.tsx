@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Blog — AI Tool Reviews, Guides & Comparisons",
   description:
     "In-depth AI and SaaS tool reviews, buying guides, and expert comparisons. Updated weekly with the latest industry analysis.",
+  alternates: {
+    canonical: "/blog",
+  },
 };
 
 export default function BlogPage() {

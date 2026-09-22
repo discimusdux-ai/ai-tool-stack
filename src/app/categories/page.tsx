@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Categories — Browse AI & SaaS Tools by Type",
   description:
     "Explore our curated categories of AI and SaaS tools. From AI writing and SEO to project management and CRM — find the perfect tool for every need.",
+  alternates: {
+    canonical: "/categories",
+  },
 };
 
 export default function CategoriesPage() {
