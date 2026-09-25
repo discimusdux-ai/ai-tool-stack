@@ -1,0 +1,195 @@
+---
+title: "Best AI Meeting Assistants 2026: 7 Notetakers Ranked by the Question That Matters — Does a Bot Join Your Call?"
+description: "Granola, Fathom, Otter, Fireflies, Read AI, tl;dv and Zoom AI Companion compared on real 2026 pricing, usage caps, and the thing that now decides deployments: whether the assistant shows up as a bot in someone else's meeting."
+date: "2026-09-25"
+updatedAt: "2026-09-25"
+author: "AI Tool Stack Team"
+category: "ai-tools"
+tags: ["ai meeting assistant", "ai notetaker", "granola", "fathom", "otter", "fireflies", "read ai", "tldv", "zoom ai companion", "meeting notes"]
+featured: false
+---
+
+Every AI meeting assistant in 2026 produces roughly the same artifact: a transcript, a summary, a list of action items, and a chat box that lets you ask "what did we decide about pricing?" three weeks later. The summaries are close enough in quality that we stopped ranking tools on them.
+
+What actually separates these products now is **how they get into the meeting**. Some send a bot that appears in the participant list. Some capture audio from your own laptop and never announce themselves. Some are built into the meeting platform and inherit its admin controls. That one architectural choice decides whether the tool works on a client call, whether IT will approve it, whether Microsoft Teams will park it in the lobby — and, as of this August, how much legal exposure you're carrying.
+
+So this roundup is organized around one question: **does a bot join your call?**
+
+(If you mostly transcribe recordings and interviews rather than live calls, our [transcription roundup](/blog/best-ai-transcription-tools-2026) is the better guide. This one is about the assistant that sits in your meetings.)
+
+## The verdict table
+
+| Tool | Best for | Capture method | Cheapest paid seat |
+|---|---|---|---|
+| **Granola** | Founders, investors, anyone on external calls | Botless (device audio) | $14/user/mo (monthly only) |
+| **Fathom** | Individuals who want the best free plan | Bot by default; botless beta (Mac, English) | $15/user/mo annual (Team, 2-seat min) |
+| **Otter** | Live captions and in-person meetings | Bot + in-app recording | $16.99/mo monthly; Pro annual far cheaper |
+| **Fireflies** | Teams that want integrations and search across everything | Bot | $10/user/mo annual |
+| **Read AI** | Managers who want meeting analytics | Bot | $15/user/mo annual |
+| **tl;dv** | European teams and sales coaching | Bot | €18/seat/mo annual |
+| **Zoom AI Companion** | Companies already standardized on Zoom | Native (no bot) | Included in Zoom Workplace Pro ($15.99/mo monthly) |
+
+## The framing: does a bot join your call?
+
+Two years ago the bot was a minor social awkwardness — "Fathom Notetaker has joined" — that most people ignored. In 2026 it's a deployment decision, for three reasons.
+
+**1. The platforms are fencing bots out.** On 13 March 2026, Microsoft published Message Center notice MC1251206: Teams would detect external third-party meeting bots, label them "Unverified" in the lobby and require the organizer to admit them, on by default. On 21 August it followed with MC1459141, a new meeting policy that lets admins detect and block bot recorders outright, using what Microsoft calls "behavioral and infrastructure signals." Rollout is scheduled to complete by the end of September 2026. Microsoft also launched a Teams Bot Identification Program so vendors can get a verified marker — Otter is named among the first participants. UC Today reported in May that Zoom and Google were tightening their own bot controls on the same timeline.
+
+**2. The consent lawsuits survived.** *In re Otter.ai Privacy Litigation* (N.D. Cal., 5:25-cv-06911-EKL) alleges Otter Notetaker joined meetings as a "silent participant" and recorded people who never consented, including non-users whose colleagues had connected a calendar. On 13 August 2026 the court granted Otter's motion to dismiss only in part and denied it "in all other respects" — Bloomberg Law's headline was "Otter.AI Stuck With Privacy Lawsuit." That's not a verdict, but it means the core wiretap-style theory is going forward, and every vendor whose bot auto-joins from a calendar is watching.
+
+**3. Botless isn't consent-free.** It's tempting to read the above and conclude "buy a botless tool." Careful: a tool that silently captures system audio from your laptop solves the *social* problem and the *lobby* problem, but not the *legal* one. In two-party-consent states and many countries, you still have to tell people you're recording. Botless tools just make it easier to forget. A complaint aggregator summarizing Reddit threads on Granola flagged exactly this: onboarding doesn't surface the disclosure requirement prominently.
+
+So the real sort is:
+
+- **Bot tools** are visible and auditable. Good for internal meetings and for companies that want a paper trail. Increasingly blocked on other people's Teams tenants.
+- **Botless tools** are invisible and frictionless. Good for external calls. The disclosure burden moves entirely onto you.
+- **Native tools** (Zoom AI Companion, Gemini in Meet, Copilot in Teams) avoid both problems inside their own platform and are useless outside it.
+
+Most people should pick based on **whose meetings they attend**. If it's mostly your own company's calls, a bot is fine. If you live on customers' and investors' calls, you want botless or native.
+
+## How we evaluated
+
+We compared current vendor pricing pages and help-center billing docs (checked 2026-09-25), read the complaint threads for each product rather than the marketing, and focused on four questions: how it captures, what the free plan actually caps, what the real per-seat cost is at annual vs. monthly billing, and where it breaks. Where an aggregator's number disagreed with the vendor, we used the vendor's.
+
+## 1. Granola — best botless assistant
+
+**Best for:** people who spend their day on other companies' calls.
+**Price:** Basic free · Business $14/user/mo · Enterprise from $35/user/mo. **Monthly billing only** — Granola's billing docs say annual plans "are not currently available."
+
+Granola doesn't join anything. It's a notepad that listens to your device's audio; you type rough notes during the call, and afterward it merges your notes with the transcript into a clean write-up. The trick is that your own jotted keywords steer the summary, so it emphasizes what *you* thought mattered rather than what was said the most. That's the reason people who switch to Granola rarely switch back.
+
+Business adds unlimited note history, manual model selection in chat, integrations with Notion, Slack, HubSpot, Attio, Affinity and Zapier, an API and MCP access. Enterprise adds SSO, org-wide auto-deletion, an opt-out from model training for the whole team, and — notably — an org-wide notification that Granola is in use, which is the closest any botless tool gets to built-in disclosure.
+
+**Where it breaks:**
+- **The free plan is a 30-day window.** Basic shows only your last 30 days of notes in the app. You can request a CSV export of everything, but it contains titles and summaries, not a working archive.
+- **Language coverage is narrow.** Desktop transcription supports ten languages (English, French, German, Spanish, Italian, Portuguese, Dutch, Japanese, Russian, Hindi); the UI is English-only. Mixed-language mobile calls get one language for the whole meeting.
+- **Silent failures.** The recurring complaint is a session that looks live and produces nothing. With no bot, there's no visible "recording" indicator for anyone else — or a clear alarm for you when capture drops.
+- **No video, no clips.** It's notes, not a recording library. If you need to share a 40-second clip of a customer objection, this isn't your tool.
+
+## 2. Fathom — best free plan
+
+**Best for:** solo operators and small teams who want unlimited recording for $0.
+**Price:** Free · Premium ~$16/mo annual ($20 monthly) · Team $15/user/mo annual ($19 monthly), 2-user minimum · Business ~$25/user/mo annual ($34 monthly).
+
+Fathom's pitch has always been generous capture: unlimited recordings, transcription and storage on the free plan. It's still true, with an asterisk that arrived this year — advanced AI (action items, follow-up email drafts, Ask Fathom) now resets to **five calls a month** on free. For anyone with recurring meetings, that cap arrives in week one.
+
+The pricing has a genuine oddity worth exploiting: **Team is cheaper per seat than Premium** ($15 vs $16 annual) and includes everything Premium does plus global search, shared playlists, custom vocabulary and SSO. Two people should never buy two Premium seats.
+
+Fathom 3.0 added a capture tray with Capture Off / Transcript Only / Audio Only / Audio & Video with bot, and a bot-free desktop mode.
+
+**Where it breaks:**
+- **Bot-free is Mac and English only.** Per Fathom's April 2026 upgrade note, bot-free capture is for Mac users with English-language meetings; Windows is "coming soon." A German Teams call on Windows still goes through the participant list — and into Microsoft's new lobby filter.
+- **The bot is the default.** Unlimited *video* recording still requires the visible bot.
+- **No Android app, weak in-person capture.** It's a video-call product.
+- **Occasional failed auto-joins** show up repeatedly in reviews — the bot simply doesn't arrive.
+
+## 3. Otter — best for live captions and in-person
+
+**Best for:** people who want a live transcript on screen and record in rooms as well as calls.
+**Price:** Basic free (300 min/mo, 30 min per conversation) · Pro $16.99/mo monthly, deeply discounted annual (Otter shows $8.33–$8.49/mo equivalents) · Business $30/user/mo monthly, $19.99–$24 annual depending on promo · Enterprise custom.
+
+Otter is the category's veteran and still the best at real-time transcription you can read during the meeting, plus a solid mobile app for in-person recording. Business adds unlimited meetings, four hours per meeting, and 200 monthly Otter AI Chat queries per member.
+
+**Where it breaks:**
+- **Pro is metered.** 1,200 minutes a month and 90 minutes per meeting, no rollover. A heavy week of two-hour workshops blows through it.
+- **The lawsuit is about Otter specifically.** The allegations center on the auto-join behavior: once one person connects a calendar, Otter Notetaker can show up in meetings where nobody else signed up. If your legal team has read the August ruling, expect questions.
+- **Business trial auto-converts.** Otter's own FAQ says the workspace is automatically charged for Business Monthly when the 7-day trial ends unless you cancel first.
+- **Pricing page churn.** We saw three different Business annual figures across Otter's own pages in one session. Read the checkout, not the banner.
+
+Otter is also the one vendor here named as an early participant in Microsoft's Bot Identification Program — so on Teams, it may end up being the *least* blocked bot.
+
+## 4. Fireflies — best for integrations and cross-meeting search
+
+**Best for:** teams that want every call piped into a CRM, Slack, Notion or a data warehouse.
+**Price (from Fireflies' billing docs):** Free · Pro $10/user/mo annual or $18 monthly · Business $19 annual or $29 monthly · Enterprise $39 annual.
+
+Fireflies has the widest integration surface in the category and no monthly rate limits on the meeting bot or Chrome extension for paid tiers. Business adds video recording, API access, analytics and private channels.
+
+**Where it breaks — the AI credit meter:**
+- The AI features beyond basic summaries run on **AI credits**, and each account gets a *one-time* allotment on sign-up: 20 on Free and Pro, 30 on Business, 50 on Enterprise. Credits are **shared across the whole team and don't increase as you add seats**. Upgrading replaces your credits rather than stacking them.
+- After that you buy monthly add-on packs: 50 for $5, 200 for $20, 1,000 for $90, up to 10,000 for $600. Unused purchased credits **don't roll over**.
+- The docs describe an auto-upgrade to the next credit tier when you run out if you've enabled it — off by default. Check that setting before you hand the admin panel to someone else.
+- Seats are billed per admin or member, and removing someone mid-cycle doesn't refund the current cycle.
+
+That's the "meter is the price, not the sticker" problem: a 20-person team on Pro at $10/seat looks like $200/month, but the credit pool is the same 20 credits a solo user gets.
+
+## 5. Read AI — best for meeting analytics
+
+**Best for:** managers and HR teams who want engagement and talk-time data, not just notes.
+**Price:** Free (5 meeting transcripts/mo) · Pro $15/user/mo annual, $19.75 monthly · Enterprise $22.50 annual, $29.75 monthly · Enterprise+ $29.75 annual, $39.75 monthly (5-license minimum, HIPAA, SAML/SCIM).
+
+Read AI's differentiator is the "meeting coach" layer: sentiment, engagement, talk ratios and a meeting score. It also tries to unify meetings with email and chat into one searchable brain. Paid plans include unlimited reports and storage.
+
+**Where it breaks:**
+- **Video playback costs extra.** Audio and video playback and highlights are Enterprise-tier, not Pro. On Pro you get transcripts and reports only.
+- **File uploads are credit-capped** (100/mo Pro, 200 Enterprise, 300 Enterprise+).
+- **The analytics are the cultural risk.** Engagement scores shown to a room change how people behave in the room. Pilot it with a team that agrees to be measured.
+- **HIPAA only on the top tier** with a five-seat floor.
+
+## 6. tl;dv — best for EU teams and sales coaching
+
+**Best for:** European companies and sales teams who want CRM sync and coaching.
+**Price (EUR, per seat):** Free · Pro €18/mo annual (€216/yr) or €29 monthly · Business €29/mo annual (€348/yr) or €39 monthly.
+
+tl;dv keeps a free-forever plan with unlimited recordings and transcripts in 30+ languages, then gates AI allowances, CRM integrations, sales coaching and speaker insights behind Pro and Business. Its best trick is multi-meeting reports: ask a question across a month of calls and get one answer.
+
+**Where it breaks:**
+- **Priced in euros.** US buyers pay whatever the exchange rate says that month.
+- **Free-plan AI is limited** — the help center says so directly; unlimited AI features require a paid plan.
+- **It's a bot.** Everything in the framing section applies.
+- **Business at €39 monthly is the priciest seat here** outside enterprise tiers.
+
+## 7. Zoom AI Companion — best native option
+
+**Best for:** companies where 90% of meetings are on Zoom.
+**Price:** Included with paid Zoom Workplace plans (Pro is $15.99/user/mo monthly). Since AI Companion 3.0 (December 2025), Zoom Basic users can try select features or buy AI Companion standalone for **$10/month** without a Workplace license.
+
+No bot, no lobby, no consent-banner debate beyond Zoom's own recording indicators. Summaries, action items, in-meeting catch-up questions, and since 3.0 a browser surface at ai.zoom.us. Admin controls come from the platform your IT team already manages.
+
+**Where it breaks:**
+- **Zoom only.** Your customer's Teams call is invisible to it.
+- **The upsell keeps moving.** Zoom sunset Custom AI Companion on 1 June 2026 and replaced it with ZoomMate, a separate "hybrid seat-and-usage-based" product. If you bought into Custom AI Companion, you're re-evaluating a year in.
+- **Summaries are generic.** It doesn't know your templates the way Fathom's or Granola's can.
+
+### Sidebar: the other native options
+
+**Gemini in Google Meet** ("Take notes for me") is included in Workspace Business Standard and above — not Business Starter — and, since 29 June 2026, in consumer Google AI Pro and Ultra plans. The meeting *organizer* needs an eligible edition; notes land as a Google Doc and follow your Meet retention policy. It's recommended for 15-minute to 8-hour meetings and won't run on meetings with fewer than 50 spoken words.
+
+**Microsoft 365 Copilot in Teams** is the Teams equivalent. Enterprise Copilot runs $30/user/mo on annual billing. It's also the platform doing the bot-blocking — which tells you how Microsoft would prefer you take notes.
+
+The native options are the right default if one platform owns your calendar. They're the wrong answer the moment you're a guest.
+
+## Comparison table
+
+| | Granola | Fathom | Otter | Fireflies | Read AI | tl;dv | Zoom AI Companion |
+|---|---|---|---|---|---|---|---|
+| Capture | Botless | Bot (botless beta) | Bot + app | Bot | Bot | Bot | Native |
+| Free plan | 30-day history | Unlimited recording, 5 AI calls/mo | 300 min/mo | Limited, 20 one-time AI credits | 5 transcripts/mo | Unlimited recording, limited AI | Try select features |
+| Entry paid (annual) | $14 (monthly only) | $15 Team / $16 Premium | Pro annual discount | $10 | $15 | €18 | Workplace Pro |
+| Entry paid (monthly) | $14 | $19–20 | $16.99 | $18 | $19.75 | €29 | $15.99 |
+| Usage meter | None published | AI calls on free | Minutes (Pro) | Shared AI credits | Upload credits | AI allowance on free | Platform-bound |
+| Video recording | No | Yes | Yes | Business+ | Enterprise+ | Yes | Via Zoom |
+| Works on others' Teams calls | Yes (device audio) | Bot → lobby | Bot → lobby (verified program) | Bot → lobby | Bot → lobby | Bot → lobby | No |
+| Affiliate with us | No | No | No | No | No | No | No |
+
+## What we'd actually buy
+
+- **Solo founder / consultant on external calls:** Granola Business, $14/mo = **$168/yr**. Add Fathom Free for the occasional call you want on video.
+- **Two-to-five-person internal team:** Fathom Team at $15/seat annual. Three seats = **$540/yr**, with shared search and SSO. Don't buy Premium seats.
+- **Sales team of 10 that lives in a CRM:** Fireflies Business at $19/seat annual = **$2,280/yr**, *plus* budget for credit packs — assume a 1,000-credit pack ($90/mo, $1,080/yr) until you've measured usage. Real bill ≈ **$3,360/yr**.
+- **All-Zoom company:** You already own AI Companion. Spend $0 until you can name a specific thing it can't do.
+- **Google Workspace company on Business Standard:** Same logic — Gemini notes are included; start there.
+
+## Bottom line
+
+Summary quality has converged; capture method hasn't. Decide first whether you need to take notes in meetings you don't control. If you do, botless (Granola, or Fathom's Mac beta) is the only path that won't hit Microsoft's lobby filter — and you still owe everyone a disclosure. If you don't, the native tool you already pay for is probably enough, and the bot tools earn their seat through integrations (Fireflies), analytics (Read AI), free recording (Fathom, tl;dv) or live captions (Otter).
+
+And whatever you pick, turn off calendar auto-join for meetings with external guests until you've read the Otter ruling. That setting is the one currently being litigated.
+
+*Disclosure: We don't have an affiliate relationship with any of the seven tools in this roundup. Everything here was reviewed independently, using vendor pricing pages and help-center documentation checked on 25 September 2026. Prices change often in this category — confirm at checkout.*
+
+## Related Reading
+
+- [Best AI Transcription Tools 2026](/blog/best-ai-transcription-tools-2026) — for recordings, interviews and file-based transcription.
+- [Otter vs Fireflies 2026](/blog/otter-vs-fireflies-2026) — the head-to-head on the two biggest bot notetakers.
+- [Best AI Note-Taking Tools 2026](/blog/best-ai-note-taking-tools-2026) — where your meeting notes should live afterward.
