@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { NewsletterForm } from "@/components/email/NewsletterForm";
 
 export const metadata: Metadata = {
-  title: "Newsletter — Weekly AI Tool Reviews & Exclusive Deals",
+  title: "Newsletter — Weekly AI Tool Reviews & Deal Alerts",
   description:
-    "Join 10,000+ professionals who get our weekly deep-dives on the best AI tools, exclusive deals, and expert recommendations.",
+    "Get our weekly deep-dives on the best AI tools, pricing changes, deal alerts, and expert recommendations.",
   alternates: {
     canonical: "/newsletter",
   },
@@ -25,7 +25,7 @@ export default function NewsletterPage() {
           </h1>
           <p className="mb-8 text-lg text-brand-100">
             Every week, we break down the best new AI and SaaS tools, share
-            exclusive deals, and give you actionable recommendations to grow
+            deal alerts, and give you actionable recommendations to grow
             your business.
           </p>
           <NewsletterForm variant="hero" />
@@ -50,8 +50,8 @@ export default function NewsletterPage() {
               },
               {
                 icon: "💰",
-                title: "Exclusive Deals",
-                desc: "Special discounts and extended trials negotiated directly with tool vendors — only for subscribers.",
+                title: "Deal Alerts",
+                desc: "Heads-up on price drops, promos, and extended trials worth knowing about.",
               },
               {
                 icon: "📊",
@@ -75,15 +75,15 @@ export default function NewsletterPage() {
           <div className="mb-8 flex flex-wrap items-center justify-center gap-12">
             <div>
               <div className="text-3xl font-extrabold text-brand-600">
-                10,000+
+                Free
               </div>
-              <div className="text-sm text-gray-500">Subscribers</div>
+              <div className="text-sm text-gray-500">No Paywall</div>
             </div>
             <div>
               <div className="text-3xl font-extrabold text-brand-600">
-                52%
+                1-Click
               </div>
-              <div className="text-sm text-gray-500">Open Rate</div>
+              <div className="text-sm text-gray-500">Unsubscribe</div>
             </div>
             <div>
               <div className="text-3xl font-extrabold text-brand-600">
@@ -93,7 +93,7 @@ export default function NewsletterPage() {
             </div>
           </div>
           <p className="text-gray-500">
-            Trusted by marketers, founders, and developers at companies of all sizes.
+            Written for marketers, founders, and developers choosing their AI stack.
           </p>
         </div>
       </section>

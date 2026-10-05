@@ -157,7 +157,7 @@ export default async function BlogPostPage({ params }: Props) {
             </h3>
             <p className="mb-6 text-gray-300">
               Get our weekly newsletter with the latest AI tool reviews and
-              exclusive deals.
+              deal alerts.
             </p>
             <NewsletterForm variant="inline" />
           </div>

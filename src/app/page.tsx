@@ -19,10 +19,10 @@ export const metadata: Metadata = {
 };
 
 const STATS = [
-  { value: 100, suffix: "+", label: "Tools Reviewed",   icon: "🔍" },
-  { value: 30,  suffix: "+", label: "Categories",       icon: "📂" },
-  { value: 50,  suffix: "K+",label: "Monthly Readers",  icon: "👥" },
-  { value: 100, suffix: "%", label: "Independent",      icon: "⭐" },
+  { value: 60,  suffix: "+", label: "In-Depth Guides",  icon: "📝" },
+  { value: 25,  suffix: "+", label: "Tools Profiled",   icon: "🔍" },
+  { value: 13,  suffix: "",  label: "Categories",       icon: "📂" },
+  { value: 100, suffix: "%", label: "Free to Read",     icon: "⭐" },
 ];
 
 export default function HomePage() {
@@ -282,8 +282,8 @@ export default function HomePage() {
                   },
                   {
                     icon: "💬",
-                    title: "Community-verified",
-                    desc: "50K+ readers have used our picks and sent us feedback that makes them better.",
+                    title: "Transparent about money",
+                    desc: "We disclose affiliate links on every page, and they never decide a ranking.",
                   },
                 ].map((item) => (
                   <div key={item.title} className="flex gap-4">
@@ -302,53 +302,38 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Social Proof / Testimonial Strip ── */}
+      {/* ── How We Review ── */}
       <section className="border-t border-b border-white/5 bg-gray-900/30 py-16">
         <div className="mx-auto max-w-5xl px-4">
           <div className="mb-10 text-center">
             <span className="text-xs font-bold uppercase tracking-widest text-gray-500">
-              What Readers Say
+              How We Review
             </span>
           </div>
           <div className="grid gap-5 sm:grid-cols-3">
             {[
               {
-                quote: "Finally found a site that doesn't just parrot vendor marketing. The Cursor vs Copilot breakdown saved me hours.",
-                author: "Marcus T.",
-                role: "Senior Developer",
-                emoji: "💻",
+                title: "Current pricing",
+                body: "Every guide lists real 2026 plan prices, usage caps, and what the free tier actually includes.",
+                emoji: "💲",
               },
               {
-                quote: "The category breakdowns are genuinely useful. Switched my whole stack based on their SEO tools review.",
-                author: "Priya K.",
-                role: "Marketing Director",
-                emoji: "📈",
+                title: "Honest trade-offs",
+                body: "We call out where a tool is weak, not just where it shines, so you can rule things out fast.",
+                emoji: "⚖️",
               },
               {
-                quote: "Newsletter is gold. They cover tools I've never heard of that actually solve problems I have.",
-                author: "James L.",
-                role: "Startup Founder",
-                emoji: "🚀",
+                title: "Kept up to date",
+                body: "Reviews are revisited when tools change pricing or ship major features, and dated so you know.",
+                emoji: "🔄",
               },
             ].map((t) => (
-              <div key={t.author} className="rounded-2xl border border-white/8 bg-white/3 p-6">
-                <div className="mb-4 flex items-center gap-1">
-                  {[1, 2, 3, 4, 5].map((s) => (
-                    <svg key={s} className="h-4 w-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
+              <div key={t.title} className="rounded-2xl border border-white/8 bg-white/3 p-6">
+                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-brand-500/10 text-xl ring-1 ring-brand-500/20">
+                  {t.emoji}
                 </div>
-                <p className="mb-5 text-sm text-gray-300 leading-relaxed italic">&ldquo;{t.quote}&rdquo;</p>
-                <div className="flex items-center gap-3">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-500/10 text-lg ring-1 ring-brand-500/20">
-                    {t.emoji}
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-white">{t.author}</p>
-                    <p className="text-xs text-gray-500">{t.role}</p>
-                  </div>
-                </div>
+                <p className="mb-2 font-semibold text-white">{t.title}</p>
+                <p className="text-sm text-gray-400 leading-relaxed">{t.body}</p>
               </div>
             ))}
           </div>
@@ -370,16 +355,16 @@ export default function HomePage() {
             Stay Ahead of the AI Curve
           </h2>
           <p className="mb-3 text-gray-400">
-            Weekly deep-dives, exclusive deals, and expert tool picks.
+            Weekly deep-dives, pricing changes, and expert tool picks.
           </p>
           <div className="mb-8 flex flex-wrap justify-center gap-4 text-sm text-gray-500">
             <span className="flex items-center gap-1.5"><span className="text-emerald-400">✓</span> New tool breakdowns every week</span>
-            <span className="flex items-center gap-1.5"><span className="text-emerald-400">✓</span> Exclusive discount codes</span>
+            <span className="flex items-center gap-1.5"><span className="text-emerald-400">✓</span> Price drops &amp; deal alerts</span>
             <span className="flex items-center gap-1.5"><span className="text-emerald-400">✓</span> No spam, ever</span>
           </div>
           <NewsletterForm variant="hero" />
           <p className="mt-4 text-sm text-gray-500">
-            Free forever. Join 10,000+ professionals who stay ahead.
+            Free forever. Unsubscribe anytime.
           </p>
         </div>
       </section>
