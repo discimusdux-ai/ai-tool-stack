@@ -126,3 +126,13 @@
     @apply h-full rounded-full transition-all duration-700 ease-out;
   }
 }
+
+/* ── Article tables ── */
+.article-table thead { background: linear-gradient(90deg, rgba(59,130,246,0.25), rgba(59,130,246,0.08)); }
+.article-table th { padding: 0.85rem 1rem; font-weight: 700; color: #fff; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; }
+.article-table td { padding: 0.8rem 1rem; color: #d1d5db; border-top: 1px solid rgba(255,255,255,0.06); vertical-align: top; }
+.article-table tbody tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+.article-table tbody tr { transition: background 0.15s; }
+.article-table tbody tr:hover { background: rgba(59,130,246,0.08); }
+.article-table td strong { color: #fff; }
+html { scroll-behavior: smooth; }
