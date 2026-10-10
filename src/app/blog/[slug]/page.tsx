@@ -93,7 +93,8 @@ export default async function BlogPostPage({ params }: Props) {
   if (!post) notFound();
 
   const sections = splitSections(post.content);
-  const compareAfter = post.affiliates.length && sections.length > 2 ? 1 : -1; // after intro + first H2 section
+  const compareAfter =
+    post.affiliates.length && sections.length > 2 && !post.content.includes("<AffiliateCompare") ? 1 : -1; // after intro + first H2 section
   const newsletterAfter = sections.length >= 4 ? Math.max(Math.floor(sections.length / 2), compareAfter + 2) : -1;
 
   // Related posts: score by category match (case/format-insensitive) + shared tags,

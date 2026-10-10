@@ -4,13 +4,15 @@ import { getAffiliateLink, getAffiliateUrl } from "@/lib/affiliate-links";
 import { trackAffiliateClick } from "@/lib/track-click";
 
 interface Props {
-  ids: string[];
+  /** array, or comma-separated string (MDX blocks JS expressions) */
+  ids?: string[] | string;
   title?: string;
 }
 
 /** Quick comparison table with "Try it" buttons. Active affiliates with offer data only. */
 export function AffiliateCompare({ ids, title = "Quick comparison" }: Props) {
-  const rows = ids
+  const list = Array.isArray(ids) ? ids : (ids ?? "").split(",").map((x) => x.trim()).filter(Boolean);
+  const rows = list
     .map((id) => getAffiliateLink(id))
     .filter((l): l is NonNullable<typeof l> => !!l && l.isActive && !!l.offer && getAffiliateUrl(l.id) !== "#");
   if (!rows.length) return null;
