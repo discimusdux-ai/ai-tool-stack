@@ -4,13 +4,15 @@ import { getAffiliateLink, getAffiliateUrl } from "@/lib/affiliate-links";
 import { trackAffiliateClick } from "@/lib/track-click";
 
 interface Props {
-  ids: string[];
+  /** array, or comma-separated string (MDX blocks JS expressions) */
+  ids?: string[] | string;
   title?: string;
 }
 
 /** Above-the-fold "Our picks" box. Renders only active affiliates with offer data. */
 export function AffiliatePicks({ ids, title = "Tools we recommend for this" }: Props) {
-  const picks = ids
+  const list = Array.isArray(ids) ? ids : (ids ?? "").split(",").map((x) => x.trim()).filter(Boolean);
+  const picks = list
     .map((id) => getAffiliateLink(id))
     .filter((l): l is NonNullable<typeof l> => !!l && l.isActive && !!l.offer && getAffiliateUrl(l.id) !== "#");
   if (!picks.length) return null;
