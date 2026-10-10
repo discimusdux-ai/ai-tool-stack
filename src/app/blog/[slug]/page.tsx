@@ -6,6 +6,9 @@ import { getAllPosts, getPostBySlug } from "@/lib/blog";
 import { CTAButton } from "@/components/affiliate/CTAButton";
 import { ComparisonTable } from "@/components/affiliate/ComparisonTable";
 import { NewsletterForm } from "@/components/email/NewsletterForm";
+import { MidArticleSignup } from "@/components/email/MidArticleSignup";
+import { AffiliatePicks } from "@/components/affiliate/AffiliatePicks";
+import { AffiliateCompare } from "@/components/affiliate/AffiliateCompare";
 import { StructuredData } from "@/components/seo/StructuredData";
 
 interface Props {
@@ -50,6 +53,8 @@ const mdxComponents = {
   CTAButton,
   ComparisonTable,
   NewsletterForm,
+  AffiliatePicks,
+  AffiliateCompare,
   a: (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
     const isExternal = props.href?.startsWith("http");
     if (!isExternal) return <a {...props} />;
@@ -64,10 +69,32 @@ const mdxComponents = {
   },
 };
 
+/**
+ * Split MDX at top-level "## " headings (outside code fences) so we can inject
+ * the comparison table after the first section and a newsletter box mid-article.
+ */
+function splitSections(content: string): string[] {
+  const lines = content.split("\n");
+  const sections: string[][] = [[]];
+  let inFence = false;
+  for (const line of lines) {
+    if (/^\s*(```|~~~)/.test(line)) inFence = !inFence;
+    if (!inFence && /^## /.test(line) && sections[sections.length - 1].some((l) => l.trim())) {
+      sections.push([]);
+    }
+    sections[sections.length - 1].push(line);
+  }
+  return sections.map((s) => s.join("\n"));
+}
+
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
   const post = getPostBySlug(slug);
   if (!post) notFound();
+
+  const sections = splitSections(post.content);
+  const compareAfter = post.affiliates.length && sections.length > 2 ? 1 : -1; // after intro + first H2 section
+  const newsletterAfter = sections.length >= 4 ? Math.max(Math.floor(sections.length / 2), compareAfter + 2) : -1;
 
   // Related posts: score by category match (case/format-insensitive) + shared tags,
   // so every post gets 3 related links even when its category has few siblings.
@@ -138,13 +165,20 @@ export default async function BlogPostPage({ params }: Props) {
             <span>•</span>
             <span>{post.readingTime}</span>
           </div>
+          {post.affiliates.length > 0 && <AffiliatePicks ids={post.affiliates} />}
         </div>
       </header>
 
       {/* Article Content */}
       <article className="bg-gray-950 py-12">
         <div className="prose prose-invert prose-lg mx-auto max-w-3xl px-4 prose-headings:font-bold prose-headings:text-white prose-p:text-gray-300 prose-li:text-gray-300 prose-strong:text-white prose-a:text-brand-400 prose-a:no-underline hover:prose-a:underline">
-          <MDXRemote source={post.content} components={mdxComponents} />
+          {sections.map((section, i) => (
+            <div key={i}>
+              <MDXRemote source={section} components={mdxComponents} />
+              {i === compareAfter && <AffiliateCompare ids={post.affiliates} />}
+              {i === newsletterAfter && <MidArticleSignup />}
+            </div>
+          ))}
         </div>
       </article>
 

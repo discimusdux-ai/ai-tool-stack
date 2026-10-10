@@ -119,7 +119,10 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-GPGPK3MJN0');
+            // Skip automated browsers (headless/WebDriver) so GA4 numbers stay closer to real humans.
+            if (!navigator.webdriver && !/HeadlessChrome|bot|crawler|spider/i.test(navigator.userAgent)) {
+              gtag('config', 'G-GPGPK3MJN0');
+            }
           `}
         </Script>
       </body>
