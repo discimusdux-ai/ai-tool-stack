@@ -3,6 +3,7 @@ import Script from "next/script";
 import "@/styles/globals.css";
 import { Header } from "@/components/ui/Header";
 import { Footer } from "@/components/ui/Footer";
+import { UtmCapture } from "@/components/analytics/UtmCapture";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://youraitoolstack.com"),
@@ -104,6 +105,7 @@ export default function RootLayout({
         />
       </head>
       <body className="flex min-h-screen flex-col font-sans">
+        <UtmCapture />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
