@@ -21,6 +21,16 @@ export interface AffiliateLink {
   isActive: boolean;
   lastChecked?: string;
   note?: string;
+  /** true = url is a plain product link, not a personal referral link yet (earns nothing) */
+  needsReferralLink?: boolean;
+  /** Reader-facing offer data for AffiliatePicks / AffiliateCompare (verify on vendor page) */
+  offer?: {
+    tagline: string;
+    bestFor: string;
+    startingPrice: string;
+    freePlan: string;
+    verified: string;
+  };
 }
 
 const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
@@ -47,11 +57,21 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
   writesonic: {
     id: "writesonic",
     name: "Writesonic",
-    url: "https://affiliates.writesonic.com/signup/36620",
+    // TODO(Josh): replace with personal FirstPromoter referral link. The old URL
+    // (affiliates.writesonic.com/signup/36620) is the partner-program SIGNUP form, not a referral link.
+    url: "https://writesonic.com",
     category: "ai-writing",
     trackingParams: {},
-    isActive: true, // Verified: own platform (affiliates.writesonic.com), 20% recurring 12mo
-    lastChecked: "2026-06-04",
+    isActive: true, // Own platform (FirstPromoter), 20% recurring 12mo
+    lastChecked: "2026-10-10",
+    needsReferralLink: true,
+    offer: {
+      tagline: "SEO articles + AI-search (GEO) visibility tracking",
+      bestFor: "Brands that want to rank in Google and get cited by ChatGPT/Gemini",
+      startingPrice: "$79/mo (billed annually)",
+      freePlan: "Free trial",
+      verified: "2026-10-10",
+    },
   },
   rytr: {
     id: "rytr",
@@ -60,7 +80,14 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "ai-writing",
     trackingParams: {},
     isActive: true, // Approved 2026-09-14, own platform (affiliates.rytr.me), 30% recurring 12mo
-    lastChecked: "2026-09-14",
+    lastChecked: "2026-10-10",
+    offer: {
+      tagline: "Cheap, fast short-form copy: emails, captions, product blurbs",
+      bestFor: "Freelancers and small businesses on a tight budget",
+      startingPrice: "$9/mo ($7.50/mo annual)",
+      freePlan: "Yes — 10K characters/mo",
+      verified: "2026-10-10",
+    },
     note: "Affiliate link: rytr.me/?via=youraitoolstack",
   },
 
@@ -108,11 +135,21 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
   synthesia: {
     id: "synthesia",
     name: "Synthesia",
-    url: "https://www.synthesia.io/partners/affiliates",
+    // TODO(Josh): replace with personal referral link. The old URL (/partners/affiliates) was the
+    // partner-program application page, not a referral link.
+    url: "https://www.synthesia.io",
     category: "ai-video",
     trackingParams: {},
-    isActive: true, // Verified: HubSpot form (not Impact/PartnerStack), 25% per sale
-    lastChecked: "2026-06-04",
+    isActive: true, // HubSpot form (not Impact/PartnerStack), 25% per sale
+    lastChecked: "2026-10-10",
+    needsReferralLink: true,
+    offer: {
+      tagline: "Studio-style AI avatar videos for training and explainers",
+      bestFor: "Teams making training, onboarding and how-to videos",
+      startingPrice: "$19/mo ($14/mo annual)",
+      freePlan: "Yes — watermark, 500 credits/mo",
+      verified: "2026-10-10",
+    },
   },
 
   fliki: {
@@ -122,7 +159,14 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "ai-video",
     trackingParams: {},
     isActive: true, // Approved 2026-09-11, own platform (affiliates.fliki.ai), 30% lifetime commission
-    lastChecked: "2026-09-11",
+    lastChecked: "2026-10-10",
+    offer: {
+      tagline: "Turn scripts, blog posts or slides into voiceover videos",
+      bestFor: "Faceless YouTube, explainers and repurposing written content",
+      startingPrice: "$28/mo ($21/mo annual)",
+      freePlan: "Yes — 720p, watermark",
+      verified: "2026-10-10",
+    },
     note: "Affiliate link: fliki.ai/?via=youraitoolstack",
   },
 
@@ -280,7 +324,14 @@ const AFFILIATE_LINKS: Record<string, AffiliateLink> = {
     category: "ai-video",
     trackingParams: {},
     isActive: true, // Approved 2026-07-07, own platform (affiliates.opus.pro), 20% recurring 12mo
-    lastChecked: "2026-07-07",
+    lastChecked: "2026-10-10",
+    offer: {
+      tagline: "Auto-cut long videos into captioned Shorts, Reels and TikToks",
+      bestFor: "Podcasters and YouTubers repurposing long-form video",
+      startingPrice: "$15/mo (Pro $14.50/mo annual)",
+      freePlan: "Yes — 60 credits/mo, watermark",
+      verified: "2026-10-10",
+    },
     note: "Affiliate link: opus.pro/?via=aitoolstack | agent.opus.pro/?via=aitoolstack",
   },
   vizard: {

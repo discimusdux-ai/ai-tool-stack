@@ -18,6 +18,8 @@ export interface BlogPost {
   featured: boolean;
   readingTime: string;
   content: string;
+  /** active affiliate ids featured above the fold + in the comparison table */
+  affiliates: string[];
 }
 
 export interface BlogPostMeta {
@@ -94,6 +96,7 @@ export function getPostBySlug(slug: string): BlogPost | null {
     featured: data.featured || false,
     readingTime: stats.text,
     content,
+    affiliates: Array.isArray(data.affiliates) ? data.affiliates : [],
   };
 }
 
