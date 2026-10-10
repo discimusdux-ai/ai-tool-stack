@@ -8,6 +8,10 @@ const ALLOWED_EVENTS = [
   "newsletter_signup",
 ] as const;
 
+function str(v: unknown, max: number): string | null {
+  return typeof v === "string" && v ? v.slice(0, max) : null;
+}
+
 export async function POST(request: NextRequest) {
   try {
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -40,7 +44,11 @@ export async function POST(request: NextRequest) {
           ? body.productId.slice(0, 100)
           : null,
       source:
-        typeof body.source === "string" ? body.source.slice(0, 200) : null,
+        typeof body.source === "string"
+          ? body.source.slice(0, 200)
+          : typeof body.placement === "string"
+            ? body.placement.slice(0, 200)
+            : null,
       referrer:
         typeof body.referrer === "string" ? body.referrer.slice(0, 2000) : null,
     });
@@ -61,6 +69,10 @@ export async function POST(request: NextRequest) {
           typeof body.referrer === "string"
             ? body.referrer.slice(0, 2000)
             : null,
+        user_agent: (request.headers.get("user-agent") ?? "").slice(0, 500) || null,
+        utm_source: str(body.utmSource, 100),
+        utm_medium: str(body.utmMedium, 100),
+        utm_campaign: str(body.utmCampaign, 100),
       });
     }
 

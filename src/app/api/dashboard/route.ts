@@ -27,6 +27,8 @@ interface SupabaseMetrics {
   clicks7d: number;
   topProducts: { product_id: string; product_name: string | null; clicks: number }[];
   recentEvents: { event: string; path: string | null; created_at: string }[];
+  clicksByPage: { page: string; clicks: number; clicks7d: number }[];
+  clicksBySource: { source: string; clicks: number }[];
 }
 
 interface ServiceAccount {
@@ -171,11 +173,12 @@ async function getSupabaseMetrics(): Promise<SupabaseMetrics | null> {
       { count: clicks7d },
       { data: topProducts },
       { data: recentEvents },
+      allClicks,
     ] = await Promise.all([
       supabase.from("ats_subscribers").select("*", { count: "exact", head: true }),
       supabase.from("ats_subscribers").select("*", { count: "exact", head: true }).gte("created_at", sevenDaysAgo),
-      supabase.from("ats_clicks").select("*", { count: "exact", head: true }),
-      supabase.from("ats_clicks").select("*", { count: "exact", head: true }).gte("created_at", sevenDaysAgo),
+      supabase.from("ats_clicks").select("*", { count: "exact", head: true }).or("utm_medium.is.null,utm_medium.neq.internal-test"),
+      supabase.from("ats_clicks").select("*", { count: "exact", head: true }).gte("created_at", sevenDaysAgo).or("utm_medium.is.null,utm_medium.neq.internal-test"),
       supabase.rpc("get_top_products", { limit_count: 10 }).then(({ data, error }) => {
         if (error || !data) {
           return supabase
@@ -200,7 +203,24 @@ async function getSupabaseMetrics(): Promise<SupabaseMetrics | null> {
         return { data };
       }),
       supabase.from("ats_analytics").select("event, path, created_at").order("created_at", { ascending: false }).limit(20),
+      supabase
+        .from("ats_clicks")
+        .select("source_page, utm_source, created_at")
+        .or("utm_medium.is.null,utm_medium.neq.internal-test")
+        .order("created_at", { ascending: false })
+        .limit(5000),
     ]);
+    const clickRows = (allClicks.data ?? []) as { source_page: string | null; utm_source: string | null; created_at: string }[];
+    const byPage: Record<string, { clicks: number; clicks7d: number }> = {};
+    const bySource: Record<string, number> = {};
+    for (const r of clickRows) {
+      const page = r.source_page || "(unknown)";
+      byPage[page] ??= { clicks: 0, clicks7d: 0 };
+      byPage[page].clicks++;
+      if (r.created_at >= sevenDaysAgo) byPage[page].clicks7d++;
+      const src = r.utm_source || "(none)";
+      bySource[src] = (bySource[src] ?? 0) + 1;
+    }
 
     return {
       totalSubscribers: totalSubscribers ?? 0,
@@ -209,6 +229,12 @@ async function getSupabaseMetrics(): Promise<SupabaseMetrics | null> {
       clicks7d: clicks7d ?? 0,
       topProducts: (topProducts as { product_id: string; product_name: string | null; clicks: number }[]) ?? [],
       recentEvents: (recentEvents as { event: string; path: string | null; created_at: string }[]) ?? [],
+      clicksByPage: Object.entries(byPage)
+        .map(([page, v]) => ({ page, ...v }))
+        .sort((a, b) => b.clicks - a.clicks),
+      clicksBySource: Object.entries(bySource)
+        .map(([source, clicks]) => ({ source, clicks }))
+        .sort((a, b) => b.clicks - a.clicks),
     };
   } catch (err) {
     console.error("Supabase error:", err);
