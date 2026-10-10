@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
 import Link from "next/link";
 import { getAllPosts, getPostBySlug } from "@/lib/blog";
 import { CTAButton } from "@/components/affiliate/CTAButton";
@@ -48,6 +49,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
   };
 }
+
+// GFM = markdown tables, strikethrough, task lists. Without it every | table | renders as raw text.
+const mdxOptions = { mdxOptions: { remarkPlugins: [remarkGfm] } };
 
 const mdxComponents = {
   CTAButton,
@@ -175,7 +179,7 @@ export default async function BlogPostPage({ params }: Props) {
         <div className="prose prose-invert prose-lg mx-auto max-w-3xl px-4 prose-headings:font-bold prose-headings:text-white prose-p:text-gray-300 prose-li:text-gray-300 prose-strong:text-white prose-a:text-brand-400 prose-a:no-underline hover:prose-a:underline">
           {sections.map((section, i) => (
             <div key={i}>
-              <MDXRemote source={section} components={mdxComponents} />
+              <MDXRemote source={section} components={mdxComponents} options={mdxOptions} />
               {i === compareAfter && <AffiliateCompare ids={post.affiliates} />}
               {i === newsletterAfter && <MidArticleSignup />}
             </div>
